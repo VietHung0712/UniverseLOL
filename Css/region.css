@@ -1,0 +1,247 @@
+#main {
+    position: relative;
+    padding-top: 70px;
+    min-height: 100vh;
+    height: max-content;
+    background-color: #000;
+
+    &>#slide {
+        position: relative;
+        height: calc(200vh - 80px);
+        width: 100%;
+        overflow: hidden;
+
+        &>.silde__splashArt {
+            position: relative;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+
+            &>video {
+                z-index: 0;
+                position: absolute;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                object-position: top;
+            }
+
+            &>img {
+                z-index: 1;
+                position: absolute;
+                width: 9vw;
+                height: 12vw;
+                object-fit: contain;
+                top: calc((100vh - 12vw - 70px) / 2);
+                left: calc((100vw - 9vw) / 2);
+
+            }
+        }
+
+        &>.slide__title {
+            z-index: 2;
+            position: absolute;
+            width: 100%;
+            height: max-content;
+            top: 65vh;
+            animation: slideShow 0.3s ease-in-out forwards;
+            background-image: linear-gradient(to bottom, #00000000, #000000, #000000, #000000, #000000, #000000);
+
+            &>img {
+                object-fit: contain;
+                width: 100%;
+            }
+
+            &>h1 {
+                width: 100%;
+                font-size: 7vw;
+                letter-spacing: 0.5vw;
+                text-transform: uppercase;
+                text-align: center;
+                color: rgb(103, 71, 31);
+                background: -webkit-linear-gradient(bottom, rgb(103, 71, 31), rgb(203, 172, 98)) text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            &>p {
+                width: 30%;
+                margin: auto;
+                margin-top: 5vh;
+                font-size: 1vw;
+                line-height: 2;
+                text-align: justify;
+                color: var(--text-color-);
+
+                &::first-letter {
+                    position: relative;
+                    padding: 0 1vw 0 1vw;
+                    font-size: 3vw;
+                    margin: 1vw;
+                    border-bottom: 3px solid var(--text-color2-);
+                }
+            }
+        }
+    }
+
+    &>#champions {
+        position: relative;
+        width: 100%;
+
+        &>.champions__head {
+            position: relative;
+            height: 20vh;
+            width: 100%;
+            display: flex;
+            gap: 1vh;
+            flex-direction: column;
+            align-items: center;
+
+            &>img:first-child {
+                position: absolute;
+                z-index: 0;
+                height: 300%;
+                width: 100%;
+                top: -70%;
+                filter: grayscale(100%);
+                object-fit: contain;
+                opacity: 0.3;
+            }
+
+            &>img:nth-child(2) {
+                z-index: 1;
+                width: 1.5vw;
+            }
+
+            &>div {
+                position: relative;
+                text-transform: uppercase;
+                font-size: 1vw;
+                letter-spacing: 0.2vw;
+                color: var(--text-color-);
+
+                &::before,
+                &::after {
+                    position: absolute;
+                    content: "";
+                    width: 15vw;
+                    height: 1px;
+                    top: 45%;
+                }
+
+                &::before {
+                    right: 130%;
+                    background-image: linear-gradient(to left, var(--color1-), #00000000);
+                }
+
+                &::after {
+                    left: 130%;
+                    background-image: linear-gradient(to right, var(--color1-), #00000000);
+                }
+            }
+        }
+
+        &>.champions__body {
+            margin: auto;
+            width: 90%;
+            display: grid;
+            height: max-content;
+            min-height: 100vh;
+            grid-auto-rows: 60vh;
+            row-gap: 5vh;
+            column-gap: 1vw;
+            grid-template-columns: repeat(5, 1fr);
+
+            &>.item {
+                display: none;
+                position: relative;
+                background-repeat: no-repeat;
+                background-size: cover;
+                overflow: hidden;
+                border: 1px solid #000000;
+
+                &.active{
+                    display: block;
+                }
+
+                &:hover {
+                    transform: scale(1.1);
+                    border: 1px solid var(--border-color-);
+
+                    &>.item__inf {
+                        bottom: 12%;
+                    }
+
+                    &>.item__explore {
+                        bottom: 0%;
+                    }
+                }
+
+                &>.item__inf,
+                &>.item__explore {
+                    display: flex;
+                    position: absolute;
+                    bottom: 0%;
+                    left: 0;
+                    right: 0;
+                    height: 18%;
+                    background-color: #0a0a0ae6;
+                    text-transform: uppercase;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    letter-spacing: 0.1vw;
+                    gap: 1.5vh;
+                    font-size: 0.8vw;
+                    border-top: 1px solid var(--border-color-);
+
+                    &>h3 {
+                        color: var(--border-color-);
+                    }
+
+                    &>h5 {
+                        color: var(--text-color-);
+                    }
+                }
+
+                &>.item__explore {
+                    height: 12%;
+                    flex-direction: row;
+                    bottom: -12%;
+                    font-size: 0.8vw;
+                    letter-spacing: 0.2vw;
+
+                    &>h5,
+                    &>i {
+                        color: var(--border-color-);
+                    }
+                }
+            }
+        }
+        &>.champions__showAll{
+            position: absolute;
+            height: 60vh;
+            width: 100%;
+            background: linear-gradient(to bottom, #000000d0, #000000b6, #000);
+            bottom: 0;
+            display: none;
+            align-items: center;
+
+            &.active{
+                display: flex;
+            }
+
+            &>button{
+                width: 25vw;
+                height: 8vh;
+                margin: auto;
+                color: var(--border-color-);
+                text-transform: uppercase;
+                font-size: 1vw;
+                letter-spacing: 0.1vw;
+                border: 1px solid var(--border-color-);
+                background-color: #000;
+            }
+        }
+    }
+}

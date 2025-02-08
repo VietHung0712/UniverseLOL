@@ -1,0 +1,28 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body, html{
+    scroll-behavior: smooth;
+    background-color: rgb(50, 50, 50);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+button{
+    cursor: pointer;
+}
+a{
+    cursor: pointer;
+}
+
+.transition{
+    transition: all 300ms ease-in-out;
+}
+
+:root{
+    --color1-: #c8aa6e;
+    --text-color-: #c4b998;
+    --text-color2-: #937341;
+    --border-color-: #937341;
+    --border-color2-: #31271e;
+}

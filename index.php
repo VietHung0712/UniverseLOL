@@ -1,0 +1,34 @@
+<?php
+require_once "Assets/assets.php";
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Font/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.min.css">
+    <link rel="stylesheet" href="./Css/head_footer.css">
+    <link rel="stylesheet" href="./Css/reset.css">
+    <link rel="stylesheet" href="./Css/index.css">
+    <link rel="icon" href="https://wiki.leagueoflegends.com/en-us/images/League_of_Legends_Icon.png?3c899">
+    <title>League of Legends</title>
+</head>
+
+<body>
+    <?php require_once "./Components/head.php"; ?>
+    <div id="main">
+        <video autoplay muted loop>
+            <source src="https://cmsassets.rgpub.io/sanity/files/dsfx7636/news/8ab3e227121c53aacab0c9b9f7a48adbc65db520.webm">
+        </video>
+        <div>
+            <img src="https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/9eb028de391e65072d06e77f06d0955f66b9fa2c-736x316.png?auto=format&fit=fill&q=80&w=460" alt="">
+            <button>
+                <a class="transition" href="https://www.leagueoflegends.com/en-us/">Play for free</a>
+            </button>
+        </div>
+    </div>
+    <?php require_once "./Components/footer.php"; ?>
+</body>
+
+</html>

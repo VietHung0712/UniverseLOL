@@ -1,0 +1,17 @@
+<div id="footer">
+    <div class="take">
+        <p>This design takes inspiration from: </p>
+        <a href="https://www.leagueoflegends.com/en-us/?utm_medium=card1%2Bplayruneterra.com&utm_source=riotbar">Riot Games - Leagues of Legends</a>
+    </div>
+    <div class="made">
+        <div class="socials-list">
+            <a href=""><i class="fa-brands fa-facebook"></i></a>
+            <a href=""><i class="fa-brands fa-instagram"></i></a>
+            <a href=""><i class="fa-brands fa-twitter"></i></a>
+            <a href=""><i class="fa-brands fa-tiktok"></i></a>
+            <a href=""><i class="fa-brands fa-discord"></i></a>
+            <a href=""><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+        <p class="powerBy">Power by <a href="">TranVietHung</a></p>
+    </div>
+</div>

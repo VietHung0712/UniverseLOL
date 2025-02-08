@@ -1,0 +1,47 @@
+#main{
+    padding-top: 70px;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+
+    & video{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    & div{
+        position: absolute;
+        display: flex;
+        top: 30%;
+        width: 100%;
+        flex-direction: column;
+        gap: 5vh;
+        align-items: center;
+        justify-content: center;
+
+        & button{
+            background-color: #00000000;
+            border: 1px solid #fff;
+            height: 10vh;
+            width: 15vw;
+
+            & a{
+                display: block;
+                margin: auto;
+                background-color: var(--color1-);
+                width: 95%;
+                height: 95%;
+                font-size: 1vw;
+                text-decoration: none;
+                text-transform: uppercase;
+                color: #000;
+                line-height: calc(10vh * 90 / 100);
+
+                &:hover{
+                    background-color: beige;
+                }
+            }
+        }
+    }
+}

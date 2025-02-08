@@ -1,0 +1,184 @@
+#main {
+    position: relative;
+    padding-top: 70px;
+    min-height: 100vh;
+    height: max-content;
+    background-color: #000;
+
+    &>.background {
+        z-index: 0;
+        position: absolute;
+        height: 120vh;
+        width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .main__list {
+        position: relative;
+        height: 100%;
+        width: 100%;
+
+        &>.main__list--head {
+            margin-top: 30vh;
+            margin-bottom: 5vh;
+            width: 100%;
+            display: flex;
+            gap: 1vh;
+            flex-direction: column;
+            align-items: center;
+
+
+            &>img {
+                width: 1.5vw;
+            }
+
+            &>div {
+                position: relative;
+                text-transform: uppercase;
+                font-size: 2vw;
+                letter-spacing: 0.5vw;
+                color: var(--text-color-);
+
+                &::before,
+                &::after {
+                    position: absolute;
+                    content: "";
+                    width: 15vw;
+                    height: 1px;
+                    top: 45%;
+                }
+
+                &::before {
+                    right: 130%;
+                    background-image: linear-gradient(to left, var(--color1-), #00000000);
+                }
+
+                &::after {
+                    left: 130%;
+                    background-image: linear-gradient(to right, var(--color1-), #00000000);
+                }
+            }
+        }
+
+        &>.main__list--body {
+            margin: auto;
+            width: 90%;
+            display: grid;
+            height: max-content;
+            min-height: 100vh;
+            grid-auto-rows: 60vh;
+            row-gap: 5vh;
+            column-gap: 1vw;
+            grid-template-columns: repeat(5, 1fr);
+
+            &>.item {
+                position: relative;
+                background-repeat: no-repeat;
+                background-size: cover;
+                overflow: hidden;
+                border: 1px solid #000000;
+
+                &:hover {
+                    transform: scale(1.1);
+                    border: 1px solid var(--border-color-);
+
+                    &>.item__inf {
+                        bottom: 12%;
+                    }
+
+                    &>.item__explore {
+                        bottom: 0%;
+                    }
+                }
+
+                &>.item__inf,
+                &>.item__explore {
+                    display: flex;
+                    position: absolute;
+                    bottom: 0%;
+                    left: 0;
+                    right: 0;
+                    height: 18%;
+                    background-color: #0a0a0ae6;
+                    text-transform: uppercase;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    letter-spacing: 0.1vw;
+                    gap: 1.5vh;
+                    font-size: 0.8vw;
+                    border-top: 1px solid var(--border-color-);
+
+                    &>h3 {
+                        color: var(--border-color-);
+                    }
+
+                    &>h5 {
+                        color: var(--text-color-);
+                    }
+                }
+
+                &>.item__explore {
+                    height: 12%;
+                    flex-direction: row;
+                    bottom: -12%;
+                    font-size: 0.8vw;
+                    letter-spacing: 0.2vw;
+
+                    &>h5,
+                    &>i {
+                        color: var(--border-color-);
+                    }
+                }
+            }
+        }
+    }
+
+    .search {
+        z-index: 1;
+        position: absolute;
+        top: 100px;
+        height: 90px;
+        width: 100%;
+        background-color: #121212;
+
+        &>.search__border {
+            margin: auto;
+            height: 100%;
+            width: 80%;
+            display: flex;
+            align-items: center;
+
+            &>img {
+                height: 40%;
+                width: 5%;
+                object-fit: contain;
+                margin-right: 1vw;
+            }
+
+            &>input {
+                font-size: 100%;
+                width: 90%;
+                background-color: #00000000;
+                border: none;
+                color: var(--text-color-);
+                font-family: 'Courier New', Courier, monospace;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.2vw;
+
+                &:focus{
+                    outline: none;
+                }
+            }
+            &>i{
+                width: 5%;
+                color: var(--border-color-);
+                font-size: 1.5vw;
+                float: right;
+            }
+        }
+    }
+}
