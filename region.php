@@ -47,12 +47,12 @@ try {
                         <a
                             href="./champion.php?champion=<?php echo $champion->getId(); ?>"
                             class="item transition"
-                            style="background-image: url(<?php echo $assetsURL . "/" . $champion->getSplashArt(); ?>);
-                                    background-position: <?php echo $champion->getPositionX() . '% ' . $champion->getPositionY() . '%'; ?>;"
                             data-id="<?php echo $champion->getId(); ?>">
+                            <div class="item__img transition" style="background-image: url(<?php echo $assetsURL . "/" . $champion->getSplashArt(); ?>);
+                                    background-position: <?php echo $champion->getPositionX() . '% ' . $champion->getPositionY() . '%'; ?>;"></div>
                             <div class="item__inf transition">
                                 <h3><?php echo $champion->getName(); ?></h3>
-                                <h5><?php echo getRegionName($champion->getRegion()); ?></h5>
+                                <h5><?php echo $this_region->getName(); ?></h5>
                             </div>
                             <div class="item__explore transition">
                                 <h5>Explore</h5>

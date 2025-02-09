@@ -160,6 +160,13 @@
                 overflow: hidden;
                 border: 1px solid #000000;
 
+                &>.item__img {
+                    height: 100%;
+                    width: 100%;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                }
+
                 &.active{
                     display: block;
                 }
