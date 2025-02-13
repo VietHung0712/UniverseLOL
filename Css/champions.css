@@ -144,6 +144,10 @@
                 &:focus {
                     outline: none;
                 }
+
+                &::placeholder{
+                    color: var(--border-color2-);
+                }
             }
 
             &>i {

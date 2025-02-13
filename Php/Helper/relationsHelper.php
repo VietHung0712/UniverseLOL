@@ -24,7 +24,7 @@ function getAllRelations($connect, &$array)
 
 function getRelations($connect, $id,  &$array)
 {
-    $stmt = $connect->prepare("SELECT * FROM relate WHERE champion_id = ?");
+    $stmt = $connect->prepare("SELECT * FROM relations WHERE champion_id = ?");
     $stmt->bind_param("s", $id);
 
     if ($stmt->execute()) {
