@@ -33,5 +33,5 @@
     <button id='menubar-btn' class='menubar-btn'><i class='fa-solid fa-bars'></i></button>
     <button id='menubar-btn-close' class='menubar-btn-close menubar-btn'><i class='fa-solid fa-xmark'></i></button>
 </div>
-<script src="./Javascript/function.js"></script>
-<script src="./Javascript/head.js"></script>
+<script src="./Assets/Javascript/function.js"></script>
+<script src="./Assets/Javascript/head.js"></script>

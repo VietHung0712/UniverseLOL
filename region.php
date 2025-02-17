@@ -3,7 +3,7 @@
 <?php
 try {
     require_once "./Assets/assets.php";
-    require_once "./Php/Controller/regionController.php";
+    require_once "./App/Controller/regionController.php";
 } catch (\Throwable $th) {
 }
 ?>
@@ -11,11 +11,11 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./Font/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.min.css">
-    <link rel="stylesheet" href="./Css/head_footer.css">
-    <link rel="stylesheet" href="./Css/reset.css">
+    <link rel="stylesheet" href="./Assets/Font/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.min.css">
+    <link rel="stylesheet" href="./Assets/Css/head_footer.css">
+    <link rel="stylesheet" href="./Assets/Css/reset.css">
+    <link rel="stylesheet" href="./Assets/Css/region.css">
     <link rel="icon" href="<?php echo $assetsURL; ?>/Icon/LOL.png">
-    <link rel="stylesheet" href="./Css/region.css">
     <title><?php echo $this_region->getName(); ?> - Regions - Universe League of Legends</title>
 </head>
 
@@ -41,7 +41,7 @@ try {
             </div>
             <div class="champions__body">
                 <?php
-                if (2>1) {
+                if (2 > 1) {
                     foreach ($champions as $champion) {
                 ?>
                         <a
@@ -73,4 +73,4 @@ try {
 </body>
 
 </html>
-<script src="./Javascript/region.js"></script>
+<script src="./Assets/Javascript/region.js"></script>

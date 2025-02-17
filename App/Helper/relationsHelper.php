@@ -1,5 +1,5 @@
 <?php
-require_once "./Php/Class/relateClass.php";
+require_once "./App/Model/relateClass.php";
 
 use UniverseLOL\Relate;
 

@@ -3,7 +3,7 @@
 <?php
 try {
     require_once "./Assets/assets.php";
-    require_once "./Php/Controller/championsController.php";
+    require_once "./App/Controller/championsController.php";
 } catch (\Throwable $th) {
 }
 ?>
@@ -11,10 +11,10 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./Font/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.min.css">
-    <link rel="stylesheet" href="./Css/head_footer.css">
-    <link rel="stylesheet" href="./Css/reset.css">
-    <link rel="stylesheet" href="./Css/champions.css">
+    <link rel="stylesheet" href="./Assets/Font/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.min.css">
+    <link rel="stylesheet" href="./Assets/Css/head_footer.css">
+    <link rel="stylesheet" href="./Assets/Css/reset.css">
+    <link rel="stylesheet" href="./Assets/Css/champions.css">
     <link rel="icon" href="<?php echo $assetsURL; ?>/Icon/LOL.png">
     <title>Champions - League of Legends</title>
 </head>
@@ -66,4 +66,4 @@ try {
 </body>
 
 </html>
-<script src="./Javascript/champions.js"></script>
+<script src="./Assets/Javascript/champions.js"></script>

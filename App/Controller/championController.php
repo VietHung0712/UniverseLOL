@@ -1,10 +1,10 @@
 <?php
-require_once "./Php/Database/connect.php";
-require_once "./Php/Helper/championsHelper.php";
-require_once "./Php/Helper/regionsHelper.php";
-require_once "./Php/Helper/rolesHelper.php";
-require_once "./Php/Helper/relationsHelper.php";
-require_once "./Php/Helper/skinsHelper.php";
+require_once "./App/Database/connect.php";
+require_once "./App/Helper/championsHelper.php";
+require_once "./App/Helper/regionsHelper.php";
+require_once "./App/Helper/rolesHelper.php";
+require_once "./App/Helper/relationsHelper.php";
+require_once "./App/Helper/skinsHelper.php";
 
 $championId = $_GET['champion'];
 getChampionById($connect, $championId,  $this_champion);

@@ -1,5 +1,5 @@
 <?php
-require_once "./Php/Class/championClass.php";
+require_once "./App/Model/championClass.php";
 
 use UniverseLOL\Champion;
 
