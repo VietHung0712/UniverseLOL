@@ -3,15 +3,6 @@ body {
     /* overflow: hidden; */
 }
 
-section {
-    height: 120vh;
-    width: 100%;
-}
-
-.section__main {
-    height: calc(100% - 30vh);
-}
-
 .section__head {
     height: 30vh;
     width: 100%;
@@ -87,7 +78,6 @@ section {
 
         & p {
             margin: auto;
-            line-height: 1.6;
             letter-spacing: 0.5px;
         }
     }
@@ -122,7 +112,8 @@ section {
         align-items: center;
         overflow: hidden;
 
-        &>iframe, &>img {
+        &>iframe,
+        &>img {
             position: absolute;
             z-index: 1;
             height: 90%;
@@ -392,7 +383,8 @@ section {
         align-items: center;
         overflow: hidden;
 
-        & iframe, & img {
+        & iframe,
+        & img {
             position: absolute;
             z-index: 1;
             height: 90%;
@@ -489,6 +481,41 @@ section {
     }
 }
 
+#more {
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a {
+        height: 10vh;
+        width: 30vw;
+        border-radius: 5%;
+        background-position: top;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        button {
+            height: 100%;
+            width: 100%;
+            background-color: #00000041;
+            color: #e5b48f00;
+            font-weight: bold;
+            font-size: 1.2vw;
+            border: none;
+        }
+
+        &:hover {
+            border-radius: 10%;
+
+            button {
+                color: #e5b48f;
+                background-color: #000000c0;
+            }
+        }
+    }
+}
+
 @keyframes translateMembercolor {
     0% {
         background-position: -100% 50%;
@@ -508,5 +535,51 @@ section {
 
     to {
         transform: translateY(0);
+    }
+}
+
+@media (min-width: 769px) {
+    section {
+        height: 120vh;
+        width: 100%;
+    }
+
+    .section__main {
+        height: calc(100% - 30vh);
+    }
+
+    #slide {
+        & .slide__content {
+            & p {
+                line-height: 1.6;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        height: 60vh;
+        width: 100%;
+    }
+
+    .section__main {
+        height: 50%;
+    }
+
+    .section__head {
+        height: 50%;
+    }
+
+    #slide {
+        & .slide__content {
+            & p {
+                line-height: 1;
+            }
+        }
+    }
+
+    #story {
+        height: 60vh;
     }
 }

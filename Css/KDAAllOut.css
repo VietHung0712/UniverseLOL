@@ -1,0 +1,29 @@
+body {
+    background-color: black;
+    /* overflow: hidden; */
+}
+
+section {
+    height: 120vh;
+    width: 100%;
+}
+
+#main{
+    #slide{
+        position: relative;
+
+        &>div{
+            top: 0;
+            height: 100%;
+            width: 100%;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        &>img{
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+    }
+}

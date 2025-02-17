@@ -14,7 +14,7 @@
                     <i class='nav-arrow-down fa-solid fa-sort-down'></i>
                 </a>
                 <ul class='subnav'>
-                    <li><a href="./KDA.php">K/DA</a></li>
+                    <li><a href="./KDA.html">K/DA</a></li>
                 </ul>
                 <div class='heading-border'></div>
             </li>

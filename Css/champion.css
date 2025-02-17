@@ -378,12 +378,13 @@
                     }
 
                     & .story__gird--region-info {
-                        display: block;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        align-items: center;
 
-                        &>div {
-                            width: 70%;
+                        &>div:first-child {
                             height: 100%;
-                            float: left;
                             display: flex;
                             flex-direction: column;
                             justify-content: center;
@@ -393,7 +394,6 @@
                         &>div:last-child {
                             height: 100%;
                             width: 30%;
-                            float: right;
                             background-position: center;
                             background-size: 50%;
                             background-repeat: no-repeat;
@@ -588,6 +588,13 @@
                     "-relates -relates -story -story -story -story -region -region"
                     "-relates -relates -story -story -story -story -region -region";
 
+                &>div:nth-child(6) {
+                    & .story__gird--region-info {
+                        &>div:first-child {
+                            width: 70%;
+                        }
+                    }
+                }
             }
         }
     }
@@ -618,6 +625,18 @@
                     display: none;
                 }
 
+                &>div:nth-child(6) {
+                    & .story__gird--region-info {
+                        &>div:first-child {
+                            width: 100%;
+                        }
+
+                        &>div:last-child {
+                            display: none;
+                            width: 0;
+                        }
+                    }
+                }
 
             }
         }
