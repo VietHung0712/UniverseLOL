@@ -58,7 +58,9 @@
     <div id="body">
         <section id="slide">
             <div class="slide__video">
-                <video src="https://github.com/VietHung0712/AssetsLOL/blob/main/KDA/Video/KDA.webm" autoplay muted></video>
+                <video autoplay muted>
+                    <source src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Video/KDA.webm" type="video/webm">
+                </video>
                 <img class="transition"
                     src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/KDA.jpg" alt="">
                 <div class="slide__video--logo"
@@ -234,6 +236,10 @@
             iframe.playVideo();
         }
     }
+
+    // $('.slide__video>video').addEventListener('ended', function() {
+    //     this.style.display = 'none';
+    // });
 
     $('.video__main>button').addEventListener('click', () => {
         $('.video__main>button').style.visibility = 'hidden';
