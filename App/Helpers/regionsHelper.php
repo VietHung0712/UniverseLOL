@@ -1,5 +1,5 @@
 <?php
-require_once "./App/Model/regionClass.php";
+require_once "./App/Models/regionClass.php";
 
 use UniverseLOL\Region;
 

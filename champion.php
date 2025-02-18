@@ -3,7 +3,7 @@
 <?php
 try {
     require_once "./Assets/assets.php";
-    require_once "./App/Controller/championController.php";
+    require_once "./App/Controllers/championController.php";
 } catch (\Throwable $th) {
 }
 ?>
