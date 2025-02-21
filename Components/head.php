@@ -15,6 +15,7 @@
                 </a>
                 <ul class='subnav'>
                     <li><a href="./KDA.html">K/DA</a></li>
+                    <li><a href="./Mythmaker.html">Mythmaker</a></li>
                 </ul>
                 <div class='heading-border'></div>
             </li>

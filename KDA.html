@@ -88,12 +88,9 @@
                 <div class="video__main--background"
                     style="background-image: url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/electronic-music.png);">
                 </div>
-                <iframe
-                    id="videoIframe"
-                    src="https://www.youtube.com/embed/UOxkGD8qRB4?enablejsapi=1" title="YouTube/KDA" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
+                <video controls>
+                    <source src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Video/KDA-POPSTARS.mp4">
+                </video>
                 <img src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/KDA_2.jpg"
                     alt="">
                 <button><i class="fa-solid fa-play"></i></button>
@@ -166,12 +163,9 @@
                 <h1>POP/STARS</h1>
             </div>
             <div class="music__main section__main">
-                <iframe
-                    id="musicIframe"
-                    src="https://www.youtube.com/embed/RkID8_gnTxw?enablejsapi=1" title="YouTube/KDA" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
+                <video controls>
+                    <source src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Video/KDA-THE BADDEST.mp4">
+                </video>
                 <img src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/KDA_3.jpg"
                     alt="">
                 <button><i class="fa-solid fa-play"></i></button>
@@ -221,36 +215,29 @@
 
 <script>
     let indexStory = 0;
-    let tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    let firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-    let video, music;
-    function onYouTubeIframeAPIReady() {
-        video = new YT.Player('videoIframe');
-        music = new YT.Player('musicIframe');
-    }
-    function playMedia(iframe) {
-        if (iframe && typeof iframe.playVideo === "function") {
-            iframe.playVideo();
-        }
+    function playMedia(item) {
+        setTimeout(() => {
+            item.play();
+        }, 300)
     }
 
-    // $('.slide__video>video').addEventListener('ended', function() {
-    //     this.style.display = 'none';
-    // });
+    $('.slide__video>video').playbackRate = 1.3;
+
+    $('.slide__video>video').addEventListener('ended', function() {
+        this.style.display = 'none';
+    });
 
     $('.video__main>button').addEventListener('click', () => {
         $('.video__main>button').style.visibility = 'hidden';
         $('.video__main>img').style.display = 'none';
-        playMedia(video);
+        playMedia($('.video__main>video'));
     })
 
     $('.music__main>button').addEventListener('click', () => {
         $('.music__main>button').style.visibility = 'hidden';
         $('.music__main>img').style.display = 'none';
-        playMedia(music);
+        playMedia($('.music__main>video'));
     })
 
     const imageStory = ['Ahri_KDA.png', 'Evelynn_KDA.png', 'Kaisa_KDA.png', 'Akali_KDA.png'];

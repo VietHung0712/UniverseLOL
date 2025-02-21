@@ -67,6 +67,7 @@
             min-height: 100vh;
 
             &>.item {
+                display: flex;
                 text-decoration: none;
 
                 &>.item__img {
@@ -234,7 +235,6 @@
                 &>.item {
                     height: 12vh;
                     width: 100%;
-                    display: flex;
                     background-color: #171717;
 
                     &:hover {

@@ -37,7 +37,8 @@ body {
         height: 100%;
         width: 100%;
 
-        & img, & video {
+        & img,
+        & video {
             position: absolute;
             z-index: 1;
             width: 100%;
@@ -45,11 +46,7 @@ body {
             object-fit: contain;
         }
 
-        & img{
-            opacity: 0;
-        }
-
-        & video{
+        & video {
             object-fit: cover;
             z-index: 2;
         }
@@ -121,7 +118,7 @@ body {
         align-items: center;
         overflow: hidden;
 
-        &>iframe,
+        &>video,
         &>img {
             position: absolute;
             z-index: 1;
@@ -392,7 +389,7 @@ body {
         align-items: center;
         overflow: hidden;
 
-        & iframe,
+        & video,
         & img {
             position: absolute;
             z-index: 1;

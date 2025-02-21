@@ -3,12 +3,14 @@ function filterSearch() {
     $$('.main__list--body>.item').forEach((champion) => {
         const testSearch = searchValue === '' || champion.dataset.id.trim().toLowerCase().startsWith(searchValue);
         if (testSearch) {
-            champion.style.display = 'block';
+            champion.style.display = 'flex';
         } else {
             champion.style.display = 'none';
         }
     });
-    updateGrid();
+    if (window.innerWidth > 768) {
+        updateGrid();
+    }
 }
 
 function updateGrid() {
@@ -22,4 +24,5 @@ function updateGrid() {
         $('.main__list--body').style.gridTemplateColumns = `repeat(5, 1fr)`;
     }
 }
+
 $('.search__border>input').addEventListener('input', filterSearch);
