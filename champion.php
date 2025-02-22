@@ -12,7 +12,7 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Assets/Font/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.min.css">
-    <link rel="stylesheet" href="./Assets/Css/head_footer.css">
+    <link rel="stylesheet" href="./Assets/Css/header_footer.css">
     <link rel="stylesheet" href="./Assets/Css/reset.css">
     <link rel="stylesheet" href="./Assets/Css/champion.css">
     <link rel="icon" href="<?php echo $assetsURL; ?>/Icon/LOL.png">
@@ -20,8 +20,8 @@ try {
 </head>
 
 <body>
-    <?php require_once "./Components/head.php"; ?>
-    <div id="main">
+    <header id="header"></header>
+    <main id="main">
         <section id="slide">
             <div class="silde__splashArt">
                 <video style="object-position: <?php echo $this_champion->getPositionX() . '%' . ' ' . $this_champion->getPositionY() . '%'; ?>;" src="<?php echo $this_champion->getAnimatedSplashArt(); ?>" autoplay muted loop></video>
@@ -131,9 +131,11 @@ try {
                 </div>
             </div>
         </section>
-    </div>
-    <?php require_once "./Components/footer.php"; ?>
+    </main>
+    <footer id="footer"></footer>
 </body>
 
 </html>
+<script src="./Assets/Javascript/function.js"></script>
+<script src="./Assets/Javascript/loadHeaderFooter.js"></script>
 <script src="./Assets/Javascript/champion.js"></script>

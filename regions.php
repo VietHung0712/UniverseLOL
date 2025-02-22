@@ -12,7 +12,7 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Assets/Font/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.min.css">
-    <link rel="stylesheet" href="./Assets/Css/head_footer.css">
+    <link rel="stylesheet" href="./Assets/Css/header_footer.css">
     <link rel="stylesheet" href="./Assets/Css/reset.css">
     <link rel="stylesheet" href="./Assets/Css/champion.css">
     <link rel="stylesheet" href="./Assets/Css/regions.css">
@@ -21,10 +21,9 @@ try {
 </head>
 
 <body>
-    <?php require_once "./Components/head.php"; ?>
-
-    <div id="body">
-        <div id="pageBackground" style="background-image: linear-gradient(to top right, #000000, #000000c4, #000000c4), url(<?php echo $assetsURL; ?>/Others/map_runeterra.png)"></div>
+    <header id="header"></header>
+    <div id="pageBackground" style="background-image: linear-gradient(to top right, #000000, #000000c4, #000000c4), url(<?php echo $assetsURL; ?>/Others/map_runeterra.png)"></div>
+    <main>
         <div id="app">
             <section id="title">
                 <h1>Regions</h1>
@@ -48,10 +47,11 @@ try {
                 }
                 ?>
             </section>
-            <?php require_once "./Components/footer.php"; ?>
         </div>
-
-    </div>
+    </main>
+    <footer id="footer"></footer>
 </body>
 
 </html>
+<script src="./Assets/Javascript/function.js"></script>
+<script src="./Assets/Javascript/loadHeaderFooter.js"></script>

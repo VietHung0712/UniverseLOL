@@ -6,22 +6,24 @@ section{
     transition: all 200ms ease-in;
 }
 #app{
-    height: 100vh;
     position: relative;
-    overflow-y: auto;
+    z-index: 1;
+    top: 0;
     width: 100%;
+    height: max-content;
 }
 #pageBackground{
-    position: absolute;
+    position: fixed;
+    top: 0;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     z-index: 0;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 }
 #title{
-    margin-top: 80px;
+    margin-top: 70px;
     height: 30vh;
 
     & h1{

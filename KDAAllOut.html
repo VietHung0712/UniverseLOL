@@ -1,23 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./Font/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.min.css">
-    <link rel="stylesheet" href="./Assets/Css/head_footer.css">
+    <link rel="stylesheet" href="./Assets/Font/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.min.css">
+    <link rel="stylesheet" href="./Assets/Css/header_footer.css">
     <link rel="stylesheet" href="./Assets/Css/reset.css">
-    <link rel="stylesheet" href="./Assets/Css/index.css">
     <link rel="stylesheet" href="./Assets/Css/KDAAllOut.css">
     <link rel="icon" href="https://wiki.leagueoflegends.com/en-us/images/League_of_Legends_Icon.png?3c899">
     <title>K/DA - Universe League of Legends</title>
 </head>
 <!-- https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main -->
+
 <body>
-    <div id="main">
+    <header id="header"></header>
+    <main id="main">
         <section id="slide">
-            <div style="background-image: linear-gradient(to bottom, #00000000, #00000000, #000), url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/KDA_AllOut.jpg);"></div>
-            <img src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/kda-logo.png" alt="">
+            <div class="slide__video">
+                <video autoplay muted>
+                    <source
+                        src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Video/KDA_ALLOUT.mp4"
+                        type="video/mp4">
+                </video>
+                <img class="transition"
+                    src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/KDA_AllOut.jpg"
+                    alt="">
+                <div class="slide__video--logo"
+                    style="background-image: url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/kda-logo.png);">
+                </div>
+            </div>
+            <div class="slide__content">
+                <h1>POP/STARS</h1>
+            </div>
         </section>
-    </div>
+    </main>
+    <footer id="footer"></footer>
 </body>
+
 </html>
+<script src="./Assets/Javascript/function.js"></script>
+<script src="./Assets/Javascript/loadHeaderFooter.js"></script>

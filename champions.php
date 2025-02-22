@@ -12,7 +12,7 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Assets/Font/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.min.css">
-    <link rel="stylesheet" href="./Assets/Css/head_footer.css">
+    <link rel="stylesheet" href="./Assets/Css/header_footer.css">
     <link rel="stylesheet" href="./Assets/Css/reset.css">
     <link rel="stylesheet" href="./Assets/Css/champions.css">
     <link rel="icon" href="<?php echo $assetsURL; ?>/Icon/LOL.png">
@@ -20,8 +20,8 @@ try {
 </head>
 
 <body>
-    <?php require_once "./Components/head.php"; ?>
-    <div id="main">
+    <header id="header"></header>
+    <main id="main">
         <div class="background" style="background-image: linear-gradient(to bottom, #000,rgba(0, 0, 0, 0.7), #000), url(<?php echo $assetsURL; ?>/Others/championsBackground.jpg);"></div>
         <section class="search">
             <div class="search__border">
@@ -61,9 +61,11 @@ try {
                 ?>
             </div>
         </section>
-    </div>
-    <?php require_once "./Components/footer.php"; ?>
+    </main>
+    <footer id="footer"></footer>
 </body>
 
 </html>
+<script src="./Assets/Javascript/function.js"></script>
+<script src="./Assets/Javascript/loadHeaderFooter.js"></script>
 <script src="./Assets/Javascript/champions.js"></script>

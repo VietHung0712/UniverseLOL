@@ -1,4 +1,4 @@
-#head {
+#header {
     font-family: Arial, sans-serif;
     position: fixed;
     background-color: rgb(15, 15, 15);
@@ -204,6 +204,7 @@
 }
 
 #footer {
+    z-index: 5;
     height: 50vh;
     width: 100%;
     display: flex;
