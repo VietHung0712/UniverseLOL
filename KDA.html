@@ -50,12 +50,11 @@
                 <div class="video__main--background"
                     style="background-image: url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/electronic-music.png);">
                 </div>
-                <video controls>
+                <video
+                    poster="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/KDA_2.jpg">
                     <source
                         src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Video/KDA-POPSTARS.mp4">
                 </video>
-                <img src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/KDA_2.jpg"
-                    alt="">
                 <button><i class="fa-solid fa-play"></i></button>
             </div>
         </section>
@@ -121,17 +120,16 @@
         </section>
         <section id="music"
             style="background-image: url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/kda-music-background-1.jpg);">
-            <div class="music__head section__head">
+            <div class="video__head section__head">
                 <h3>K/DA's New Hit Single</h3>
                 <h1>POP/STARS</h1>
             </div>
-            <div class="music__main section__main">
-                <video controls>
+            <div class="video__main section__main">
+                <video
+                    poster="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/KDA_3.jpg">
                     <source
                         src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Video/KDA-THE BADDEST.mp4">
                 </video>
-                <img src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/KDA_3.jpg"
-                    alt="">
                 <button><i class="fa-solid fa-play"></i></button>
             </div>
         </section>
@@ -177,18 +175,18 @@
         this.style.display = 'none';
     });
 
-    $('.video__main>button').addEventListener('click', () => {
-        $('.video__main>button').style.visibility = 'hidden';
-        $('.video__main>img').style.display = 'none';
-        $('.music__main>video').pause();
-        playMedia($('.video__main>video'));
+    $('#video>.video__main>button').addEventListener('click', () => {
+        $('#video button').style.visibility = 'hidden';
+        $('#music video').pause();
+        $('#video video').controls = true;
+        playMedia($('#video video'));
     })
 
-    $('.music__main>button').addEventListener('click', () => {
-        $('.music__main>button').style.visibility = 'hidden';
-        $('.music__main>img').style.display = 'none';
-        $('.video__main>video').pause();
-        playMedia($('.music__main>video'));
+    $('#music>.video__main>button').addEventListener('click', () => {
+        $('#music button').style.visibility = 'hidden';
+        $('#video video').pause();
+        $('#music video').controls = true;
+        playMedia($('#music video'));
     })
 
     const imageStory = ['Ahri_KDA.png', 'Evelynn_KDA.png', 'Kaisa_KDA.png', 'Akali_KDA.png'];

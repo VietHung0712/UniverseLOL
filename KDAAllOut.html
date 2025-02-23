@@ -46,13 +46,12 @@
                 <div class="video__main--background"
                     style="background-image: url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/electronic-music.png);">
                 </div>
-                <video controls>
+                <video
+                    poster="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/KDA_AllOut_2.jpg">
                     <source
                         src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Video/MORE.mp4"
                         type="video/mp4">
                 </video>
-                <img src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/KDA_AllOut_2.jpg"
-                    alt="">
                 <button><i class="fa-solid fa-play"></i></button>
             </div>
         </section>
@@ -237,7 +236,7 @@
 
     $('.video__main>button').addEventListener('click', () => {
         $('.video__main>button').style.visibility = 'hidden';
-        $('.video__main>img').style.display = 'none';
+        $('.video__main>video').controls = true;
         playMedia($('.video__main>video'));
     })
 

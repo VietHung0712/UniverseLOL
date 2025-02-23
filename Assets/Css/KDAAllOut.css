@@ -489,10 +489,6 @@ body {
     .section__main {
         height: calc(95% - 30vh);
     }
-
-    #slide {
-        
-    }
 }
 
 @media (max-width: 768px) {
@@ -507,10 +503,6 @@ body {
 
     .section__head {
         height: 50%;
-    }
-
-    #slide {
-        
     }
 
     #story {

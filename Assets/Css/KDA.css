@@ -89,61 +89,44 @@ body {
     }
 }
 
-@keyframes autocolor {
-    0% {
-        filter: drop-shadow(16px 7px 8px blue);
+.video__main {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+
+    &>video {
+        position: absolute;
+        z-index: 1;
+        height: 90%;
+        width: 70%;
+        object-fit: cover;
+        border: 2px solid var(--border-color-);
     }
 
-    50% {
+    & button {
+        position: absolute;
+        top: calc((90% - 50px) / 2);
+        left: calc((100% - 50px) / 2);
+        height: 50px;
+        width: 50px;
+        z-index: 4;
+        border: 2px solid var(--text-color-);
+        background-color: black;
+        color: var(--text-color-);
 
-        filter: drop-shadow(16px 7px 8px red);
-    }
-
-    66% {
-        filter: drop-shadow(16px 7px 8px rgb(200, 0, 255));
-    }
-
-    100% {
-        filter: drop-shadow(16px 7px 8px blue);
+        &:hover {
+            color: black;
+            background-color: var(--text-color-);
+        }
     }
 }
 
 #video {
 
     & .video__main {
-        position: relative;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        overflow: hidden;
-
-        &>video,
-        &>img {
-            position: absolute;
-            z-index: 1;
-            height: 90%;
-            width: 70%;
-            object-fit: cover;
-            border: 2px solid var(--border-color-);
-        }
-
-        & button {
-            position: absolute;
-            top: calc((90% - 50px) / 2);
-            left: calc((100% - 50px) / 2);
-            height: 50px;
-            width: 50px;
-            z-index: 4;
-            border: 2px solid var(--text-color-);
-            background-color: black;
-            color: var(--text-color-);
-
-            &:hover {
-                color: black;
-                background-color: var(--text-color-);
-            }
-        }
 
         & .video__main--background {
             z-index: 0;
@@ -377,44 +360,8 @@ body {
     background-size: 100% 100%;
     background-repeat: no-repeat;
 
-    & .music__head {
+    & .video__head {
         background-image: linear-gradient(to bottom, #00000000, #000, #00000000);
-    }
-
-    & .music__main {
-        position: relative;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        overflow: hidden;
-
-        & video,
-        & img {
-            position: absolute;
-            z-index: 1;
-            height: 90%;
-            width: 70%;
-            object-fit: cover;
-            border: 2px solid var(--border-color-);
-        }
-
-        & button {
-            position: absolute;
-            top: calc((90% - 50px) / 2);
-            left: calc((100% - 50px) / 2);
-            height: 50px;
-            width: 50px;
-            z-index: 4;
-            border: 2px solid var(--text-color-);
-            background-color: black;
-            color: var(--text-color-);
-
-            &:hover {
-                color: black;
-                background-color: var(--text-color-);
-            }
-        }
     }
 }
 
@@ -519,6 +466,25 @@ body {
                 background-color: #000000c0;
             }
         }
+    }
+}
+
+@keyframes autocolor {
+    0% {
+        filter: drop-shadow(16px 7px 8px blue);
+    }
+
+    50% {
+
+        filter: drop-shadow(16px 7px 8px red);
+    }
+
+    66% {
+        filter: drop-shadow(16px 7px 8px rgb(200, 0, 255));
+    }
+
+    100% {
+        filter: drop-shadow(16px 7px 8px blue);
     }
 }
 

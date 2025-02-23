@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Assets/Font/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.min.css">
+    <link rel="stylesheet" href="./Assets/Css/header_footer.css">
+    <link rel="stylesheet" href="./Assets/Css/reset.css">
+    <link rel="stylesheet" href="./Assets/Css/ShanHaiScrolls.css">
+    <link rel="icon" href="https://wiki.leagueoflegends.com/en-us/images/League_of_Legends_Icon.png?3c899">
+    <title>ShanHai Scrolls - Universe League of Legends</title>
+</head>
+
+<body>
+    
+    <main id="body">
+        <section id="slide">
+            <div class="slide__video">
+                <video src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/ShanHaiScrolls/Video/Outside-the-Lines-Shan-Hai-Scrolls.mp4" loop autoplay muted></video>
+            </div>
+            <h1>ShanHai Scrolls</h1>
+        </section>
+        <section id="lore">
+            <p>
+                Within the fabled Shan Hai Scrolls, gods and mythical creatures roam magical lands, wielding the power of the elements. Some are content to live with the palette they've been given, while others wish to jump beyond the borders and paint their lives with a new brush.
+            </p>
+        </section>
+        <section id="video">
+            <div class="video__head section__head">
+                <h3>Featured Video</h3>
+                <h1>A Heros Blossom</h1>
+            </div>
+            <div class="video__main section__main"
+            style="background-image: url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/ShanHaiScrolls/Image/scroll_red.png);">
+                <video
+                poster="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/ShanHaiScrolls/Image/Shanhai_Scrolls_theme_1.jpg"
+                src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/ShanHaiScrolls/Video/Shan Hai Scroll- A Heros Blossom - Official Skins Teaser Trailer - League of Legends.mp4"></video>
+                <button class="transition"><i class="fa-solid fa-scroll-torah"></i></button>
+            </div>
+        </section>
+        <section id="container">
+            <div class="container__head section__head">
+                <h3>Lore</h3>
+                <h1>Gods - Spirits - Monters</h1>
+            </div>
+            <div class="container__main section__main">
+                <div class="container__slide">
+                    <div class='container__slide--item transition' style='background-image: linear-gradient(to left, #00000000, #00000000, #000), url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Splash_Art/A/Aatrox/Aatrox_9.jpg); background-position: 30% 20%;'>
+                        <div class='container__slide--content'>
+                            <div class='container__slide--name'>Aatrox</div>
+                            <div class='container__slide--des'>
+                                lore Aatrox
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='container__slide--item transition' style='background-image: linear-gradient(to left, #00000000, #00000000, #000), url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Splash_Art/J/Jhin/Jhin_5.jpg); background-position: 30% 20%;'>
+                        <div class='container__slide--content'>
+                            <div class='container__slide--name'>Jhin</div>
+                            <div class='container__slide--des'>
+                                lore Jhin
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='container__slide--item transition' style='background-image: linear-gradient(to left, #00000000, #00000000, #000), url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Splash_Art/N/Nautilus/Nautilus_7.jpg); background-position: 30% 20%;'>
+                        <div class='container__slide--content'>
+                            <div class='container__slide--name'>Nautilus</div>
+                            <div class='container__slide--des'>
+                                lore Nautilus
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="transition"><i class="fa-solid fa-angle-left"></i></button>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
+<script src="./Assets/Javascript/function.js"></script>
+<!-- <script src="./Assets/Javascript/loadHeaderFooter.js"></script> -->
+<script>
+    $('.video__main>button').onclick = function() {
+        this.style.visibility = 'hidden';
+        setTimeout(() => {
+            $('.video__main>video').play();
+        }, 300)
+    }
+    $('.video__main>video').addEventListener("play", function() {
+        $('.video__main>video').controls = true;
+    });
+
+    $('.container__main button').addEventListener('click', function() {
+        const items = $$('.container__slide--item');
+        $('.container__slide').prepend(items[items.length - 1]);
+    }, );
+
+    const ImageSplashArt = [
+        'https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Splash_Art/A/Aatrox/Aatrox_9.jpg',
+        'https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Splash_Art/J/Jhin/Jhin_5.jpg',
+        'https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Splash_Art/N/Nautilus/Nautilus_7.jpg'
+    ];
+
+    function chooseItem() {
+        const items = $$('.container__slide--item');
+        items.forEach((element, index) => {
+            element.onclick = function() {
+                if (index != 0) {
+                    $('.container__slide').appendChild(items[index - 1]);
+                    $('.container__slide').style.backgroundImage = `linear-gradient(to left, #00000000, #00000000, #000), url(${ImageSplashArt[index-1]})`;
+                } else {
+                    $('.container__slide').appendChild(items[items.length - 1]);
+                    $('.container__slide').style.backgroundImage = `linear-gradient(to left, #00000000, #00000000, #000), url(${ImageSplashArt[items.length-1]})`;
+                }
+            }
+        });
+    }
+    chooseItem();
+</script>
