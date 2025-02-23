@@ -180,12 +180,14 @@
     $('.video__main>button').addEventListener('click', () => {
         $('.video__main>button').style.visibility = 'hidden';
         $('.video__main>img').style.display = 'none';
+        $('.music__main>video').pause();
         playMedia($('.video__main>video'));
     })
 
     $('.music__main>button').addEventListener('click', () => {
         $('.music__main>button').style.visibility = 'hidden';
         $('.music__main>img').style.display = 'none';
+        $('.video__main>video').pause();
         playMedia($('.music__main>video'));
     })
 
