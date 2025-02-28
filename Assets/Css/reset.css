@@ -7,8 +7,12 @@
 body,
 html {
     scroll-behavior: smooth;
-    background-color: rgb(50, 50, 50);
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+main{
+    margin-top: 70px;
+    background-color: #000;
 }
 
 button {

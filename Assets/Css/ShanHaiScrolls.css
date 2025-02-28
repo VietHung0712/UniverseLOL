@@ -3,10 +3,6 @@ section {
     width: 100%;
 }
 
-body {
-    background-color: black;
-}
-
 .section__main {
     height: calc(95% - 30vh);
 }
@@ -38,7 +34,6 @@ body {
 }
 
 #slide {
-    margin-top: 70px;
     position: relative;
     height: 90vh;
 

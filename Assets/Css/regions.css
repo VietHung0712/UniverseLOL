@@ -23,7 +23,6 @@ section{
     background-repeat: no-repeat;
 }
 #title{
-    margin-top: 70px;
     height: 30vh;
 
     & h1{

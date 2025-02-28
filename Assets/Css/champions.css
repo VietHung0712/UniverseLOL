@@ -1,6 +1,5 @@
 #main {
     position: relative;
-    padding-top: 70px;
     min-height: 100vh;
     height: max-content;
     background-color: #000;
@@ -21,13 +20,14 @@
         width: 100%;
 
         &>.main__list--head {
-            margin-top: 30vh;
             margin-bottom: 5vh;
+            height: 30vh;
             width: 100%;
             display: flex;
             gap: 1vh;
             flex-direction: column;
             align-items: center;
+            justify-content: end;
 
 
             &>img {
@@ -112,7 +112,7 @@
     .search {
         z-index: 1;
         position: absolute;
-        top: 100px;
+        top: 5vh;
         height: 90px;
         width: 100%;
         background-color: #121212;

@@ -30,7 +30,6 @@ body {
 }
 
 #slide {
-    margin-top: 70px;
     position: relative;
 
     & .slide__video {

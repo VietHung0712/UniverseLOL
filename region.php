@@ -25,7 +25,7 @@ try {
         <section id="slide">
             <div class="silde__splashArt">
                 <img src="<?php echo $assetsURL . '/' . $this_region->getIcon(); ?>" alt="">
-                <video src="<?php echo $this_region->getAnimatedBackground(); ?>" autoplay muted loop></video>
+                <video src="<?php echo $assetsURL . '/' . $this_region->getAnimatedBackground(); ?>" autoplay muted loop></video>
             </div>
             <div class="slide__title transition">
                 <h1><?php echo $this_region->getName(); ?></h1>
