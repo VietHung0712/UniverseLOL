@@ -12,8 +12,9 @@
     & div{
         position: absolute;
         display: flex;
-        top: 30%;
+        height: 50vh;
         width: 100%;
+        top: 25%;
         flex-direction: column;
         gap: 5vh;
         align-items: center;

@@ -2,7 +2,6 @@
     position: relative;
     min-height: 100vh;
     height: max-content;
-    background-color: #000;
 
     &>.background {
         z-index: 0;
