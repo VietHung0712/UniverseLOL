@@ -10,7 +10,6 @@ section {
 .section__head {
     height: 30vh;
     width: 100%;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-transform: uppercase;
     text-align: center;
     display: flex;
@@ -42,7 +41,8 @@ section {
         height: 100%;
         width: 100%;
 
-        & video, & img {
+        & video,
+        & img {
             position: absolute;
             top: 0;
             left: 0;
@@ -52,25 +52,28 @@ section {
             object-fit: cover;
         }
 
-        & video{
+        & video {
             z-index: 2;
         }
     }
 
-    & h1 {
+    & .slide__title {
         position: absolute;
         z-index: 3;
+        bottom: 0;
         width: 100%;
         height: max-content;
-        bottom: 0;
-        color: rgb(255, 100, 0);
-        letter-spacing: 0.5vw;
-        text-align: center;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        font-weight: 500;
-        font-size: 6vw;
-        font-style: italic;
         background-image: linear-gradient(to bottom, #00000000, #000);
+
+        & h1 {
+            letter-spacing: 0.5vw;
+            text-align: center;
+            font-weight: 500;
+            font-size: 7vw;
+            font-family: 'Kaushan Script';
+            background: -webkit-linear-gradient(bottom, rgb(255, 0, 0), rgb(203, 172, 98)) text;
+            -webkit-text-fill-color: transparent;
+        }
     }
 }
 
@@ -82,5 +85,6 @@ section {
         width: 40%;
         color: white;
         text-align: center;
+        letter-spacing: 0.7px;
     }
 }

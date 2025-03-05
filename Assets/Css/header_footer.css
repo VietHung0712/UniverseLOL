@@ -223,7 +223,6 @@
 
         &>p {
             color: #fff;
-
         }
 
         &>a {
@@ -249,8 +248,12 @@
             gap: 2vw;
 
             &>a {
-                font-size: 2vw;
+                font-size: 30px;
                 color: #fff;
+                
+                &:hover{
+                    color: #aaa;
+                }
             }
         }
 

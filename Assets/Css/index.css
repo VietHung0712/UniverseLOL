@@ -1,15 +1,15 @@
-#main{
+#main {
     position: relative;
     height: 100vh;
     width: 100%;
 
-    & video{
+    & video {
         height: 100%;
         width: 100%;
         object-fit: cover;
     }
 
-    & div{
+    & div {
         position: absolute;
         display: flex;
         height: 50vh;
@@ -20,28 +20,44 @@
         align-items: center;
         justify-content: center;
 
-        & button{
+        & img {
+            width: 30%;
+        }
+
+        & button {
             background-color: #00000000;
             border: 1px solid #fff;
             height: 10vh;
             width: 15vw;
 
-            & a{
+            & a {
                 display: block;
                 margin: auto;
                 background-color: var(--color1-);
                 width: 95%;
                 height: 95%;
-                font-size: 1vw;
+                font-size: 18px;
                 text-decoration: none;
                 text-transform: uppercase;
                 color: #000;
                 line-height: calc(10vh * 90 / 100);
 
-                &:hover{
+                &:hover {
                     background-color: beige;
                 }
             }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    #main>div {
+        &>img {
+            width: 80%;
+        }
+        & button{
+            height: 10vh;
+            width: 80vw;
         }
     }
 }

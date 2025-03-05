@@ -6,7 +6,7 @@
 
     &>#slide {
         position: relative;
-        height: calc(100vh - 80px);
+        height: calc(100vh - 70px);
         width: 100%;
         overflow: hidden;
 
@@ -93,7 +93,7 @@
                     margin: 0.3vw;
                     align-content: center;
                     text-align: center;
-                    font-size: 0.7vw;
+                    font-size: 12px;
                     letter-spacing: 0.1vw;
                     text-transform: uppercase;
                     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -161,7 +161,7 @@
 
                             &>h5 {
                                 margin-top: 2vh;
-                                font-size: 0.8vw;
+                                font-size: 12px;
                                 color: var(--text-color-);
                                 opacity: 0;
                                 text-decoration: none;
@@ -180,7 +180,7 @@
                         text-transform: none;
                         display: block;
                         letter-spacing: 0.01vw;
-                        font-size: 1.2vw;
+                        font-size: 18px;
                         font-family: Arial, Helvetica, sans-serif;
                     }
 
@@ -260,7 +260,7 @@
                         text-align: justify;
                         text-align-last: center;
                         letter-spacing: 0.5px;
-                        font-size: 0.9vw;
+                        font-size: 14px;
                         font-family: Arial, Helvetica, sans-serif;
                         color: var(--text-color-);
 
@@ -268,7 +268,7 @@
                         &::first-letter {
                             font-weight: 500;
                             float: left;
-                            font-size: 2vw;
+                            font-size: 30px;
                             border-bottom: 1px solid var(--border-color-);
                             line-height: 1.2;
                             margin: -2px 20px 0 18px;
@@ -434,7 +434,7 @@
 
             &>i,
             &>h4 {
-                font-size: 2vw;
+                font-size: 30px;
                 color: var(--text-color2-);
             }
 
@@ -442,7 +442,7 @@
                 position: relative;
                 width: max-content;
                 display: block;
-                font-size: 1.3vw;
+                font-size: 20px;
                 font-style: italic;
                 font-weight: 100;
                 letter-spacing: 1px;
@@ -497,7 +497,7 @@
                     display: flex;
                     justify-content: flex-start;
                     overflow-x: scroll;
-                    gap: 2vw;
+                    gap: 30px;
                     padding-bottom: 10px;
 
                     &::-webkit-scrollbar {
@@ -511,13 +511,12 @@
 
                     &>.skin__item {
                         position: relative;
-                        height: 20vh;
-                        width: 20%;
+                        height: 120px;
                         min-width: 200px;
                         cursor: pointer;
 
                         &:last-child {
-                            margin-right: 1vw;
+                            margin-right: 30px;
                         }
 
                         &>.skin__item--img {
@@ -536,6 +535,7 @@
                             text-transform: uppercase;
                             text-align: center;
                             color: gray;
+                            font-size: 14px;
                         }
 
                         &.active {
@@ -601,20 +601,37 @@
 
 @media (max-width: 768px) {
 
+    #slide{
+        & > .slide__title {
+            &>h1 {
+                font-size: 70px !important;
+            }
+            &>h5{
+                font-size: 16px !important;
+            }
+        }
+    }
     #content {
 
         &>div {
 
             &>.story__gird {
                 grid-template-columns: repeat(1, 1fr);
-                grid-template-rows: repeat(9, 1fr);
+                grid-template-rows: repeat(15, 1fr);
                 grid-template-areas:
                     "-voice"
                     "-voice"
+                    "-voice"
+                    "-voice"
+                    "-story"
+                    "-story"
+                    "-story"
                     "-story"
                     "-story"
                     "-story"
                     "-role"
+                    "-region"
+                    "-region"
                     "-region"
                     "-region";
 
@@ -637,6 +654,28 @@
                     }
                 }
 
+                &>div:nth-child(4) {
+                    p {
+                        font-size: 10px !important;
+                    }
+                }
+            }
+        }
+    }
+
+    #skins {
+        &>.skins__body {
+            &>.skins__show {
+                height: 30vh !important;
+
+            }
+            & > .skins__list {
+                & > .skins__list--items {
+                    gap: 10px !important;
+                    & > .skin__item {
+                        transform: scale(0.8);
+                    }
+                }
             }
         }
     }

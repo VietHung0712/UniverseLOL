@@ -30,8 +30,12 @@ try {
             <div class="slide__title transition">
                 <h1><?php echo $this_region->getName(); ?></h1>
                 <img src="<?php echo $assetsURL; ?>/Others/t1HeaderDivider.png" alt="">
-                <p><?php echo $this_region->getStory(); ?></p>
             </div>
+        </section>
+        <section id="lore">
+            <p>
+                <?php echo $this_region->getStory(); ?>
+            </p>
         </section>
         <section id="champions">
             <div class="champions__head">
