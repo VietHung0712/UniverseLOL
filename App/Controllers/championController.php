@@ -1,10 +1,10 @@
 <?php
-require_once "./App/Database/connect.php";
-require_once "./App/Helpers/championsHelper.php";
-require_once "./App/Helpers/regionsHelper.php";
-require_once "./App/Helpers/rolesHelper.php";
-require_once "./App/Helpers/relationsHelper.php";
-require_once "./App/Helpers/skinsHelper.php";
+require_once "../App/Config/database.php";
+require_once "../App/Helpers/championsHelper.php";
+require_once "../App/Helpers/regionsHelper.php";
+require_once "../App/Helpers/rolesHelper.php";
+require_once "../App/Helpers/relationsHelper.php";
+require_once "../App/Helpers/skinsHelper.php";
 
 $championId = $_GET['champion'];
 getChampionById($connect, $championId,  $this_champion);
@@ -19,3 +19,4 @@ if (isset($allRelations)) {
         $relations[] = $object;
     }
 }
+mysqli_close($connect);

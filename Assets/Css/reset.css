@@ -8,7 +8,7 @@ body,
 html {
     scroll-behavior: smooth;
     background-color: #000;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Times, 'Times New Roman', serif;
 }
 
 main{
@@ -24,7 +24,7 @@ a {
 }
 
 p{
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .transition {

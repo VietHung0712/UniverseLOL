@@ -2,8 +2,8 @@
 <html lang="en">
 <?php
 try {
-    require_once "./Assets/assets.php";
-    require_once "./App/Controllers/championController.php";
+    require_once "../Assets/assets.php";
+    require_once "../App/Controllers/championController.php";
 } catch (\Throwable $th) {
 }
 ?>
@@ -11,10 +11,10 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./Assets/Font/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.min.css">
-    <link rel="stylesheet" href="./Assets/Css/header_footer.css">
-    <link rel="stylesheet" href="./Assets/Css/reset.css">
-    <link rel="stylesheet" href="./Assets/Css/champion.css">
+    <link rel="stylesheet" href="../Assets/Font/fontawesome-free-6.6.0-web/css/all.min.css">
+    <link rel="stylesheet" href="../Assets/Css/header_footer.css">
+    <link rel="stylesheet" href="../Assets/Css/reset.css">
+    <link rel="stylesheet" href="../Assets/Css/champion.css">
     <link rel="icon" href="<?php echo $assetsURL; ?>/Icon/LOL.png">
     <title><?php echo $this_champion->getName(); ?> - Champions - League of Legends</title>
 </head>
@@ -136,6 +136,6 @@ try {
 </body>
 
 </html>
-<script src="./Assets/Javascript/function.js"></script>
-<script src="./Assets/Javascript/loadHeaderFooter.js"></script>
-<script src="./Assets/Javascript/champion.js"></script>
+<script src="../Assets/Javascript/function.js"></script>
+<script src="../Assets/Javascript/load-header-footer.js"></script>
+<script src="../Assets/Javascript/champion.js"></script>
