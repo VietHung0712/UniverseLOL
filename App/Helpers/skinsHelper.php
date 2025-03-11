@@ -1,5 +1,5 @@
 <?php
-require_once "../App/Models/skinClass.php";
+require_once "../Models/skinClass.php";
 
 use UniverseLOL\Skin;
 

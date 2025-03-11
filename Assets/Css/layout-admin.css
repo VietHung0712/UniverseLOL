@@ -1,0 +1,72 @@
+main {
+    width: 90%;
+    min-height: 50vh;
+    margin: auto;
+    margin-top: 70px;
+    padding: 20px;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border: 2px solid #c9aa71;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(201, 170, 113, 0.8);
+}
+
+table {
+    height: max-content;
+    width: 100%;
+    border-collapse: collapse;
+    background: #0f3460;
+    color: #ffffff;
+}
+
+caption {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #c9aa71;
+    padding: 10px;
+}
+
+th,
+td {
+    padding: 15px;
+    border: 1px solid #c9aa71;
+    text-align: center;
+}
+
+th {
+    background-color: #1b1b2f;
+}
+
+td {
+    max-width: 200px;
+    height: 50px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-color: #16213e;
+}
+
+input {
+    font-size: 16px;
+}
+
+input[type='text'],
+input[type='password'] {
+    width: 60%;
+    color: wheat;
+    background-color: #00000000;
+}
+
+button {
+    width: 30%;
+    padding: 5px;
+    background-color: #ff0;
+    font-weight: bold;
+}
+
+button[type='submit'] {
+    background-color: #0f0;
+}
+
+a {
+    color: wheat;
+}

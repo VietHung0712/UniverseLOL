@@ -1,4 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    load("#header", "../Components/header.html", createElementScriptHeader);
-    load("#footer", "../Components/footer.html");
+    load("#header", "./Template/header.html", createElementScriptHeader);
+    load("#footer", "./Template/footer.html");
 });

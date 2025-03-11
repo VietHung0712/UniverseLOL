@@ -2,7 +2,7 @@
 require_once "./App/Config/database.php";
 
 if (isset($connect)) {
-    header("Location: ./View/home.html");
+    header("Location: ./App/View/dashboard.html");
     exit();
 }
 mysqli_close($connect);

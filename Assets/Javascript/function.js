@@ -52,7 +52,7 @@ function viewPort(sections, item) {
 
 function createElementScriptHeader() {
     let script = document.createElement("script");
-    script.src = "./Assets/Javascript/header.js";
+    script.src = "../../Assets/Javascript/header.js";
     document.body.appendChild(script);
 }
 
