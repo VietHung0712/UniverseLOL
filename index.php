@@ -1,8 +1,8 @@
 <?php
-require_once "./App/Config/database.php";
+require_once "./Src/Config/database.php";
 
 if (isset($connect)) {
-    header("Location: ./App/View/dashboard.html");
+    header("Location: ./Src/App/Views/dashboard.html");
     exit();
 }
 mysqli_close($connect);
