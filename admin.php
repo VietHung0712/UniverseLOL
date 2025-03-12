@@ -1,5 +1,5 @@
 <?php
-require_once "../../App/Config/database.php";
+require_once "./Src/Config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sql = "SELECT * FROM administrator WHERE username = '$username' and password = '$password'";
     $result = mysqli_query($connect, $sql);
     if ($result->num_rows > 0) {
-        header("Location: ../../Assets/Database/leagueoflegends.sql");
+        header("Location: ./Src/Admin//Views/manager.html");
         exit();
     } else {
 ?>

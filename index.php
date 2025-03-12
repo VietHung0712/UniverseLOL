@@ -4,8 +4,9 @@ require_once "./Src/Config/database.php";
 if (isset($connect)) {
     header("Location: ./Src/App/Views/dashboard.html");
     exit();
+    mysqli_close($connect);
 }
-mysqli_close($connect);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

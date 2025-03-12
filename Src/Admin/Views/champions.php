@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<?php
+try {
+    require_once "../Controllers/championsController.php";
+} catch (\Throwable $th) {
+}
+?>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th><a href="./">Add</a></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th>id</th>
+                    <th>name</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                if (isset($champions)) {
+                    foreach ($champions as $index => $champion) {
+                ?>
+                        <tr>
+                            <td><?php echo $index + 1; ?></td>
+                            <td><?php echo $champion->getId(); ?></td>
+                            <td><?php echo $champion->getName(); ?></td>
+                            <td><a href="./champion.php?champion=<?php echo $champion->getId(); ?>">Details</a></td>
+                        </tr>
+                <?php
+                    }
+                }
+                ?>
+            </tbody>
+        </table>
+    </main>
+</body>
+
+</html>
