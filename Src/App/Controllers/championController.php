@@ -6,6 +6,8 @@ require_once "../Helpers/rolesHelper.php";
 require_once "../Helpers/relationsHelper.php";
 require_once "../Helpers/skinsHelper.php";
 
+$database = new Database();
+$connect = $database->connect();
 $championId = $_GET['champion'];
 getChampionById($connect, $championId,  $this_champion);
 getRegion($connect, $this_champion->getRegion(), $this_region);
@@ -19,4 +21,4 @@ if (isset($allRelations)) {
         $relations[] = $object;
     }
 }
-mysqli_close($connect);
+$connect->close();

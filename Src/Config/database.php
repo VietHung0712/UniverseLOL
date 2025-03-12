@@ -1,10 +1,17 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "leagueoflegends";
+class Database
+{
+    private $host = "localhost";
+    private $user = "root";
+    private $password = "";
+    private $dbname = "leagueoflegends";
 
-try {
-    $connect = mysqli_connect($servername, $username, $password, $dbname);
-} catch (\Throwable $th) {
+    public function connect()
+    {
+        $conn = new mysqli($this->host, $this->user, $this->password, $this->dbname);
+        if ($conn->connect_error) {
+            die("Kết nối thất bại: " . $conn->connect_error);
+        }
+        return $conn;
+    }
 }

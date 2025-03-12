@@ -3,7 +3,8 @@ require_once "./Src/Config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
-
+    $database = new Database();
+    $connect = $database->connect();
     $sql = "SELECT * FROM administrator WHERE username = '$username' and password = '$password'";
     $result = mysqli_query($connect, $sql);
     if ($result->num_rows > 0) {
@@ -16,8 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </script>
 <?php
     }
+    $connect->close();
 }
-mysqli_close($connect);
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 05, 2025 lúc 09:28 AM
+-- Thời gian đã tạo: Th3 12, 2025 lúc 12:31 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -20,6 +20,24 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `leagueoflegends`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `administrator`
+--
+
+CREATE TABLE `administrator` (
+  `username` varchar(20) NOT NULL,
+  `password` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `administrator`
+--
+
+INSERT INTO `administrator` (`username`, `password`) VALUES
+('admin', 'admin');
 
 -- --------------------------------------------------------
 
@@ -2293,6 +2311,12 @@ INSERT INTO `skins` (`id`, `champion`, `name`, `splash_art`) VALUES
 --
 -- Chỉ mục cho các bảng đã đổ
 --
+
+--
+-- Chỉ mục cho bảng `administrator`
+--
+ALTER TABLE `administrator`
+  ADD PRIMARY KEY (`username`);
 
 --
 -- Chỉ mục cho bảng `champions`

@@ -18,7 +18,7 @@ try {
         <table>
             <thead>
                 <tr>
-                    <th><a href="./">Add</a></th>
+                    <th><a href="./add-champion.php">Add</a></th>
                 </tr>
                 <tr>
                     <th></th>
@@ -36,7 +36,10 @@ try {
                             <td><?php echo $index + 1; ?></td>
                             <td><?php echo $champion->getId(); ?></td>
                             <td><?php echo $champion->getName(); ?></td>
-                            <td><a href="./champion.php?champion=<?php echo $champion->getId(); ?>">Details</a></td>
+                            <td>
+                                <a href="./champion.php?champion=<?php echo $champion->getId(); ?>">Details</a>
+                                <a href="./champion.php?champion=<?php echo $champion->getId(); ?>">Delete</a>
+                            </td>
                         </tr>
                 <?php
                     }
