@@ -3,12 +3,12 @@
 <?php
 try {
     require_once "../../Config/database.php";
-    require_once "../Helpers/championsHelper.php";
     require_once "../Helpers/regionsHelper.php";
     require_once "../Helpers/rolesHelper.php";
 
-    $db = new Database();
-    $connect = $db->connect();
+    $database = new Database();
+    $connect = $database->connect();
+
     getAllRegions($connect, $regions);
     getAllRole($connect, $roles);
     $connect->close();
@@ -19,20 +19,22 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../../../Assets/Css/reset.css">
+    <link rel="stylesheet" href="../../../Assets/Css/layout-admin-champion.css">
+    <title>Add Champion - Manager</title>
 </head>
 
 <body>
     <main>
-        <form action="../Controllers/championController.php" method="POST">
+        <form action="../Controllers/add-championController.php" method="POST">
             <table>
                 <tr>
                     <th>id</th>
-                    <td><input class="inputValue" type="text" name="id"></td>
+                    <td><input class="inputValue" type="text" name="id" required></td>
                 </tr>
                 <tr>
                     <th>name</th>
-                    <td><input class="inputValue" type="text" name="name"></td>
+                    <td><input class="inputValue" type="text" name="name" required></td>
                 </tr>
                 <tr>
                     <th>region</th>
@@ -40,9 +42,11 @@ try {
                         <select class="inputValue" name="region">
                             <?php
                             if (isset($regions)) {
-                                foreach ($regions as $index => $region) {
+                                foreach ($regions as $region) {
                             ?>
-                                    <option value="<?php echo $region->getId() ?>"><?php echo $region->getName() ?></option>
+                                    <option value="<?php echo $region->getId() ?>">
+                                        <?php echo $region->getName() ?>
+                                    </option>
                             <?php
                                 }
                             }
@@ -52,29 +56,33 @@ try {
                 </tr>
                 <tr>
                     <th>role</th>
-                    <td><select class="inputValue" name="role">
+                    <td>
+                        <select class="inputValue" name="role">
                             <?php
                             if (isset($roles)) {
-                                foreach ($roles as $index => $role) {
+                                foreach ($roles as $role) {
                             ?>
-                                    <option value="<?php echo $role->getId() ?>"><?php echo $role->getName() ?></option>
+                                    <option value="<?php echo $role->getId() ?>">
+                                        <?php echo $role->getName() ?>
+                                    </option>
                             <?php
                                 }
                             }
                             ?>
-                        </select></td>
+                        </select>
+                    </td>
                 </tr>
                 <tr>
                     <th>title</th>
-                    <td><input class="inputValue" type="text" name="title"></td>
+                    <td><input class="inputValue" type="text" name="title" required></td>
                 </tr>
                 <tr>
                     <th>voice</th>
-                    <td><input class="inputValue" type="text" name="voice"></td>
+                    <td><input class="inputValue" type="text" name="voice" required></td>
                 </tr>
                 <tr>
                     <th>story</th>
-                    <td><input class="inputValue" type="text" name="story"></td>
+                    <td><input class="inputValue" type="text" name="story" required></td>
                 </tr>
                 <tr>
                     <th>splash_art</th>
@@ -86,11 +94,11 @@ try {
                 </tr>
                 <tr>
                     <th>position_x</th>
-                    <td><input class="inputValue" type="number" name="position_x" min="0" max="100"></td>
+                    <td><input class="inputValue" type="number" name="position_x" min="0" max="100" value="0"></td>
                 </tr>
                 <tr>
                     <th>position_y</th>
-                    <td><input class="inputValue" type="number" name="position_y" min="0" max="100"></td>
+                    <td><input class="inputValue" type="number" name="position_y" min="0" max="100" value="0"></td>
                 </tr>
                 <tr>
                     <th></th>
@@ -98,6 +106,10 @@ try {
                         <input type="submit" value="Add">
                         <input type="reset" value="Reset">
                     </td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td><a href="./champions.php">Cancel</a></td>
                 </tr>
             </table>
         </form>

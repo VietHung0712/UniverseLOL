@@ -5,13 +5,11 @@ class Database
     private $user = "root";
     private $password = "";
     private $dbname = "leagueoflegends";
+    private $connect;
 
     public function connect()
     {
-        $conn = new mysqli($this->host, $this->user, $this->password, $this->dbname);
-        if ($conn->connect_error) {
-            die("Kết nối thất bại: " . $conn->connect_error);
-        }
-        return $conn;
+        $this->connect = new mysqli($this->host, $this->user, $this->password, $this->dbname);
+        return $this->connect;
     }
 }

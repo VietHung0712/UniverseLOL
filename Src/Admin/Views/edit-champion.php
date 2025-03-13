@@ -22,27 +22,27 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../../../Assets/Css/reset.css">
+    <link rel="stylesheet" href="../../../Assets/Css/layout-admin-champion.css">
+    <title>Edit - <?php echo $this_champion->getName(); ?> - Manager</title>
 </head>
 
 <body>
     <main>
-        <form action="../Controllers/championController.php" method="POST">
+        <form action="../Controllers/edit-championController.php" method="POST">
             <table>
                 <tr>
                     <th>id</th>
-                    <td><input class="inputValue" type="text" name="id" value="<?php echo $this_champion->getId(); ?>" disabled></td>
-                    <td><button type="button">Edit</button></td>
+                    <td><input class="inputValue" type="text" name="id" value="<?php echo $this_champion->getId(); ?>"></td>
                 </tr>
                 <tr>
                     <th>name</th>
-                    <td><input class="inputValue" type="text" name="name" value="<?php echo $this_champion->getName(); ?>" disabled></td>
-                    <td><button type="button">Edit</button></td>
+                    <td><input class="inputValue" type="text" name="name" value="<?php echo $this_champion->getName(); ?>"></td>
                 </tr>
                 <tr>
                     <th>region</th>
                     <td>
-                        <select class="inputValue" name="region" disabled>
+                        <select class="inputValue" name="region">
                             <?php
                             if (isset($regions)) {
                                 foreach ($regions as $index => $region) {
@@ -63,11 +63,10 @@ try {
                             ?>
                         </select>
                     </td>
-                    <td><button type="button">Edit</button></td>
                 </tr>
                 <tr>
                     <th>role</th>
-                    <td><select class="inputValue" name="role" disabled>
+                    <td><select class="inputValue" name="role">
                             <?php
                             if (isset($roles)) {
                                 foreach ($roles as $index => $role) {
@@ -87,48 +86,49 @@ try {
                             }
                             ?>
                         </select></td>
-                    <td><button type="button">Edit</button></td>
                 </tr>
                 <tr>
                     <th>title</th>
-                    <td><input class="inputValue" type="text" name="title" value="<?php echo $this_champion->getTitle(); ?>" disabled></td>
-                    <td><button type="button">Edit</button></td>
+                    <td><input class="inputValue" type="text" name="title" value="<?php echo $this_champion->getTitle(); ?>"></td>
                 </tr>
                 <tr>
                     <th>voice</th>
-                    <td><input class="inputValue" type="text" name="voice" value="<?php echo $this_champion->getVoice(); ?>" disabled></td>
-                    <td><button type="button">Edit</button></td>
+                    <td><input class="inputValue" type="text" name="voice" value="<?php echo $this_champion->getVoice(); ?>"></td>
                 </tr>
                 <tr>
                     <th>story</th>
-                    <td><input class="inputValue" type="text" name="story" value="<?php echo $this_champion->getStory(); ?>" disabled></td>
-                    <td><button type="button">Edit</button></td>
+                    <td><input class="inputValue" type="text" name="story" value="<?php echo $this_champion->getStory(); ?>"></td>
                 </tr>
                 <tr>
                     <th>splash_art</th>
-                    <td><input class="inputValue" type="text" name="splash_art" value="<?php echo $this_champion->getSplashArt(); ?>" disabled></td>
-                    <td><button type="button">Edit</button></td>
+                    <td><input class="inputValue" type="text" name="splash_art" value="<?php echo $this_champion->getSplashArt(); ?>"></td>
                 </tr>
                 <tr>
                     <th>animated_splash_art</th>
-                    <td><input class="inputValue" type="text" name="animated_splash_art" value="<?php echo $this_champion->getAnimatedSplashArt(); ?>" disabled></td>
-                    <td><button type="button">Edit</button></td>
+                    <td><input class="inputValue" type="text" name="animated_splash_art" value="<?php echo $this_champion->getAnimatedSplashArt(); ?>"></td>
                 </tr>
                 <tr>
                     <th>position_x</th>
-                    <td><input class="inputValue" type="number" name="position_x" min="0" max="100" value="<?php echo $this_champion->getPositionX(); ?>" disabled></td>
-                    <td><button type="button">Edit</button></td>
+                    <td><input class="inputValue" type="number" name="position_x" min="0" max="100" value="<?php echo $this_champion->getPositionX(); ?>"></td>
                 </tr>
                 <tr>
                     <th>position_y</th>
-                    <td><input class="inputValue" type="number" name="position_y" min="0" max="100" value="<?php echo $this_champion->getPositionY(); ?>" disabled></td>
-                    <td><button type="button">Edit</button></td>
+                    <td><input class="inputValue" type="number" name="position_y" min="0" max="100" value="<?php echo $this_champion->getPositionY(); ?>"></td>
                 </tr>
                 <tr>
                     <th></th>
                     <td>
                         <input type="button" value="OK">
-                        <input type="reset" value="Reset">
+                    </td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td><input type="reset" value="Reset"></td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td>
+                        <a href="./champions.php">Cancel</a>
                     </td>
                 </tr>
             </table>
@@ -137,21 +137,9 @@ try {
 </body>
 
 </html>
-<script src="../../../Assets/Javascript/function.js"></script>
 <script>
-    const btnEdit = $$('td>button');
-    const inputValue = $$('.inputValue');
-    const btnSubmit = $('input[type=button]');
-    const form = $('form');
-
-    btnEdit.forEach((element, index) => {
-        element.addEventListener('click', () => {
-            inputValue.forEach(element => {
-                element.disabled = true;
-            });
-            inputValue[index].disabled = false;
-        })
-    });
+    const btnSubmit = document.querySelector('input[type=button]');
+    const form = document.querySelector('form');
 
     btnSubmit.addEventListener('click', () => {
         if (confirm("Confirm edit?")) {

@@ -1,10 +1,13 @@
 <?php
 require_once "./Src/Config/database.php";
-
-if (isset($connect)) {
+try {
+    $database = new Database();
+    $connect = $database->connect();
+    $connect->close();
     header("Location: ./Src/App/Views/dashboard.html");
     exit();
-    mysqli_close($connect);
+} catch (\Throwable $th) {
+    //throw $th;
 }
 
 ?>
@@ -26,7 +29,7 @@ if (isset($connect)) {
         background-color: #212121;
     }
 
-    h1{
+    h1 {
         color: #fff;
     }
 

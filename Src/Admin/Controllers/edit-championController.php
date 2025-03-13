@@ -1,8 +1,7 @@
 <?php
-require_once "../Models/Champion.php";
-require_once "../Config/database.php";
+require_once "../../Config/database.php";
 
-if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["update"])) {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $id = $_POST["id"];
     $name = $_POST["name"];
     $region = $_POST["region"];
@@ -25,16 +24,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["update"])) {
             WHERE id = ?";
 
     $stmt = $connect->prepare($sql);
-    $stmt->bind_param("ssssssssddi", $name, $region, $role, $title, $voice, $story, $splash_art, $animated_splash_art, $position_x, $position_y, $id);
+    $stmt->bind_param("ssssssssiis", $name, $region, $role, $title, $voice, $story, $splash_art, $animated_splash_art, $position_x, $position_y, $id);
 
     if ($stmt->execute()) {
-        echo "<script>alert('Cập nhật thành công!'); window.location.href='../index.php';</script>";
+        header("Location: ../Views/champions.php");
+        exit();
     } else {
-        echo "<script>alert('Lỗi cập nhật!');</script>";
+        echo "Error: " . $stmt->error;
     }
 
     $stmt->close();
     $connect->close();
-} else {
-    echo "<script>alert('Yêu cầu không hợp lệ!'); window.location.href='../index.php';</script>";
 }
