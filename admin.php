@@ -26,9 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../Assets/Font/fontawesome-free-6.6.0-web/css/all.min.css">
-    <link rel="stylesheet" href="../../Assets/Css/reset.css">
-    <link rel="stylesheet" href="../../Assets/Css/layout-admin.css">
+    <link rel="stylesheet" href="./Src/Assets/Font/fontawesome-free-6.6.0-web/css/all.min.css">
+    <link rel="stylesheet" href="./Src/Assets/Css/reset.css">
+    <link rel="stylesheet" href="./Src/Assets/Css/layout-admin.css">
     <title>Database - Universe League of Legends</title>
 </head>
 
@@ -52,8 +52,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <tr>
                     <th></th>
                     <td>
-                        <button type="submit">Login</button>
-                        <button type="reset">Reset</button>
+                        <input type="submit" value="Login">
+                    </td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td>
+                        <input type="reset" value="Reset">
                     </td>
                 </tr>
             </table>

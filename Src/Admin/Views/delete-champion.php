@@ -19,7 +19,7 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../Assets/Css/reset.css">
-    <link rel="stylesheet" href="../../../Assets/Css/layout-admin-champion.css">
+    <link rel="stylesheet" href="../../../Assets/Css/layout-admin.css">
     <title>Delete - <?php echo $this_champion->getName(); ?> - Manager</title>
 </head>
 
@@ -37,11 +37,11 @@ try {
                 </tr>
                 <tr>
                     <th>region</th>
-                    <td><input type="text" name="name" value="<?php echo $this_champion->getRegion(); ?>" readonly></td>
+                    <td><input type="text" name="region" value="<?php echo $this_champion->getRegion(); ?>" readonly></td>
                 </tr>
                 <tr>
                     <th>role</th>
-                    <td><input type="text" name="name" value="<?php echo $this_champion->getRole(); ?>" readonly></td>
+                    <td><input type="text" name="role" value="<?php echo $this_champion->getRole(); ?>" readonly></td>
                 </tr>
                 <tr>
                     <th>title</th>

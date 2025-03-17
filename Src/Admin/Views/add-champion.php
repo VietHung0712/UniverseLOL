@@ -20,7 +20,7 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../Assets/Css/reset.css">
-    <link rel="stylesheet" href="../../../Assets/Css/layout-admin-champion.css">
+    <link rel="stylesheet" href="../../../Assets/Css/layout-admin.css">
     <title>Add Champion - Manager</title>
 </head>
 
@@ -104,8 +104,11 @@ try {
                     <th></th>
                     <td>
                         <input type="submit" value="Add">
-                        <input type="reset" value="Reset">
                     </td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td><input type="reset" value="Reset"></td>
                 </tr>
                 <tr>
                     <th></th>
