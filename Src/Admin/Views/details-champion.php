@@ -71,6 +71,12 @@ try {
                     <th>position_y</th>
                     <td><input type="number" name="position_y" min="0" max="100" value="<?php echo $this_champion->getPositionY(); ?>" readonly></td>
                 </tr>
+                                <tr>
+                    <th></th>
+                    <td>
+                        <a href="./relations.php?champion_id=<?php echo $this_champion->getId(); ?>">Relations</a>
+                    </td>
+                </tr>
                 <tr>
                     <th></th>
                     <td>

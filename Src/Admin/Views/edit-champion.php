@@ -13,7 +13,7 @@ try {
     $championId = $_GET['champion'];
     getChampionById($connect, $championId, $this_champion);
     getAllRegions($connect, $regions);
-    getAllRole($connect, $roles);
+    getAllRoles($connect, $roles);
     $connect->close();
 } catch (\Throwable $th) {
 }

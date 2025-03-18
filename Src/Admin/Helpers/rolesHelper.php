@@ -3,7 +3,7 @@ require_once "../Models/roleClass.php";
 
 use UniverseLOL\Role;
 
-function getAllRole($connect, &$roles)
+function getAllRoles($connect, &$roles)
 {
     $stmt = $connect->prepare("SELECT * FROM roles");
 
