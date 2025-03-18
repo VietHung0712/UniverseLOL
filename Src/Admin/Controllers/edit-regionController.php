@@ -19,7 +19,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $connect->prepare($query);
     $stmt->bind_param("sssssss", $name, $story, $icon, $avatar, $background, $animated_background, $id);
 
-    echo $role;
     if ($stmt->execute()) {
         header("Location: ../Views/regions.php");
         exit();

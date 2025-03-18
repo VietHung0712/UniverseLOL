@@ -10,9 +10,11 @@
 </head>
 
 <body>
+    <?php require_once "./Templates/header.html"; ?>
     <main>
         <form action="../Controllers/add-regionController.php" method="POST">
             <table>
+                <Caption>Add Region</Caption>
                 <tr>
                     <th>id</th>
                     <td><input type="text" name="id" required></td>
@@ -21,8 +23,8 @@
                     <th>name</th>
                     <td><input type="text" name="name" required></td>
                 </tr>
-                    <th>story</th>
-                    <td><input type="text" name="story" required></td>
+                <th>story</th>
+                <td><input type="text" name="story" required></td>
                 </tr>
                 <tr>
                     <th>icon</th>

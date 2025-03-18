@@ -255,18 +255,25 @@
         }
     }
 }
-@media (max-width: 768px) {
-    #slide{
-        height: 70vh !important;
-        &>.slide__title {
-            &>h1{
-                font-size: 70px !important;
+@media (max-width: 768px){
+    #main{
+        #slide{
+            height: 70vh;
+            &>.slide__title {
+                &>h1{
+                    font-size: 70px;
+                }
             }
         }
-    }
-    #lore{
-        p{
-            width: 80% !important;
+        #lore{
+            p{
+                width: 80%;
+                line-height: 1.4;
+    
+                &::first-letter{
+                    font-size: 20px;
+                }
+            }
         }
     }
 }

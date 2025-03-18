@@ -19,6 +19,7 @@ try {
     <?php require_once "./Templates/header.html"; ?>
     <main>
         <table>
+            <caption>Champions</caption>
             <thead>
                 <tr>
                     <th><a href="./add-champion.php">Add</a></th>

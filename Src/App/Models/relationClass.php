@@ -2,7 +2,7 @@
 
 namespace UniverseLOL;
 
-class Relate
+class Relation
 {
     private $id;
     private $championId;

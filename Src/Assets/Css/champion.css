@@ -600,80 +600,82 @@
 }
 
 @media (max-width: 768px) {
-
-    #slide{
-        & > .slide__title {
-            &>h1 {
-                font-size: 70px !important;
-            }
-            &>h5{
-                font-size: 16px !important;
-            }
-        }
-    }
-    #content {
-
-        &>div {
-
-            &>.story__gird {
-                grid-template-columns: repeat(1, 1fr);
-                grid-template-rows: repeat(15, 1fr);
-                grid-template-areas:
-                    "-voice"
-                    "-voice"
-                    "-voice"
-                    "-voice"
-                    "-story"
-                    "-story"
-                    "-story"
-                    "-story"
-                    "-story"
-                    "-story"
-                    "-role"
-                    "-region"
-                    "-region"
-                    "-region"
-                    "-region";
-
-
-                &>div:first-child,
-                &>div:nth-child(2) {
-                    display: none;
+    #main {
+        #slide {
+            &>.slide__title {
+                &>h1 {
+                    font-size: 70px;
                 }
 
-                &>div:nth-child(6) {
-                    & .story__gird--region-info {
-                        &>div:first-child {
-                            width: 100%;
-                        }
-
-                        &>div:last-child {
-                            display: none;
-                            width: 0;
-                        }
-                    }
-                }
-
-                &>div:nth-child(4) {
-                    p {
-                        font-size: 10px !important;
-                    }
+                &>h5 {
+                    font-size: 16px;
                 }
             }
         }
-    }
 
-    #skins {
-        &>.skins__body {
-            &>.skins__show {
-                height: 30vh !important;
+        #content {
+            &>div {
+                &>.story__gird {
+                    grid-template-columns: repeat(1, 1fr);
+                    grid-template-rows: repeat(15, 1fr);
+                    grid-template-areas:
+                        "-voice"
+                        "-voice"
+                        "-voice"
+                        "-voice"
+                        "-story"
+                        "-story"
+                        "-story"
+                        "-story"
+                        "-story"
+                        "-story"
+                        "-role"
+                        "-region"
+                        "-region"
+                        "-region"
+                        "-region";
 
+
+                    &>div:first-child,
+                    &>div:nth-child(2) {
+                        display: none;
+                    }
+
+                    &>div:nth-child(6) {
+                        & .story__gird--region-info {
+                            &>div:first-child {
+                                width: 100%;
+                            }
+
+                            &>div:last-child {
+                                display: none;
+                                width: 0;
+                            }
+                        }
+                    }
+
+                    &>div:nth-child(4) {
+                        p {
+                            font-size: 10px;
+                        }
+                    }
+                }
             }
-            & > .skins__list {
-                & > .skins__list--items {
-                    gap: 10px !important;
-                    & > .skin__item {
-                        transform: scale(0.8);
+        }
+
+        #skins {
+            &>.skins__body {
+                &>.skins__show {
+                    height: 30vh;
+                }
+
+                &>.skins__list {
+                    &>.skins__list--items {
+                        gap: 10px;
+
+                        &>.skin__item {
+                            transform: scale(0.8);
+                        }
                     }
                 }
             }

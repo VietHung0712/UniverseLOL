@@ -1,7 +1,7 @@
 <?php
-require_once "../Models/relateClass.php";
+require_once "../../App/Models/relationClass.php";
 
-use UniverseLOL\Relate;
+use UniverseLOL\Relation;
 
 function getRelations($connect, $id,  &$array)
 {
@@ -12,13 +12,36 @@ function getRelations($connect, $id,  &$array)
         $result = $stmt->get_result();
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                $object = new Relate(
+                $object = new Relation(
                     $row['id'],
                     $row['champion_id'],
                     $row['related_id'],
                     $row['relation_type']
                 );
                 $array[] = $object;
+            }
+        }
+    } else {
+        throw new Exception("Lỗi truy vấn: " . $stmt->error);
+    }
+    $stmt->close();
+}
+
+function getRelationById($connect, $id,  &$object)
+{
+    $stmt = $connect->prepare("SELECT * FROM relations WHERE id = ?");
+    $stmt->bind_param("i", $id);
+
+    if ($stmt->execute()) {
+        $result = $stmt->get_result();
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $object = new Relation(
+                    $row['id'],
+                    $row['champion_id'],
+                    $row['related_id'],
+                    $row['relation_type']
+                );
             }
         }
     } else {

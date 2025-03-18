@@ -24,6 +24,7 @@ try {
 </head>
 
 <body>
+    <?php require_once "./Templates/header.html"; ?>
     <main>
         <form action="../Controllers/delete-regionController.php" method="POST">
             <table>

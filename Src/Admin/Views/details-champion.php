@@ -24,9 +24,11 @@ try {
 </head>
 
 <body>
+    <?php require_once "./Templates/header.html"; ?>
     <main>
         <form action="" method="POST">
             <table>
+                <caption><?php echo $this_champion->getName(); ?></caption>
                 <tr>
                     <th>id</th>
                     <td><input type="text" name="id" value="<?php echo $this_champion->getId(); ?>" readonly></td>
@@ -71,7 +73,7 @@ try {
                     <th>position_y</th>
                     <td><input type="number" name="position_y" min="0" max="100" value="<?php echo $this_champion->getPositionY(); ?>" readonly></td>
                 </tr>
-                                <tr>
+                <tr>
                     <th></th>
                     <td>
                         <a href="./relations.php?champion_id=<?php echo $this_champion->getId(); ?>">Relations</a>

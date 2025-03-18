@@ -23,7 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $connect->prepare($query);
     $stmt->bind_param("sssssssssii", $id, $name, $region, $role, $title, $voice, $story, $splash_art, $animated_splash_art, $position_x, $position_y);
 
-    echo $role;
     if ($stmt->execute()) {
         header("Location: ../Views/champions.php");
         exit();

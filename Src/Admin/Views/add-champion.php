@@ -10,7 +10,7 @@ try {
     $connect = $database->connect();
 
     getAllRegions($connect, $regions);
-    getAllRole($connect, $roles);
+    getAllRoles($connect, $roles);
     $connect->close();
 } catch (\Throwable $th) {
 }
@@ -25,21 +25,23 @@ try {
 </head>
 
 <body>
+    <?php require_once "./Templates/header.html"; ?>
     <main>
         <form action="../Controllers/add-championController.php" method="POST">
             <table>
+                <Caption>Add new champion</Caption>
                 <tr>
                     <th>id</th>
-                    <td><input class="inputValue" type="text" name="id" required></td>
+                    <td><input type="text" name="id" required></td>
                 </tr>
                 <tr>
                     <th>name</th>
-                    <td><input class="inputValue" type="text" name="name" required></td>
+                    <td><input type="text" name="name" required></td>
                 </tr>
                 <tr>
                     <th>region</th>
                     <td>
-                        <select class="inputValue" name="region">
+                        <select name="region">
                             <?php
                             if (isset($regions)) {
                                 foreach ($regions as $region) {
@@ -57,7 +59,7 @@ try {
                 <tr>
                     <th>role</th>
                     <td>
-                        <select class="inputValue" name="role">
+                        <select name="role">
                             <?php
                             if (isset($roles)) {
                                 foreach ($roles as $role) {
@@ -74,31 +76,31 @@ try {
                 </tr>
                 <tr>
                     <th>title</th>
-                    <td><input class="inputValue" type="text" name="title" required></td>
+                    <td><input type="text" name="title" required></td>
                 </tr>
                 <tr>
                     <th>voice</th>
-                    <td><input class="inputValue" type="text" name="voice" required></td>
+                    <td><input type="text" name="voice" required></td>
                 </tr>
                 <tr>
                     <th>story</th>
-                    <td><input class="inputValue" type="text" name="story" required></td>
+                    <td><input type="text" name="story" required></td>
                 </tr>
                 <tr>
                     <th>splash_art</th>
-                    <td><input class="inputValue" type="text" name="splash_art"></td>
+                    <td><input type="text" name="splash_art"></td>
                 </tr>
                 <tr>
                     <th>animated_splash_art</th>
-                    <td><input class="inputValue" type="text" name="animated_splash_art"></td>
+                    <td><input type="text" name="animated_splash_art"></td>
                 </tr>
                 <tr>
                     <th>position_x</th>
-                    <td><input class="inputValue" type="number" name="position_x" min="0" max="100" value="0"></td>
+                    <td><input type="number" name="position_x" min="0" max="100" value="0"></td>
                 </tr>
                 <tr>
                     <th>position_y</th>
-                    <td><input class="inputValue" type="number" name="position_y" min="0" max="100" value="0"></td>
+                    <td><input type="number" name="position_y" min="0" max="100" value="0"></td>
                 </tr>
                 <tr>
                     <th></th>

@@ -30,9 +30,10 @@ try {
             <caption><?php echo $championId; ?></caption>
             <thead>
                 <tr>
-                    <th><a href="../../App/Helpers/">Add</a></th>
+                    <th><a href="./add-relation.php?champion_id=<?php echo $championId; ?>">Add</a></th>
                 </tr>
                 <tr>
+                    <th></th>
                     <th>id</th>
                     <th>related_id</th>
                     <th>relation_type</th>
@@ -42,13 +43,17 @@ try {
             <tbody>
                 <?php
                 if (isset($relations)) {
-                    foreach ($relations as $relation) {
+                    foreach ($relations as $index => $relation) {
                 ?>
                         <tr>
+                            <td><?php echo $index + 1; ?></td>
                             <td><?php echo $relation->getId(); ?></td>
                             <td><?php echo $relation->getRelatedId(); ?></td>
                             <td><?php echo $relation->getRelationType(); ?></td>
-                            <td><a href="./delete_related.php?champion_id=<?php echo $relation->getId(); ?>">Delete</a></td>
+                            <td>
+                                <a href="./edit-relation.php?id=<?php echo $relation->getId(); ?>">Edit</a>
+                                <a href="./delete-relation.php?id=<?php echo $relation->getId(); ?>">Delete</a>
+                            </td>
                         </tr>
                 <?php
                     }

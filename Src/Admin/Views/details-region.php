@@ -24,6 +24,7 @@ try {
 </head>
 
 <body>
+    <?php require_once "./Templates/header.html"; ?>
     <main>
         <form action="" method="POST">
             <table>

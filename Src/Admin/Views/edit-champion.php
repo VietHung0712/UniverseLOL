@@ -28,12 +28,14 @@ try {
 </head>
 
 <body>
+    <?php require_once "./Templates/header.html"; ?>
     <main>
         <form action="../Controllers/edit-championController.php" method="POST">
             <table>
+                <caption><?php echo $this_champion->getName(); ?></caption>
                 <tr>
                     <th>id</th>
-                    <td><input class="inputValue" type="text" name="id" value="<?php echo $this_champion->getId(); ?>"></td>
+                    <td><input class="inputValue" type="text" name="id" value="<?php echo $this_champion->getId(); ?>" readonly></td>
                 </tr>
                 <tr>
                     <th>name</th>
@@ -118,7 +120,7 @@ try {
                 <tr>
                     <th></th>
                     <td>
-                        <input type="button" value="OK">
+                        <input type="button" value="Edit">
                     </td>
                 </tr>
                 <tr>

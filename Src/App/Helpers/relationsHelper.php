@@ -1,7 +1,7 @@
 <?php
-require_once "../Models/relateClass.php";
+require_once "../Models/relationClass.php";
 
-use UniverseLOL\Relate;
+use UniverseLOL\Relation;
 
 function getRelations($connect, $id,  &$array)
 {
@@ -12,7 +12,7 @@ function getRelations($connect, $id,  &$array)
         $result = $stmt->get_result();
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                $object = new Relate(
+                $object = new Relation(
                     $row['id'],
                     $row['champion_id'],
                     $row['related_id'],

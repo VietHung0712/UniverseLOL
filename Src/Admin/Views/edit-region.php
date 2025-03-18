@@ -24,12 +24,13 @@ try {
 </head>
 
 <body>
+    <?php require_once "./Templates/header.html"; ?>
     <main>
         <form action="../Controllers/edit-regionController.php" method="POST">
             <table>
                 <tr>
                     <th>id</th>
-                    <td><input type="text" name="id" value="<?php echo $this_region->getId(); ?>"></td>
+                    <td><input type="text" name="id" value="<?php echo $this_region->getId(); ?>" readonly></td>
                 </tr>
                 <tr>
                     <th>name</th>
