@@ -2,9 +2,9 @@
 <html lang="en">
 <?php
 try {
-    require_once "../../Config/database.php";
-    require_once "../Helpers/relationsHelper.php";
-    require_once "../Helpers/championsHelper.php";
+    require_once "../../Core/Config/database.php";
+    require_once "../../Core/Helpers/relationsHelper.php";
+    require_once "../../Core/Helpers/championsHelper.php";
 
     $database = new Database();
     $connect = $database->connect();

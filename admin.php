@@ -1,5 +1,5 @@
 <?php
-require_once "./Src/Config/database.php";
+require_once "./Src/Core/Config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
