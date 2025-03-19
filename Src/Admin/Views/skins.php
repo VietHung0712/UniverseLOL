@@ -3,13 +3,14 @@
 <?php
 try {
     require_once "../../Core/Config/database.php";
-    require_once "../../Core/Helpers/relationsHelper.php";
+    require_once "../../Core/Helpers/skinsHelper.php";
+    require_once "../../Assets/assets.php";
 
     $database = new Database();
     $connect = $database->connect();
 
-    $championId = $_GET['champion_id'];
-    getRelations($connect, $championId, $relations);
+    $champion = $_GET['champion'];
+    getSkins($connect, $champion, $skins);
     $connect->close();
 } catch (\Throwable $th) {
 }
@@ -27,32 +28,36 @@ try {
     <?php require_once "./Templates/header.html"; ?>
     <main>
         <table>
-            <caption>Relations: <?php echo $championId; ?></caption>
+            <caption>Skins: <?php echo $champion; ?></caption>
             <thead>
                 <tr>
-                    <th><a href="./add-relation.php?champion_id=<?php echo $championId; ?>">Add</a></th>
+                    <th><a href="./add-skin.php?champion=<?php echo $champion; ?>">Add</a></th>
                 </tr>
                 <tr>
                     <th></th>
                     <th>id</th>
-                    <th>related_id</th>
-                    <th>relation_type</th>
+                    <th>name</th>
+                    <th>splash_art</th>
+                    <th>display splash_art</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                if (isset($relations)) {
-                    foreach ($relations as $index => $relation) {
+                if (isset($skins)) {
+                    foreach ($skins as $index => $skin) {
                 ?>
                         <tr>
                             <td><?php echo $index + 1; ?></td>
-                            <td><?php echo $relation->getId(); ?></td>
-                            <td><?php echo $relation->getRelatedId(); ?></td>
-                            <td><?php echo $relation->getRelationType(); ?></td>
+                            <td><?php echo $skin->getId(); ?></td>
+                            <td><?php echo $skin->getName(); ?></td>
+                            <td><?php echo $skin->getSplashArt(); ?></td>
                             <td>
-                                <a href="./edit-relation.php?id=<?php echo $relation->getId(); ?>">Edit</a>
-                                <a href="./delete-relation.php?id=<?php echo $relation->getId(); ?>">Delete</a>
+                                <img src="<?php echo $assetsURL . "/" . $skin->getSplashArt(); ?>" alt="">
+                            </td>
+                            <td>
+                                <a href="./edit-skin.php?id=<?php echo $skin->getId(); ?>">Edit</a>
+                                <a href="./delete-skin.php?id=<?php echo $skin->getId(); ?>">Delete</a>
                             </td>
                         </tr>
                 <?php

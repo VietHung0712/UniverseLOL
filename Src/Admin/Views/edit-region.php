@@ -20,7 +20,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../Assets/Css/reset.css">
     <link rel="stylesheet" href="../../../Assets/Css/layout-admin.css">
-    <title>Details - <?php echo $this_region->getName(); ?> - Manager</title>
+    <title>Manager - League of Legends</title>
 </head>
 
 <body>

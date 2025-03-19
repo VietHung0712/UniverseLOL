@@ -20,7 +20,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../Assets/Css/reset.css">
     <link rel="stylesheet" href="../../../Assets/Css/layout-admin.css">
-    <title>Delete- Manager</title>
+    <title>Manager - League of Legends</title>
 </head>
 
 <body>
@@ -28,7 +28,7 @@ try {
     <main>
         <form action="../Controllers/delete-championController.php" method="POST">
             <table>
-                <Caption>Delete <?php echo $this_champion->getId(); ?> </Caption>
+                <Caption>Delete: <?php echo $this_champion->getId(); ?> </Caption>
                 <tr>
                     <th>id</th>
                     <td><input type="text" name="id" value="<?php echo $this_champion->getId(); ?>" readonly></td>

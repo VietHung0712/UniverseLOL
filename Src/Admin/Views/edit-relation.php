@@ -22,7 +22,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../Assets/Css/reset.css">
     <link rel="stylesheet" href="../../../Assets/Css/layout-admin.css">
-    <title>Relations - Edit - <?php echo $relation->getChampionId(); ?> - Manager</title>
+    <title>Manager - League of Legends</title>
 </head>
 
 <body>
@@ -30,7 +30,7 @@ try {
     <main>
         <form action="../Controllers/edit-relationController.php" method="POST">
             <table>
-                <caption><?php echo $relation->getChampionId(); ?></caption>
+                <caption>Edit relation: <?php echo $relation->getChampionId(); ?></caption>
                 <tr>
                     <th>id</th>
                     <td>

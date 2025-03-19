@@ -3,13 +3,12 @@
 <?php
 try {
     require_once "../../Core/Config/database.php";
-    require_once "../../Core/Helpers/championsHelper.php";
+    require_once "../../Assets/assets.php";
 
     $database = new Database();
     $connect = $database->connect();
 
-    $championId = $_GET['champion_id'];
-    getAllChampions($connect, $champions);
+    $champion = $_GET['champion'];
     $connect->close();
 } catch (\Throwable $th) {
 }
@@ -26,37 +25,31 @@ try {
 <body>
     <?php require_once "./Templates/header.html"; ?>
     <main>
-        <form action="../Controllers/add-relationController.php" method="POST">
+        <form action="../Controllers/add-skinController.php" method="POST">
             <table>
-                <caption>Add new relation: <?php echo $championId; ?></caption>
+                <caption>Add new skin: <?php echo $champion; ?></caption>
                 <tr>
-                    <th>champion_id</th>
+                    <th>champion</th>
                     <td>
-                        <input type="text" name="champion_id" value="<?php echo $championId; ?>" readonly>
+                        <input type="text" name="champion" value="<?php echo $champion; ?>" readonly>
                     </td>
                 </tr>
                 <tr>
-                    <th>related_id</th>
+                    <th>name</th>
                     <td>
-                        <select name="related_id">
-                            <?php
-                            if (isset($champions)) {
-                                foreach ($champions as $index => $champion) {
-                                    if ($championId !== $champion->getId()) {
-                            ?>
-                                        <option value="<?php echo $champion->getId(); ?>"><?php echo $champion->getId(); ?></option>
-                            <?php
-                                    }
-                                }
-                            }
-                            ?>
-                        </select>
+                        <input type="text" name="name" required>
                     </td>
                 </tr>
                 <tr>
-                    <th>relation_type</th>
+                    <th>splash_art</th>
                     <td>
-                        <input type="text" name="relation_type">
+                        <input class="inputSA" type="text" name="splash_art" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>display splash_art</th>
+                    <td>
+                        <img src="" alt="">
                     </td>
                 </tr>
                 <tr>
@@ -72,7 +65,7 @@ try {
                 <tr>
                     <th></th>
                     <td>
-                        <a href="./relations.php?champion_id=<?php echo $championId; ?>">Cancel</a>
+                        <a href="./skins.php?champion=<?php echo $champion; ?>">Cancel</a>
                     </td>
                 </tr>
             </table>
@@ -81,3 +74,13 @@ try {
 </body>
 
 </html>
+<script>
+    const inputSrc = document.querySelector('.inputSA');
+    const img = document.querySelector('td>img');
+    const assetsURL = "<?php echo $assetsURL; ?>";
+
+    inputSrc.addEventListener("input", () => {
+        let url = inputSrc.value;
+        img.src = assetsURL + '/' + url;
+    });
+</script>

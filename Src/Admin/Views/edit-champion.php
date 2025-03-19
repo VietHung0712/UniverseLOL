@@ -24,7 +24,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../Assets/Css/reset.css">
     <link rel="stylesheet" href="../../../Assets/Css/layout-admin.css">
-    <title>Edit - <?php echo $this_champion->getName(); ?> - Manager</title>
+    <title>Manager - League of Legends</title>
 </head>
 
 <body>
@@ -32,7 +32,7 @@ try {
     <main>
         <form action="../Controllers/edit-championController.php" method="POST">
             <table>
-                <caption><?php echo $this_champion->getName(); ?></caption>
+                <caption>Edit: <?php echo $this_champion->getName(); ?></caption>
                 <tr>
                     <th>id</th>
                     <td><input class="inputValue" type="text" name="id" value="<?php echo $this_champion->getId(); ?>" readonly></td>

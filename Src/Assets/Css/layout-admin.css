@@ -5,8 +5,8 @@ body {
 }
 
 main {
-    width: 60%;
-    margin: 50px auto;
+    width: 70%;
+    margin: 70px auto;
     padding: 30px;
     background: rgba(10, 10, 20, 0.95);
     border: 3px solid #c8aa6e;
@@ -21,6 +21,7 @@ table {
 }
 
 caption {
+    width: 100%;
     font-size: 24px;
     font-weight: bold;
     color: #000000;
@@ -33,7 +34,7 @@ caption {
 th, td {
     padding: 15px;
     border: 1px solid #c8aa6e;
-    text-align: left;
+    /* text-align: left; */
     font-size: 18px;
 }
 
@@ -45,6 +46,10 @@ th {
 
 td {
     background: rgba(20, 20, 30, 0.8);
+    img {
+        width: 100%;
+        height: 100%;
+    }
 }
 input[type="text"], input[type="number"], input[type="password"], select {
     width: 100%;
