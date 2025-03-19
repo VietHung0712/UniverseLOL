@@ -28,38 +28,39 @@ try {
     <main>
         <form action="../Controllers/edit-regionController.php" method="POST">
             <table>
+                <caption>Edit: <?php echo $this_region->getId(); ?></caption>
                 <tr>
                     <th>id</th>
                     <td><input type="text" name="id" value="<?php echo $this_region->getId(); ?>" readonly></td>
                 </tr>
                 <tr>
                     <th>name</th>
-                    <td><input type="text" name="name" value="<?php echo $this_region->getName(); ?>"></td>
+                    <td><input type="text" name="name" value="<?php echo $this_region->getName(); ?>" required></td>
                 </tr>
                 <tr>
                     <th>story</th>
-                    <td><input type="text" name="story" value="<?php echo $this_region->getStory(); ?>"></td>
+                    <td><input type="text" name="story" value="<?php echo $this_region->getStory(); ?>" required></td>
                 </tr>
                 <tr>
                     <th>icon</th>
-                    <td><input type="text" name="icon" value="<?php echo $this_region->getIcon(); ?>"></td>
+                    <td><input type="text" name="icon" value="<?php echo $this_region->getIcon(); ?>" required></td>
                 </tr>
                 <tr>
                     <th>avatar</th>
-                    <td><input type="text" name="avatar" value="<?php echo $this_region->getAvatar(); ?>"></td>
+                    <td><input type="text" name="avatar" value="<?php echo $this_region->getAvatar(); ?>" required></td>
                 </tr>
                 <tr>
                     <th>background</th>
-                    <td><input type="text" name="background" value="<?php echo $this_region->getBackground(); ?>"></td>
+                    <td><input type="text" name="background" value="<?php echo $this_region->getBackground(); ?>" required></td>
                 </tr>
                 <tr>
                     <th>animated_background</th>
-                    <td><input type="text" name="animated_background" value="<?php echo $this_region->getAnimatedBackground(); ?>"></td>
+                    <td><input type="text" name="animated_background" value="<?php echo $this_region->getAnimatedBackground(); ?>" required></td>
                 </tr>
                 <tr>
                     <th></th>
                     <td>
-                        <input type="button" value="OK">
+                        <input type="button" value="Edit">
                     </td>
                 </tr>
                 <tr>
@@ -84,7 +85,7 @@ try {
 
     btnSubmit.addEventListener('click', () => {
         if (confirm("Confirm edit?")) {
-            form.submit();
+            form.requestSubmit();
         }
     })
 </script>

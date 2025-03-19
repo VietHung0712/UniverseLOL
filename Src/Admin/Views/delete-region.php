@@ -28,6 +28,7 @@ try {
     <main>
         <form action="../Controllers/delete-regionController.php" method="POST">
             <table>
+                <caption>Delete: <?php echo $this_region->getId(); ?></caption>
                 <tr>
                     <th>id</th>
                     <td><input type="text" name="id" value="<?php echo $this_region->getId(); ?>" readonly></td>

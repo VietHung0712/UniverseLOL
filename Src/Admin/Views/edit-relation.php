@@ -99,7 +99,7 @@ try {
 
     btnSubmit.addEventListener('click', () => {
         if (confirm("Confirm edit?")) {
-            form.submit();
+            form.requestSubmit();
         }
     })
 </script>

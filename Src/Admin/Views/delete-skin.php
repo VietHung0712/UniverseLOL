@@ -27,9 +27,9 @@ try {
 <body>
     <?php require_once "./Templates/header.html"; ?>
     <main>
-        <form action="../Controllers/edit-skinController.php" method="POST">
+        <form action="../Controllers/delete-skinController.php" method="POST">
             <table>
-                <caption>Edit skin: <?php echo $skin->getChampion(); ?></caption>
+                <caption>Delete skin: <?php echo $skin->getChampion(); ?></caption>
                 <tr>
                     <th>id</th>
                     <td>
@@ -45,13 +45,13 @@ try {
                 <tr>
                     <th>name</th>
                     <td>
-                        <input type="text" name="name" value="<?php echo $skin->getName(); ?>" required>
+                        <input type="text" name="name" value="<?php echo $skin->getName(); ?>" readonly>
                     </td>
                 </tr>
                 <tr>
                     <th>splash_art</th>
                     <td>
-                        <input class="inputSA" type="text" name="splash_art" value="<?php echo $skin->getSplashArt(); ?>" required>
+                        <input class="inputSA" type="text" name="splash_art" value="<?php echo $skin->getSplashArt(); ?>" readonly>
                     </td>
                 </tr>
                 <tr>
@@ -63,12 +63,8 @@ try {
                 <tr>
                     <th></th>
                     <td>
-                        <input type="button" value="Edit">
+                        <input type="button" value="Delete">
                     </td>
-                </tr>
-                <tr>
-                    <th></th>
-                    <td><input type="reset" value="Reset"></td>
                 </tr>
                 <tr>
                     <th></th>
@@ -90,19 +86,15 @@ try {
     const form = document.querySelector('form');
 
     btnSubmit.addEventListener('click', () => {
-        if (confirm("Confirm edit?")) {
-            form.requestSubmit();
+        if (confirm("Confirm delete?")) {
+            form.submit();
         }
     })
 
-    function getSrc() {
+    function getSrc(){
         let url = inputSrc.value;
         img.src = assetsURL + '/' + url;
     }
-
-    inputSrc.addEventListener("input", () => {
-        getSrc();
-    });
 
     getSrc();
 </script>

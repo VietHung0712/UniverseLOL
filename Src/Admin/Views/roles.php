@@ -2,7 +2,15 @@
 <html lang="en">
 <?php
 try {
-    require_once "../Controllers/regionsController.php";
+    require_once "../../Core/Config/database.php";
+    require_once "../../Core/Helpers/rolesHelper.php";
+    require_once "../../Assets/assets.php";
+
+    $database = new Database();
+    $connect = $database->connect();
+
+    getAllRoles($connect, $roles);
+    $connect->close();
 } catch (\Throwable $th) {
 }
 ?>
@@ -19,31 +27,32 @@ try {
     <?php require_once "./Templates/header.html"; ?>
     <main>
         <table>
-            <caption>Regions</caption>
+            <caption>Roles</caption>
             <thead>
-                <tr>
-                    <th><a href="./add-region.php">Add</a></th>
-                </tr>
                 <tr>
                     <th></th>
                     <th>id</th>
                     <th>name</th>
+                    <th>icon</th>
+                    <th>display icon</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                if (isset($regions)) {
-                    foreach ($regions as $index => $region) {
+                if (isset($roles)) {
+                    foreach ($roles as $index => $role) {
                 ?>
                         <tr>
                             <td><?php echo $index + 1; ?></td>
-                            <td><?php echo $region->getId(); ?></td>
-                            <td><?php echo $region->getName(); ?></td>
+                            <td><?php echo $role->getId(); ?></td>
+                            <td><?php echo $role->getName(); ?></td>
+                            <td><?php echo $role->getIcon(); ?></td>
                             <td>
-                                <a href="./details-region.php?region=<?php echo $region->getId(); ?>">Details</a>
-                                <a href="./edit-region.php?region=<?php echo $region->getId(); ?>">Edit</a>
-                                <a href="./delete-region.php?region=<?php echo $region->getId(); ?>">Delete</a>
+                                <img src="<?php echo $assetsURL . "/" . $role->getIcon(); ?>" alt="">
+                            </td>
+                            <td>
+                                <a href="./edit-role.php?id=<?php echo $role->getId(); ?>">Edit</a>
                             </td>
                         </tr>
                 <?php

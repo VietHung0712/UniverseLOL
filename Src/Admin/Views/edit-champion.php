@@ -35,16 +35,16 @@ try {
                 <caption>Edit: <?php echo $this_champion->getName(); ?></caption>
                 <tr>
                     <th>id</th>
-                    <td><input class="inputValue" type="text" name="id" value="<?php echo $this_champion->getId(); ?>" readonly></td>
+                    <td><input type="text" name="id" value="<?php echo $this_champion->getId(); ?>" readonly></td>
                 </tr>
                 <tr>
                     <th>name</th>
-                    <td><input class="inputValue" type="text" name="name" value="<?php echo $this_champion->getName(); ?>"></td>
+                    <td><input type="text" name="name" value="<?php echo $this_champion->getName(); ?>" required></td>
                 </tr>
                 <tr>
                     <th>region</th>
                     <td>
-                        <select class="inputValue" name="region">
+                        <select name="region">
                             <?php
                             if (isset($regions)) {
                                 foreach ($regions as $index => $region) {
@@ -68,7 +68,7 @@ try {
                 </tr>
                 <tr>
                     <th>role</th>
-                    <td><select class="inputValue" name="role">
+                    <td><select name="role">
                             <?php
                             if (isset($roles)) {
                                 foreach ($roles as $index => $role) {
@@ -91,31 +91,31 @@ try {
                 </tr>
                 <tr>
                     <th>title</th>
-                    <td><input class="inputValue" type="text" name="title" value="<?php echo $this_champion->getTitle(); ?>"></td>
+                    <td><input type="text" name="title" value="<?php echo $this_champion->getTitle(); ?>" required></td>
                 </tr>
                 <tr>
                     <th>voice</th>
-                    <td><input class="inputValue" type="text" name="voice" value="<?php echo $this_champion->getVoice(); ?>"></td>
+                    <td><input type="text" name="voice" value="<?php echo $this_champion->getVoice(); ?>" required></td>
                 </tr>
                 <tr>
                     <th>story</th>
-                    <td><input class="inputValue" type="text" name="story" value="<?php echo $this_champion->getStory(); ?>"></td>
+                    <td><input type="text" name="story" value="<?php echo $this_champion->getStory(); ?>" required></td>
                 </tr>
                 <tr>
                     <th>splash_art</th>
-                    <td><input class="inputValue" type="text" name="splash_art" value="<?php echo $this_champion->getSplashArt(); ?>"></td>
+                    <td><input type="text" name="splash_art" value="<?php echo $this_champion->getSplashArt(); ?>" required></td>
                 </tr>
                 <tr>
                     <th>animated_splash_art</th>
-                    <td><input class="inputValue" type="text" name="animated_splash_art" value="<?php echo $this_champion->getAnimatedSplashArt(); ?>"></td>
+                    <td><input type="text" name="animated_splash_art" value="<?php echo $this_champion->getAnimatedSplashArt(); ?>"></td>
                 </tr>
                 <tr>
                     <th>position_x</th>
-                    <td><input class="inputValue" type="number" name="position_x" min="0" max="100" value="<?php echo $this_champion->getPositionX(); ?>"></td>
+                    <td><input type="number" name="position_x" min="0" max="100" value="<?php echo $this_champion->getPositionX(); ?>"></td>
                 </tr>
                 <tr>
                     <th>position_y</th>
-                    <td><input class="inputValue" type="number" name="position_y" min="0" max="100" value="<?php echo $this_champion->getPositionY(); ?>"></td>
+                    <td><input type="number" name="position_y" min="0" max="100" value="<?php echo $this_champion->getPositionY(); ?>"></td>
                 </tr>
                 <tr>
                     <th></th>
@@ -145,7 +145,7 @@ try {
 
     btnSubmit.addEventListener('click', () => {
         if (confirm("Confirm edit?")) {
-            form.submit();
+            form.requestSubmit();
         }
     })
 </script>

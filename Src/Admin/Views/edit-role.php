@@ -3,14 +3,13 @@
 <?php
 try {
     require_once "../../Core/Config/database.php";
-    require_once "../../Core/Helpers/skinsHelper.php";
-    require_once "../../Assets/assets.php";
+    require_once "../../Core/Helpers/rolesHelper.php";
 
     $database = new Database();
     $connect = $database->connect();
 
-    $id = $_GET['id'];
-    getSkinById($connect, $id, $skin);
+    $roleId = $_GET['id'];
+    getRole($connect, $roleId, $role);
     $connect->close();
 } catch (\Throwable $th) {
 }
@@ -27,37 +26,25 @@ try {
 <body>
     <?php require_once "./Templates/header.html"; ?>
     <main>
-        <form action="../Controllers/edit-skinController.php" method="POST">
+        <form action="../Controllers/edit-roleController.php" method="POST">
             <table>
-                <caption>Edit skin: <?php echo $skin->getChampion(); ?></caption>
+                <caption>Edit role: <?php echo $role->getId(); ?></caption>
                 <tr>
                     <th>id</th>
                     <td>
-                        <input type="text" name="id" value="<?php echo $skin->getId(); ?>" readonly>
-                    </td>
-                </tr>
-                <tr>
-                    <th>champion</th>
-                    <td>
-                        <input type="text" name="champion" value="<?php echo $skin->getChampion(); ?>" readonly>
+                        <input type="text" name="id" value="<?php echo $role->getId(); ?>" readonly>
                     </td>
                 </tr>
                 <tr>
                     <th>name</th>
                     <td>
-                        <input type="text" name="name" value="<?php echo $skin->getName(); ?>" required>
+                        <input type="text" name="name" value="<?php echo $role->getName(); ?>" readonly>
                     </td>
                 </tr>
                 <tr>
-                    <th>splash_art</th>
+                    <th>icon</th>
                     <td>
-                        <input class="inputSA" type="text" name="splash_art" value="<?php echo $skin->getSplashArt(); ?>" required>
-                    </td>
-                </tr>
-                <tr>
-                    <th>display splash_art</th>
-                    <td>
-                        <img src="" alt="">
+                        <input type="text" name="icon" value="<?php echo $role->getIcon(); ?>" required>
                     </td>
                 </tr>
                 <tr>
@@ -73,7 +60,7 @@ try {
                 <tr>
                     <th></th>
                     <td>
-                        <a href="./skins.php?champion=<?php echo $skin->getChampion(); ?>">Cancel</a>
+                        <a href="./roles.php">Cancel</a>
                     </td>
                 </tr>
             </table>
@@ -83,9 +70,6 @@ try {
 
 </html>
 <script>
-    const inputSrc = document.querySelector('.inputSA');
-    const img = document.querySelector('td>img');
-    const assetsURL = "<?php echo $assetsURL; ?>";
     const btnSubmit = document.querySelector('input[type=button]');
     const form = document.querySelector('form');
 
@@ -94,15 +78,4 @@ try {
             form.requestSubmit();
         }
     })
-
-    function getSrc() {
-        let url = inputSrc.value;
-        img.src = assetsURL + '/' + url;
-    }
-
-    inputSrc.addEventListener("input", () => {
-        getSrc();
-    });
-
-    getSrc();
 </script>
