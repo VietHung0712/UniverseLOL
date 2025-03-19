@@ -1,5 +1,5 @@
 <?php
-require_once "../../App/Models/relationClass.php";
+require_once "../Models/relationClass.php";
 
 use UniverseLOL\Relation;
 

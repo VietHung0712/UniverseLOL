@@ -1,5 +1,5 @@
 <?php
-require_once "../../Config/database.php";
+require_once "../../Core/Config/database.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $champion_id = $_POST['champion_id'];
