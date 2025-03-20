@@ -31,6 +31,7 @@ caption {
     border-top-right-radius: 10px;
 }
 
+
 th, td {
     padding: 15px;
     border: 1px solid #c8aa6e;
@@ -52,7 +53,7 @@ td {
         object-fit: contain;
     }
 }
-input[type="text"], input[type="number"], input[type="password"], select {
+input[type="text"], input[type="number"], input[type="password"], input[type="search"], select {
     width: 100%;
     padding: 10px;
     background: rgba(20, 20, 40, 0.85);

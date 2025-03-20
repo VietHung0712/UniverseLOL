@@ -23,6 +23,10 @@ try {
             <thead>
                 <tr>
                     <th><a href="./add-champion.php">Add</a></th>
+                    <th><input type="search"></th>
+                </tr>
+                <tr>
+
                 </tr>
                 <tr>
                     <th></th>
@@ -36,7 +40,7 @@ try {
                 if (isset($champions)) {
                     foreach ($champions as $index => $champion) {
                 ?>
-                        <tr>
+                        <tr class="rowData" data-id="<?php echo $champion->getId(); ?>">
                             <td><?php echo $index + 1; ?></td>
                             <td><?php echo $champion->getId(); ?></td>
                             <td><?php echo $champion->getName(); ?></td>
@@ -56,3 +60,13 @@ try {
 </body>
 
 </html>
+<script src="../../../Assets/Javascript/function.js"></script>
+<script>
+    const inputSearch = $('input[type="search"]');
+    const rowsData = $$('.rowData');
+
+    inputSearch.addEventListener('input', () => {
+        const searchValue = inputSearch.value.trim().toLowerCase();
+        filterSearch(searchValue, rowsData, 'table-row');
+    });
+</script>

@@ -1,17 +1,5 @@
-function filterSearch() {
-    const searchValue = $('.search__border>input').value.trim().toLowerCase();
-    $$('.main__list--body>.item').forEach((champion) => {
-        const testSearch = searchValue === '' || champion.dataset.id.trim().toLowerCase().startsWith(searchValue);
-        if (testSearch) {
-            champion.style.display = 'flex';
-        } else {
-            champion.style.display = 'none';
-        }
-    });
-    if (window.innerWidth > 768) {
-        updateGrid();
-    }
-}
+const champions = $$('.main__list--body>.item');
+const inputSearch = $('.search__border>input');
 
 function updateGrid() {
     const visibleItems = $$(".main__list--body>.item:not([style*='display: none'])");
@@ -25,4 +13,10 @@ function updateGrid() {
     }
 }
 
-$('.search__border>input').addEventListener('input', filterSearch);
+inputSearch.addEventListener('input', () => {
+    const searchValue = inputSearch.value.trim().toLowerCase();
+    filterSearch(searchValue, champions, 'flex');
+    if (window.innerWidth > 768) {
+        updateGrid();
+    }
+});

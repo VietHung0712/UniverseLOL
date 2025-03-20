@@ -50,6 +50,17 @@ function viewPort(sections, item) {
     });
 }
 
+function filterSearch(searchValue, items, displayValue) {
+    items.forEach((item) => {
+        const testSearch = searchValue === '' || item.dataset.id.trim().toLowerCase().startsWith(searchValue);
+        if (testSearch) {
+            item.style.display = displayValue;
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
+
 function createElementScriptHeader() {
     let script = document.createElement("script");
     script.src = "../../Assets/Javascript/header.js";
