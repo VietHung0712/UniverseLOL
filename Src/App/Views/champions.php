@@ -27,7 +27,11 @@ try {
             <div class="search__border">
                 <img src="<?php echo $assetsURL; ?>/Icon/content_type_icon_champion__3nwJQ.png" alt="">
                 <input type="search" placeholder="Find a champion">
-                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-filter fa-solid"></i>
+                <select name="sort">
+                    <option value="">A->Z</option>
+                    <option value="">Region</option>
+                </select>
             </div>
         </section>
         <section class="main__list">
@@ -43,7 +47,8 @@ try {
                         <a
                             href="./champion.php?champion=<?php echo $champion->getId(); ?>"
                             class="item transition"
-                            data-id="<?php echo $champion->getId(); ?>">
+                            data-id="<?php echo $champion->getId(); ?>"
+                            data-region="<?php echo $champion->getRegion(); ?>">
                             <div class="item__img transition" style="background-image: url(<?php echo $assetsURL . "/" . $champion->getSplashArt(); ?>);
                                     background-position: <?php echo $champion->getPositionX() . '% ' . $champion->getPositionY() . '%'; ?>;"></div>
                             <div class="item__inf transition">
@@ -52,7 +57,7 @@ try {
                             </div>
                             <div class="item__explore transition">
                                 <h5>Explore</h5>
-                                <i class="fa-solid fa-right-long"></i>
+                                <i class="fa-right-long fa-solid"></i>
                             </div>
                         </a>
                 <?php

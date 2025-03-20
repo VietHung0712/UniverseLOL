@@ -1,5 +1,6 @@
 const champions = $$('.main__list--body>.item');
 const inputSearch = $('.search__border>input');
+const selectSort = $('.search__border>select');
 
 function updateGrid() {
     const visibleItems = $$(".main__list--body>.item:not([style*='display: none'])");
@@ -19,4 +20,22 @@ inputSearch.addEventListener('input', () => {
     if (window.innerWidth > 768) {
         updateGrid();
     }
+});
+
+selectSort.addEventListener('change', () => {
+    let index = selectSort.selectedIndex;
+
+    const championsElement = Array.from(champions);
+
+    if (index == 0) {
+        championsElement.sort((a, b) => b.dataset.id - a.dataset.id);
+    } else if (index == 1) {
+        championsElement.sort((a, b) => a.dataset.region.localeCompare(b.dataset.region));
+    }
+
+    const parent = $('.main__list--body');
+    parent.innerHTML = '';
+    championsElement.forEach((champion) => {
+        parent.appendChild(champion);
+    });
 });
