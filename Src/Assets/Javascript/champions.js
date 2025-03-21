@@ -47,7 +47,7 @@ window.addEventListener("scroll", function () {
     let currentScrollY = window.scrollY;
 
     if (currentScrollY > lastScrollY) {
-        search.style.top = '70px';
+        search.style.top = 'calc(70px + 1vh)';
     } else if (currentScrollY < lastScrollY) {
         search.style.top = 'calc(70px + 6vh)';
     }
