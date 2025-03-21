@@ -1,6 +1,7 @@
 const champions = $$('.main__list--body>.item');
 const inputSearch = $('.search__border>input');
 const selectSort = $('.search__border>select');
+const search = $('.search');
 
 function updateGrid() {
     const visibleItems = $$(".main__list--body>.item:not([style*='display: none'])");
@@ -38,4 +39,18 @@ selectSort.addEventListener('change', () => {
     championsElement.forEach((champion) => {
         parent.appendChild(champion);
     });
+});
+
+let lastScrollY = window.scrollY;
+
+window.addEventListener("scroll", function () {
+    let currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY) {
+        search.style.top = '70px';
+    } else if (currentScrollY < lastScrollY) {
+        search.style.top = 'calc(70px + 6vh)';
+    }
+    
+    lastScrollY = currentScrollY;
 });

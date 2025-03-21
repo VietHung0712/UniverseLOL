@@ -23,7 +23,7 @@ try {
     <header id="header"></header>
     <main id="main">
         <div class="background" style="background-image: linear-gradient(to bottom, #000,rgba(0, 0, 0, 0.7), #000), url(<?php echo $assetsURL; ?>/Others/championsBackground.jpg);"></div>
-        <section class="search">
+        <section class="search transition">
             <div class="search__border">
                 <img src="<?php echo $assetsURL; ?>/Icon/content_type_icon_champion__3nwJQ.png" alt="">
                 <input type="search" placeholder="Find a champion">

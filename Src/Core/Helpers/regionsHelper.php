@@ -54,11 +54,13 @@ function getRegion($connect, $value,  &$region)
 function getRegionName($regionId)
 {
     global $regions;
+    $value = "";
     if (is_array($regions) && !empty($regions)) {
         foreach ($regions as $region) {
             if ($region->getId() == $regionId) {
-                return $region->getName();
+                $value = $region->getName();
             }
         }
     }
+    return $value;
 }
