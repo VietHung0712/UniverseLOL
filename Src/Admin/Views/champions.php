@@ -46,7 +46,8 @@ try {
                             <td><?php echo $champion->getName(); ?></td>
                             <td>
                                 <a href="./details-champion.php?champion=<?php echo $champion->getId(); ?>">Details</a>
-                                <a href="./edit-champion.php?champion=<?php echo $champion->getId(); ?>">Edit</a>
+                                <a href="./relations.php?champion_id=<?php echo $champion->getId(); ?>">Relations</a>
+                                <a href="./skins.php?champion=<?php echo $champion->getId(); ?>">Skins</a>
                                 <a href="./delete-champion.php?champion=<?php echo $champion->getId(); ?>">Delete</a>
                             </td>
                         </tr>

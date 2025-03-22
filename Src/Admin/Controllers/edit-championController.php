@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt->bind_param("ssssssssiis", $name, $region, $role, $title, $voice, $story, $splash_art, $animated_splash_art, $position_x, $position_y, $id);
 
     if ($stmt->execute()) {
-        header("Location: ../Views/champions.php");
+        header("Location: ../Views/details-champion.php?champion=$id");
         exit();
     } else {
         echo "Error: " . $stmt->error;

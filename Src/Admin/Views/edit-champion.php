@@ -130,7 +130,7 @@ try {
                 <tr>
                     <th></th>
                     <td>
-                        <a href="./champions.php">Cancel</a>
+                        <a href="./details-champion.php?champion=<?php echo $this_champion->getId(); ?>">Cancel</a>
                     </td>
                 </tr>
             </table>

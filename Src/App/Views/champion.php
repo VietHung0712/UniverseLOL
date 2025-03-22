@@ -35,11 +35,11 @@ try {
         </section>
         <section id="content">
             <div>
-                <div class="story__gird">
-                    <div>
+                <ul class="story__gird">
+                    <li>
                         <h4>Related Champions</h4>
-                    </div>
-                    <div>
+                    </li>
+                    <li>
                         <div class="relatedChampions__border">
                             <?php
                             if (isset($relations)) {
@@ -58,8 +58,8 @@ try {
                             ?>
 
                         </div>
-                    </div>
-                    <div>
+                    </li>
+                    <li>
                         <div class="story__gird--avatar" style="background-image: url(<?php echo $assetsURL; ?>/Icon/ChampionIconFrame.jpg);">
                             <div>
                                 <div class="story__gird--border">
@@ -70,19 +70,19 @@ try {
                         <h2>"<?php echo $this_champion->getVoice(); ?>"</h2>
 
                         <h3>~<?php echo $this_champion->getName(); ?></h3>
-                    </div>
-                    <div>
-                        <div style="background: url(<?php echo $assetsURL . '/' . $this_champion->getSplashArt(); ?>) <?php echo $this_champion->getPositionX() . '%' . ' ' . $this_champion->getPositionY() . '%'; ?> /cover no-repeat;"></div>
+                    </li>
+                    <li>
+                        <div  style="background-image: url(<?php echo $assetsURL . '/' . $this_champion->getSplashArt(); ?>); background-position: <?php echo $this_champion->getPositionX() . '%' . ' ' . $this_champion->getPositionY() . '%'; ?>;"></div>
                         <p><?php echo $this_champion->getStory(); ?></p>
-                    </div>
-                    <div>
+                    </li>
+                    <li>
                         <img src="<?php echo $assetsURL . '/' . $this_role->getIcon(); ?>" alt="">
                         <div>
                             <h4>Role</h4>
                             <h4><?php echo $this_champion->getRole(); ?></h4>
                         </div>
-                    </div>
-                    <div class="transition">
+                    </li>
+                    <li class="transition">
                         <div style="background: linear-gradient(to bottom, #000000d0, #000000d0), url(<?php echo $assetsURL . '/' . $this_region->getBackground(); ?>) center /cover no-repeat;"></div>
                         <div class="story__gird--region-img transition" style="background: url(<?php echo $assetsURL . '/' . $this_region->getAvatar(); ?>) center /contain no-repeat;"></div>
                         <div class="story__gird--region-info story__gird--region-content transition">
@@ -95,8 +95,8 @@ try {
                         <a href="region.php?region=<?php echo $this_region->getId(); ?>" class="story__gird--region-view story__gird--region-content transition">
                             <h4>View Region<i class='fa-solid fa-arrow-right'></i></h4>
                         </a>
-                    </div>
-                </div>
+                    </li>
+                </ul>
             </div>
         </section>
         <section id="skins">

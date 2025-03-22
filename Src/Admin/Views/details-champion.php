@@ -75,13 +75,7 @@ try {
             <tr>
                 <th></th>
                 <td>
-                    <a href="./relations.php?champion_id=<?php echo $this_champion->getId(); ?>">Relations</a>
-                </td>
-            </tr>
-            <tr>
-                <th></th>
-                <td>
-                    <a href="./skins.php?champion=<?php echo $this_champion->getId(); ?>">Skins</a>
+                    <a href="./edit-champion.php?champion=<?php echo $this_champion->getId(); ?>">Edit</a>
                 </td>
             </tr>
             <tr>
