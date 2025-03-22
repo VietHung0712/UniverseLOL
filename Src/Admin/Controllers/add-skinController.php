@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sss", $champion, $name, $splash_art);
 
     if ($stmt->execute()) {
-        header("Location: ../Views/skins.php?champion_id=$champion");
+        header("Location: ../Views/skins.php?champion=$champion");
         exit();
     } else {
         echo "Error: " . $stmt->error;
