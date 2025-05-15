@@ -1,48 +1,57 @@
-<a class='logo-lol-header' href='./dashboard.html'
-    style="background-image: url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Icon/League_of_Legends_icon.svg);"></a>
-<h3 class='lol-universe'>Universe</h3>
-<div id='border-nav' class='border-nav'>
-    <ul id='nav' class='nav'>
-        <li><a href='./dashboard.html'>HOME</a>
-            <div class='heading-border'></div>
-        </li>
-        <li><a href='./champions.php'>CHAMPIONS</a>
-            <div class='heading-border'></div>
-        </li>
-        <li><a href='./regions.php'>REGIONS</a>
-            <div class='heading-border'></div>
-        </li>
-        <li class='nav-item'>
-            <a>ALT UNIVERSE
-                <i class='nav-arrow-down fa-solid fa-sort-down'></i>
-            </a>
-            <ul class='subnav'>
-                <li><a href="./kda.html">K/DA</a></li>
-                <li><a href="./mythmaker.html">Mythmaker</a></li>
-                <li><a href="./shan-hai-srcolls.html">Shan Hai Scrolls</a></li>
-            </ul>
-            <div class='heading-border'></div>
-        </li>
-        <li class='nav-item'>
-            <a>MORE
-                <i class='nav-arrow-down fa-solid fa-sort-down'></i>
-            </a>
-            <ul class='subnav'>
-                <li>
-                    <a target="_blank" rel="noopener noreferrer"
-                        href='https://www.leagueoflegends.com/en-us/?utm_medium=card1%2Bplayruneterra.com&utm_source=riotbar'>
-                        Riot Games
+<nav class="navbar navbar-expand-lg h-100" data-bs-theme="dark">
+    <div class="container-fluid" style="background-color: #111111;">
+        <a class="navbar-brand ms-3 me-3 float-start h-100 d-flex align-items-center" href="./dashboard.html">
+            <img src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Icon/League_of_Legends_icon.svg"
+                alt="Logo" class="object-fit-contain">
+        </a>
+        <h3 class="float-start d-block">Universe</h3>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item h-75 m-2">
+                    <a class="nav-link h-100 w-100 d-flex align-items-center p-0" href="./dashboard.html">
+                        <p class="text-white d-block m-0 text-uppercase w-100 px-3 py-2">Home</p>
                     </a>
                 </li>
-                <li>
-                    <a target="_blank" rel="noopener noreferrer" href='../../../admin.php'>
-                        Manager
+                <li class="nav-item h-75 m-2">
+                    <a class="nav-link h-100 w-100 d-flex align-items-center p-0" href="./champions.php">
+                        <p class="text-white d-block m-0 text-uppercase w-100 px-3 py-2">Champions</p>
                     </a>
                 </li>
+                <li class="nav-item h-75 m-2">
+                    <a class="nav-link h-100 w-100 d-flex align-items-center p-0" href="./regions.php">
+                        <p class="text-white d-block m-0 text-uppercase w-100 px-3 py-2">Regions</p>
+                    </a>
+                </li>
+
+                <li class="nav-item dropdown h-75 m-2">
+                    <a class="nav-link dropdown-toggle h-100 w-100 d-flex align-items-center p-0 text-white text-uppercase"
+                        href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Alt Universe
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="./kda.html">K/DA</a></li>
+                        <li><a class="dropdown-item" href="./shan-hai-srcolls.html">Shan Hai Scrolls</a></li>
+                        <li><a class="dropdown-item" href="./mythmaker.html">Mythmaker</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown h-75 m-2">
+                    <a class="nav-link dropdown-toggle h-100 w-100 d-flex align-items-center p-0 text-white text-uppercase"
+                        href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        More
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a target="_blank" rel="noopener noreferrer" class="dropdown-item"
+                                href="https://www.leagueoflegends.com/en-us/?utm_medium=card1%2Bplayruneterra.com&utm_source=riotbar">Riot
+                                Games</a></li>
+                        <li><a target="_blank" rel="noopener noreferrer" class="dropdown-item"
+                                href="../../../admin.php">Manager</a></li>
+                    </ul>
+                </li>
             </ul>
-            <div class='heading-border'></div>
-        </li>
-    </ul>
-</div>
-<button id='menubar-btn' class='menubar-btn'><i class='fa-solid fa-bars'></i></button>
-<button id='menubar-btn-close' class='menubar-btn-close menubar-btn'><i class='fa-solid fa-xmark'></i></button>
+        </div>
+    </div>
+</nav>
