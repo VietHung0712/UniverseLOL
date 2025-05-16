@@ -1,13 +1,12 @@
 <?php
-require_once "./Src/Core/Config/database.php";
+require_once "./Src/App/Config/config.php";
 try {
-    $database = new Database();
-    $connect = $database->connect();
+    $config = new Config();
+    $connect = $config->connect();
     $connect->close();
     header("Location: ./Src/App/Views/dashboard.html");
     exit();
 } catch (\Throwable $th) {
-    //throw $th;
 }
 
 ?>

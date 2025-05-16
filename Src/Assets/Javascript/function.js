@@ -1,17 +1,17 @@
-const $ = document.querySelector.bind(document);
-const $$ = document.querySelectorAll.bind(document);
+export const $ = document.querySelector.bind(document);
+export const $$ = document.querySelectorAll.bind(document);
 
-function EventToggle(object) {
+export function EventToggle(object) {
     object.classList.toggle("active");
 }
-function EventAddActive(object) {
+export function EventAddActive(object) {
     object.classList.add("active");
 }
-function EventRemoveActive(object) {
+export function EventRemoveActive(object) {
     object.classList.remove("active");
 }
 
-function scrollToCenter(element, container) {
+export function scrollToCenter(element, container) {
     if (element) {
         const containerRect = container.getBoundingClientRect();
         const elementRect = element.getBoundingClientRect();
@@ -21,7 +21,7 @@ function scrollToCenter(element, container) {
     }
 }
 
-function scrollMouseList(container) {
+export function scrollMouseList(container) {
     let isDragging = false, startX, scrollLeft;
     container.addEventListener('mousedown', e => {
         isDragging = true;
@@ -37,7 +37,7 @@ function scrollMouseList(container) {
     });
 }
 
-function viewPort(sections, item) {
+export function viewPort(sections, item) {
     window.addEventListener('scroll', function () {
         sections.forEach(function (section, index) {
             var rect = section.getBoundingClientRect();
@@ -50,24 +50,27 @@ function viewPort(sections, item) {
     });
 }
 
-function filterSearch(searchValue, items, displayValue) {
+export function filterSearch(searchValue, items, displayValue) {
+    let count = 0;
     items.forEach((item) => {
         const testSearch = searchValue === '' || item.dataset.id.trim().toLowerCase().startsWith(searchValue);
         if (testSearch) {
+            count++;
             item.style.display = displayValue;
         } else {
             item.style.display = 'none';
         }
     });
+    return count;
 }
 
-function createElementScriptHeader() {
+export function createElementScriptHeader() {
     let script = document.createElement("script");
     script.src = "../../Assets/Javascript/header.js";
     document.body.appendChild(script);
 }
 
-function load(selector, url, callback) {
+export function load(selector, url, callback) {
     fetch(url)
         .then(response => {
             if (!response.ok) {

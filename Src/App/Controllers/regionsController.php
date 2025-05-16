@@ -1,7 +1,7 @@
 <?php
-require_once "../../Core/Config/database.php";
-require_once "../../Core/Helpers/regionsHelper.php";
-$database = new Database();
-$connect = $database->connect();
+require_once "../Config/config.php";
+require_once "../Helpers/regionsHelper.php";
+$config = new Config();
+$connect = $config->connect();
 getAllRegions($connect, $regions);
 $connect->close();

@@ -1,5 +1,5 @@
 <?php
-require_once "../../Core/Models/roleClass.php";
+require_once "../Models/roleClass.php";
 
 use UniverseLOL\Role;
 
