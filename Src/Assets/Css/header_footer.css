@@ -15,7 +15,7 @@
         background-repeat: no-repeat;
         background-size: contain;
 
-        &:hover {
+        :hover {
             opacity: 0.8;
         }
     }
@@ -33,18 +33,14 @@
     }
 
     .nav-item {
-        &:hover {
-            .nav-link {
-                border-bottom: 4px solid #0BC4E2;
-
-                p {
-                    background-color: #323232;
-                }
-            }
-        }
+        padding-top: 4px;
+        height: 90%;
 
         p,
         .nav-link {
+            border-bottom-width: 4px;
+            border-bottom-style: solid;
+            border-bottom-color: #00000000;
             letter-spacing: 1px;
             font-weight: 600;
             font-size: 13px;
@@ -57,6 +53,14 @@
 }
 
 @media (min-width: 992px) {
+    .nav-item:hover .nav-link {
+        border-bottom-color: #0BC4E2 !important;
+
+        p {
+            background-color: #323232 !important;
+        }
+    }
+
     .nav-item.dropdown:hover .dropdown-menu {
         display: block;
         margin-top: 0;
@@ -91,56 +95,32 @@
     flex-direction: column;
     background-color: #000;
 
-    &>.take {
+    .take {
         margin-top: 5vh;
         height: 15vh;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        justify-content: center;
         background-color: #1f1f1f;
 
-        &>p {
-            color: #fff;
-        }
-
-        &>a {
+        a {
             color: wheat;
         }
     }
 
-    &>.made {
+    .made {
         height: 30vh;
-        width: 100%;
-        background-color: #000;
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        justify-content: center;
-        gap: 5vh;
 
-
-        &>.socials-list {
-            display: flex;
-            text-align: center;
-            justify-content: center;
-            gap: 2vw;
-
-            &>a {
+        .socials-list {
+            a {
                 font-size: 30px;
                 color: #fff;
 
-                &:hover {
+                :hover {
                     color: #aaa;
                 }
             }
         }
 
-        &>.powerBy {
-            color: #fff;
-
-            &>a {
+        .powerBy {
+            a {
                 color: wheat;
             }
         }
