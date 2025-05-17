@@ -51,7 +51,7 @@ try {
                             class="item transition"
                             data-id="<?php echo $champion->getId(); ?>"
                             data-region="<?php echo $champion->getRegion(); ?>">
-                            <div class="item__img transition" style="background-image: url(<?php echo $config->getAssetURL() . "/" . $champion->getSplashArt(); ?>);
+                            <div class="item__img transition" style="background-image: url(<?php echo $config->getAssetsURL() . "/" . $champion->getSplashArt(); ?>);
                                     background-position: <?php echo $champion->getPositionX() . '% ' . $champion->getPositionY() . '%'; ?>;"></div>
                             <div class="item__inf transition">
                                 <h3><?php echo $champion->getName(); ?></h3>

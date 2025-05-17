@@ -2,7 +2,6 @@
 <html lang="en">
 <?php
 try {
-    require_once "../../Assets/assets.php";
     require_once "../Controllers/championController.php";
 } catch (\Throwable $th) {
 }
@@ -27,78 +26,26 @@ try {
         <section id="slide">
             <div class="silde__splashArt">
                 <video style="object-position: <?php echo $this_champion->getPositionX() . '%' . ' ' . $this_champion->getPositionY() . '%'; ?>;" src="<?php echo $this_champion->getAnimatedSplashArt(); ?>" autoplay muted loop></video>
-                <img class="transition" style="object-position: <?php echo $this_champion->getPositionX() . '%' . ' ' . $this_champion->getPositionY() . '%'; ?>;" src="<?php echo $assetsURL . "/" . $this_champion->getSplashArt(); ?>" alt="">
+                <img class="transition" style="object-position: <?php echo $this_champion->getPositionX() . '%' . ' ' . $this_champion->getPositionY() . '%'; ?>;" src="<?php echo $config->getAssetsURL() . "/" . $this_champion->getSplashArt(); ?>" alt="">
             </div>
             <div class="slide__title transition">
                 <h1><?php echo $this_champion->getName(); ?></h1>
-                <img src="<?php echo $assetsURL; ?>/Others/t1HeaderDivider.png" alt="">
+                <img src="<?php echo $config->getAssetsURL(); ?>/Others/t1HeaderDivider.png" alt="">
                 <h5><?php echo $this_champion->getTitle(); ?></h5>
             </div>
         </section>
-        <section id="content">
-            <div>
-                <ul class="story__gird">
-                    <li>
-                        <h4>Related Champions</h4>
-                    </li>
-                    <li>
-                        <div class="relatedChampions__border">
-                            <?php
-                            if (isset($relations)) {
-                                foreach ($relations as $item) {
-                            ?>
-                                    <a href="./champion.php?champion=<?php echo $item->getId(); ?>">
-                                        <div class="transition">
-                                            <img src="<?php echo $assetsURL . '/' . $item->getSplashArt(); ?>" alt=""
-                                                style="object-position: <?php echo $item->getPositionX() . '%' . ' ' . $item->getPositionY() . '%'; ?>;">
-                                        </div>
-                                        <h5 class="transition"><?php echo $item->getName(); ?></h5>
-                                    </a>
-                            <?php
-                                }
-                            }
-                            ?>
+        <section id="container">
+            <div class="container__border d-grid gap-2">
+                <div class="container__col col__1">
+                    <div class="col__head col__item col__1--head">
+                        <h6>Related Champions</h6>
+                    </div>
+                    <div class="col__body col__item col__1--body">
 
-                        </div>
-                    </li>
-                    <li>
-                        <div class="story__gird--avatar" style="background-image: url(<?php echo $assetsURL; ?>/Icon/ChampionIconFrame.jpg);">
-                            <div>
-                                <div class="story__gird--border">
-                                    <div class="story__gird--img" style="background: url(<?php echo $assetsURL . '/' . $this_champion->getSplashArt(); ?>) <?php echo $this_champion->getPositionX() . '%' . ' ' . $this_champion->getPositionY() . '%'; ?> /400% no-repeat;"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <h2>"<?php echo $this_champion->getVoice(); ?>"</h2>
-
-                        <h3>~<?php echo $this_champion->getName(); ?></h3>
-                    </li>
-                    <li>
-                        <div  style="background-image: url(<?php echo $assetsURL . '/' . $this_champion->getSplashArt(); ?>); background-position: <?php echo $this_champion->getPositionX() . '%' . ' ' . $this_champion->getPositionY() . '%'; ?>;"></div>
-                        <p><?php echo $this_champion->getStory(); ?></p>
-                    </li>
-                    <li>
-                        <img src="<?php echo $assetsURL . '/' . $this_role->getIcon(); ?>" alt="">
-                        <div>
-                            <h4>Role</h4>
-                            <h4><?php echo $this_champion->getRole(); ?></h4>
-                        </div>
-                    </li>
-                    <li class="transition">
-                        <div style="background: linear-gradient(to bottom, #000000d0, #000000d0), url(<?php echo $assetsURL . '/' . $this_region->getBackground(); ?>) center /cover no-repeat;"></div>
-                        <div class="story__gird--region-img transition" style="background: url(<?php echo $assetsURL . '/' . $this_region->getAvatar(); ?>) center /contain no-repeat;"></div>
-                        <div class="story__gird--region-info story__gird--region-content transition">
-                            <div>
-                                <h4>Region</h4>
-                                <h4><?php echo $this_region->getName(); ?></h4>
-                            </div>
-                            <div style="background-image: url(<?php echo $assetsURL . '/' . $this_region->getIcon(); ?>);"></div>
-                        </div>
-                        <a href="region.php?region=<?php echo $this_region->getId(); ?>" class="story__gird--region-view story__gird--region-content transition">
-                            <h4>View Region<i class='fa-solid fa-arrow-right'></i></h4>
-                        </a>
-                    </li>
-                </ul>
+                    </div>
+                </div>
+                <div class="container__col col__2"></div>
+                <div class="container__col col__3"></div>
             </div>
         </section>
         <section id="skins">
@@ -108,12 +55,12 @@ try {
             </div>
             <div class="skins__body">
                 <div class="skins__show">
-                    <img class="transition" src="<?php echo $assetsURL . '/' . $this_champion->getSplashArt(); ?>" alt="">
+                    <img class="transition" src="<?php echo $config->getAssetsURL() . '/' . $this_champion->getSplashArt(); ?>" alt="">
                 </div>
                 <div class="skins__list">
                     <div class="skins__list--items">
                         <div class="skin__item active">
-                            <div class="skin__item--img transition" style="background-image: url(<?php echo $assetsURL . '/' . $this_champion->getSplashArt(); ?>);"></div>
+                            <div class="skin__item--img transition" style="background-image: url(<?php echo $config->getAssetsURL() . '/' . $this_champion->getSplashArt(); ?>);"></div>
                             <h5><?php echo $this_champion->getName(); ?></h5>
                         </div>
                         <?php
@@ -121,7 +68,7 @@ try {
                             foreach ($skins as $item) {
                         ?>
                                 <div class="skin__item transition">
-                                    <div class="skin__item--img transition" style="background-image: url(<?php echo $assetsURL . '/' . $item->getSplashArt(); ?>);"></div>
+                                    <div class="skin__item--img transition" style="background-image: url(<?php echo $config->getAssetsURL() . '/' . $item->getSplashArt(); ?>);"></div>
                                     <h5><?php echo $item->getName(); ?></h5>
                                 </div>
                         <?php
@@ -138,6 +85,6 @@ try {
 </body>
 
 </html>
-<script src="../../Assets/Javascript/function.js"></script>
-<script src="../../Assets/Javascript/load-header-footer.js"></script>
-<script src="../../Assets/Javascript/champion.js"></script>
+<script type="module" src="../../Assets/Javascript/function.js"></script>
+<script type="module" src="../../Assets/Javascript/champion.js"></script>
+<script type="module" src="../../Assets/Javascript/load-header-footer.js"></script>

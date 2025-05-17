@@ -1,3 +1,5 @@
+import { $, $$, EventAddActive, EventRemoveActive, scrollToCenter,scrollMouseList } from "./function.js";
+
 const skinImgs = $$('.skin__item>.skin__item--img');
 const img = $('.skins__show>img');
 const skinItems = $$('.skin__item');

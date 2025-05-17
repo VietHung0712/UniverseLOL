@@ -14,7 +14,7 @@ class Config
         return $this->connect;
     }
 
-    public function getAssetURL(){
+    public function getAssetsURL(){
         return $this->assetsURL;
     }
 }

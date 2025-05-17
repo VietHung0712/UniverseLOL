@@ -4,6 +4,6 @@ require_once "../Helpers/championsHelper.php";
 require_once "../Helpers/regionsHelper.php";
 $config = new Config();
 $connect = $config->connect();
-getAllChampions($connect, $champions);
+$champions = ChampionsHelper::getAllChampions($connect);
 getAllRegions($connect, $regions);
 $connect->close();

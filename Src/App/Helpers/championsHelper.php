@@ -3,22 +3,16 @@ require_once "../Models/championClass.php";
 
 use UniverseLOL\Champion;
 
-function getChampion($connect, $colums, $value,  &$array)
+class ChampionsHelper
 {
-    $sql = "SELECT * FROM champions";
-    if (trim($colums) != "") {
-        $sql .= " WHERE $colums = ?";
-    }
-    $stmt = $connect->prepare($sql);
-    if (trim($colums) != "") {
-        $stmt->bind_param("s", $value);
-    }
+    private static function fetchChampions(mysqli_stmt $stmt): array
+    {
+        $champions = [];
 
-    if ($stmt->execute()) {
-        $result = $stmt->get_result();
-        if ($result->num_rows > 0) {
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
             while ($row = $result->fetch_assoc()) {
-                $object = new Champion(
+                $champions[] = new Champion(
                     $row['id'],
                     $row['name'],
                     $row['region'],
@@ -31,29 +25,49 @@ function getChampion($connect, $colums, $value,  &$array)
                     $row['position_x'],
                     $row['position_y']
                 );
-                $array[] = $object;
+            }
+        } else {
+            error_log("Query error: " . $stmt->error);
+        }
+
+        $stmt->close();
+        return $champions;
+    }
+
+    private static function getChampions(mysqli $connect, string $column = '', string $value = ''): array
+    {
+        $sql = "SELECT * FROM champions";
+        $stmt = null;
+
+        if (trim($column) !== "") {
+            $sql .= " WHERE $column = ?";
+            $stmt = $connect->prepare($sql);
+            if (!$stmt) {
+                throw new Exception("Error $stmt: " . $connect->error);
+            }
+            $stmt->bind_param("s", $value);
+        } else {
+            $stmt = $connect->prepare($sql);
+            if (!$stmt) {
+                throw new Exception("Error $stmt: " . $connect->error);
             }
         }
-    } else {
-        die("Lỗi truy vấn: " . $stmt->error);
+
+        return self::fetchChampions($stmt);
     }
-    $stmt->close();
-}
 
-function getAllChampions($connect, &$object)
-{
-    getChampion($connect, '', '',  $object);
-}
-
-function getChampionById($connect, $value,  &$object)
-{
-    getChampion($connect, 'id', $value,  $array);
-    if(isset($array)){
-        $object = $array[0];
+    public static function getAllChampions(mysqli $connect): array
+    {
+        return self::getChampions($connect);
     }
-}
 
-function getChampionByRegion($connect, $value,  &$object)
-{
-    getChampion($connect, 'region', $value,  $object);
+    public static function getChampionById($connect, $id): ?Champion
+    {
+        return self::getChampions($connect, 'id', $id)[0] ?? null;
+    }
+
+    public static function getChampionsByRegion($connect, $region): array
+    {
+        return self::getChampions($connect, 'region', $region);
+    }
 }
