@@ -55,7 +55,7 @@ try {
                                     background-position: <?php echo $champion->getPositionX() . '% ' . $champion->getPositionY() . '%'; ?>;"></div>
                             <div class="item__inf transition">
                                 <h3><?php echo $champion->getName(); ?></h3>
-                                <h5><?php echo getRegionName($champion->getRegion()); ?></h5>
+                                <h5><?php echo $getNameRegionById[$champion->getRegion()]; ?></h5>
                             </div>
                             <div class="item__explore transition">
                                 <h5>Explore</h5>

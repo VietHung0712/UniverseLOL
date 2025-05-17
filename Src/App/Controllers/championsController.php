@@ -5,5 +5,5 @@ require_once "../Helpers/regionsHelper.php";
 $config = new Config();
 $connect = $config->connect();
 $champions = ChampionsHelper::getAllChampions($connect);
-getAllRegions($connect, $regions);
+$getNameRegionById = RegionsHelper::getNameAllRegions($connect);
 $connect->close();

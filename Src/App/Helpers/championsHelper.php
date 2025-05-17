@@ -8,7 +8,6 @@ class ChampionsHelper
     private static function fetchChampions(mysqli_stmt $stmt): array
     {
         $champions = [];
-
         if ($stmt->execute()) {
             $result = $stmt->get_result();
             while ($row = $result->fetch_assoc()) {
@@ -29,7 +28,6 @@ class ChampionsHelper
         } else {
             error_log("Query error: " . $stmt->error);
         }
-
         $stmt->close();
         return $champions;
     }
@@ -38,7 +36,6 @@ class ChampionsHelper
     {
         $sql = "SELECT * FROM champions";
         $stmt = null;
-
         if (trim($column) !== "") {
             $sql .= " WHERE $column = ?";
             $stmt = $connect->prepare($sql);
@@ -52,7 +49,6 @@ class ChampionsHelper
                 throw new Exception("Error $stmt: " . $connect->error);
             }
         }
-
         return self::fetchChampions($stmt);
     }
 
@@ -66,7 +62,7 @@ class ChampionsHelper
         return self::getChampions($connect, 'id', $id)[0] ?? null;
     }
 
-    public static function getChampionsByRegion($connect, $region): array
+    public static function getChampionsByRegion($connect, $region): ?array
     {
         return self::getChampions($connect, 'region', $region);
     }
