@@ -101,7 +101,7 @@
         background-color: #1f1f1f;
 
         a {
-            color: wheat;
+            color: var(--color2-);
         }
     }
 
@@ -114,14 +114,14 @@
                 color: #fff;
 
                 :hover {
-                    color: #aaa;
+                    opacity: 0.8;
                 }
             }
         }
 
         .powerBy {
             a {
-                color: wheat;
+                color: var(--color2-);
             }
         }
     }

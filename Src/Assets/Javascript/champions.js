@@ -1,9 +1,9 @@
 import { filterSearch, $, $$ } from "./function.js";
 
 const champions = Array.from($$('.main__list--body > .item'));
-const inputSearch = $('.search__border > input');
-const selectSort = $('.search__border > select');
-const search = $('.search');
+const inputSearch = $('.filter__input > input');
+const selectSort = $('.filter__sort > select');
+const filter = $('.filter');
 const listBody = $('.main__list--body');
 
 function updateGrid(count) {
@@ -45,9 +45,9 @@ let lastScrollY = window.scrollY;
 window.addEventListener("scroll", function () {
     let currentScrollY = window.scrollY;
     if (currentScrollY > lastScrollY) {
-        search.style.top = `calc(70px + 1vh)`;
+        filter.style.top = `calc(70px + 1vh)`;
     } else if (currentScrollY < lastScrollY) {
-        search.style.top = `calc(70px + 6vh)`;
+        filter.style.top = `calc(70px + 6vh)`;
     }
     lastScrollY = currentScrollY;
 });
