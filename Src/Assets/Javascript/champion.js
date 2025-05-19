@@ -1,16 +1,16 @@
 import { $, $$, EventAddActive, EventRemoveActive, scrollToCenter,scrollMouseList } from "./function.js";
 
-const skinImgs = $$('.skin__item>.skin__item--img');
-const img = $('.skins__show>img');
-const skinItems = $$('.skin__item');
+const img = $$('.splashArt__frame > img');
+const buttons = $$('.splashArt__list--border > button');
+const listScrolls = $('.splashArt__list');
 
-skinItems.forEach((element, index) => {
+buttons.forEach((element, index) => {
     element.addEventListener('click', () => {
-        EventRemoveActive($('.skin__item.active'));
+        EventRemoveActive($('.splashArt__list--border > button.active'));
+        EventRemoveActive($('.splashArt__frame > img.active'));
         EventAddActive(element);
-        let temp = skinImgs[index].style.backgroundImage;
-        img.src = temp.replace('url("', '').replace('")', '');
-        scrollToCenter(element , $('.skins__list--items'));
+        EventAddActive(img[index]);
+        scrollToCenter(element , listScrolls);
     })
 });
-scrollMouseList($('.skins__list--items'))
+scrollMouseList(listScrolls);

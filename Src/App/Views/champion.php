@@ -70,7 +70,7 @@ try {
                                 background-position: <?php echo $this_champion->getPositionX() . '%' . $this_champion->getPositionY() . '%'; ?>;">
                             </div>
                         </div>
-                        <div class="voice flex__center flex-column h-75 w-75 text-center gap-2">
+                        <div class="voice flex__center flex-column justify-content-end h-75 w-75 text-center gap-2">
                             <h6 class="fw-bold letter-spacing-1">"<?php echo $this_champion->getVoice(); ?>"</h6>
                             <h5 class="fw-bold letter-spacing-1">~<?php echo $this_champion->getName(); ?></h5>
                         </div>
@@ -104,13 +104,46 @@ try {
                 </div>
             </div>
         </section>
-        <section id="skins" class="position-relative">
-            <div class="skins__head mb-5 w-100 flex__center flex-column gap-1">
-                <i class="bi bi-brush"></i>
-                <h1 class="position-relative text-uppercase position-relative letter-spacing-3">Splash Art</h1>
+        <section id="splashArt" class="position-relative bg-light">
+            <div class="splashArt__head w-100 flex__center flex-column gap-1">
+                <i class="bi bi-brush fw-bold"></i>
+                <h1 class="position-relative fw-bold text-uppercase position-relative letter-spacing-3">Splash Art</h1>
             </div>
-            <div class="skins__body">
-
+            <div class="splashArt__body m-auto">
+                <div class="splashArt__frame position-relative w-100 flex__center flex-column">
+                    <img class="position-absolute top-0 start-0 h-100 w-100 object-fit-contain active" src="<?php echo $config->getAssetsURL() . '/' . $this_champion->getSplashArt(); ?>" alt="">
+                    <?php
+                    if (!empty($skinsArr)) {
+                        foreach ($skinsArr as $item) {
+                    ?>
+                            <img class="position-absolute top-0 start-0 h-100 w-100 object-fit-contain" src="<?php echo $config->getAssetsURL() . '/' . $item->getSplashArt(); ?>" alt="">
+                    <?php
+                        }
+                    }
+                    ?>
+                </div>
+                <div class="splashArt__list m-auto overflow-x-auto">
+                    <div class="splashArt__list--border h-100 flex__center justify-content-around align-items-start">
+                        <button type="button" class="flex__center transition flex-column bg-transparent border-0 active">
+                            <div class="bg-center-cover-norepeat w-100"
+                                style="background-image: url(<?php echo $config->getAssetsURL() . '/' . $this_champion->getSplashArt(); ?>);"></div>
+                            <h5 class="w-100 text-uppercase"><?php echo $this_champion->getName(); ?></h5>
+                        </button>
+                        <?php
+                        if (!empty($skinsArr)) {
+                            foreach ($skinsArr as $item) {
+                        ?>
+                                <button type="button" class="flex__center transition flex-column bg-transparent border-0">
+                                    <div class="bg-center-cover-norepeat w-100"
+                                        style="background-image: url(<?php echo $config->getAssetsURL() . '/' . $item->getSplashArt(); ?>);"></div>
+                                    <h5 class="w-100 text-uppercase"><?php echo $item->getName(); ?></h5>
+                                </button>
+                        <?php
+                            }
+                        }
+                        ?>
+                    </div>
+                </div>
             </div>
         </section>
     </main>

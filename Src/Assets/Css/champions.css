@@ -1,6 +1,5 @@
 #filter {
     top: calc(80px + 6vh);
-    min-height: 0;
     height: 90px;
     background-color: #121212;
 
