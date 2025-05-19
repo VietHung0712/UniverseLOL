@@ -7,11 +7,11 @@ class RegionsHelper
 {
     private static function fetchRegions(mysqli_stmt $stmt): array
     {
-        $regions = [];
+        $arr = [];
         if ($stmt->execute()) {
             $result = $stmt->get_result();
             while ($row = $result->fetch_assoc()) {
-                $regions[] = new Region(
+                $arr[] = new Region(
                     $row['id'],
                     $row['name'],
                     $row['story'],
@@ -22,25 +22,25 @@ class RegionsHelper
                 );
             }
         } else {
-            error_log("Query error: " . $stmt->error);
+            throw new Exception("Error $stmt: " . $stmt->error);
         }
         $stmt->close();
-        return $regions;
+        return $arr;
     }
 
     public static function getRegions(mysqli $connect, string $id = ''): array
     {
-        $sql = "SELECT * FROM regions";
+        $query = "SELECT * FROM regions";
         $stmt = null;
         if (trim($id) !== "") {
-            $sql .= " WHERE id = ?";
-            $stmt = $connect->prepare($sql);
+            $query .= " WHERE id = ?";
+            $stmt = $connect->prepare($query);
             if (!$stmt) {
                 throw new Exception("Error $stmt: " . $connect->error);
             }
             $stmt->bind_param("s", $id);
         } else {
-            $stmt = $connect->prepare($sql);
+            $stmt = $connect->prepare($query);
             if (!$stmt) {
                 throw new Exception("Error $stmt: " . $connect->error);
             }

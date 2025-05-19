@@ -3,49 +3,36 @@ require_once "../Models/relationClass.php";
 
 use UniverseLOL\Relation;
 
-function getRelations($connect, $id,  &$array)
+class RelationsHelper
 {
-    $stmt = $connect->prepare("SELECT * FROM relations WHERE champion_id = ?");
-    $stmt->bind_param("s", $id);
-
-    if ($stmt->execute()) {
-        $result = $stmt->get_result();
-        if ($result->num_rows > 0) {
+    private static function fetchRelations(mysqli_stmt $stmt): array
+    {
+        $arr = [];
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
             while ($row = $result->fetch_assoc()) {
-                $object = new Relation(
-                    $row['id'],
-                    $row['champion_id'],
-                    $row['related_id'],
-                    $row['relation_type']
-                );
-                $array[] = $object;
-            }
-        }
-    } else {
-        throw new Exception("Lỗi truy vấn: " . $stmt->error);
-    }
-    $stmt->close();
-}
-
-function getRelationById($connect, $id,  &$object)
-{
-    $stmt = $connect->prepare("SELECT * FROM relations WHERE id = ?");
-    $stmt->bind_param("i", $id);
-
-    if ($stmt->execute()) {
-        $result = $stmt->get_result();
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $object = new Relation(
+                $arr[] = new Relation(
                     $row['id'],
                     $row['champion_id'],
                     $row['related_id'],
                     $row['relation_type']
                 );
             }
+        } else {
+            throw new Exception("Error $stmt: " . $stmt->error);
         }
-    } else {
-        throw new Exception("Lỗi truy vấn: " . $stmt->error);
+        $stmt->close();
+        return $arr;
     }
-    $stmt->close();
+
+    public static function getRelations(mysqli $connect, string $value): array
+    {
+        $query = "SELECT * FROM relations WHERE champion_id = ?";
+        $stmt = $connect->prepare($query);
+        if (!$stmt) {
+            throw new Exception("Error $stmt: " . $connect->error);
+        }
+        $stmt->bind_param("s", $value);
+        return self::fetchRelations($stmt);
+    }
 }

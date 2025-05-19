@@ -1,10 +1,10 @@
 import { filterSearch, $, $$ } from "./function.js";
 
-const champions = Array.from($$('.main__list--body > .item'));
+const champions = Array.from($$('.container__body > .item'));
 const inputSearch = $('.filter__input > input');
 const selectSort = $('.filter__sort > select');
-const filter = $('.filter');
-const listBody = $('.main__list--body');
+const filter = $('#filter');
+const listBody = $('.container__body');
 
 function updateGrid(count) {
     if (count < 5) {
@@ -17,8 +17,8 @@ function updateGrid(count) {
 }
 
 inputSearch.addEventListener('input', () => {
-    const searchValue = inputSearch.value.trim().toLowerCase();
-    const count = filterSearch(searchValue, champions, 'flex');
+    const valueInput = inputSearch.value.trim().toLowerCase();
+    const count = filterSearch(valueInput, champions, 'flex');
     if (window.innerWidth > 768) {
         updateGrid(count);
     }
@@ -45,9 +45,9 @@ let lastScrollY = window.scrollY;
 window.addEventListener("scroll", function () {
     let currentScrollY = window.scrollY;
     if (currentScrollY > lastScrollY) {
-        filter.style.top = `calc(70px + 1vh)`;
+        filter.style.top = `calc(80px + 1vh)`;
     } else if (currentScrollY < lastScrollY) {
-        filter.style.top = `calc(70px + 6vh)`;
+        filter.style.top = `calc(80px + 6vh)`;
     }
     lastScrollY = currentScrollY;
 });

@@ -3,49 +3,55 @@ require_once "../Models/skinClass.php";
 
 use UniverseLOL\Skin;
 
-function getSkins($connect, $champion_id, &$array)
+class SkinsHelper
 {
-    $stmt = $connect->prepare("SELECT * FROM skins WHERE champion = ?");
-    $stmt->bind_param("s", $champion_id);
-
-    if ($stmt->execute()) {
-        $result = $stmt->get_result();
-        if ($result->num_rows > 0) {
+    private static function fetchSkins(mysqli_stmt $stmt): array
+    {
+        $arr = [];
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
             while ($row = $result->fetch_assoc()) {
-                $object = new Skin(
+                $arr[] = new Skin(
                     $row['id'],
                     $row['champion'],
                     $row['name'],
-                    $row['splash_art'],
-                );
-                $array[] = $object;
-            }
-        }
-    } else {
-        die("Lỗi truy vấn: " . $stmt->error);
-    }
-    $stmt->close();
-}
-
-function getSkinById($connect, $id, &$object)
-{
-    $stmt = $connect->prepare("SELECT * FROM skins WHERE id = ?");
-    $stmt->bind_param("s", $id);
-
-    if ($stmt->execute()) {
-        $result = $stmt->get_result();
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $object = new Skin(
-                    $row['id'],
-                    $row['champion'],
-                    $row['name'],
-                    $row['splash_art'],
+                    $row['splash_art']
                 );
             }
+        } else {
+            throw new Exception("Error $stmt: " . $stmt->error);
         }
-    } else {
-        die("Lỗi truy vấn: " . $stmt->error);
+        $stmt->close();
+        return $arr;
     }
-    $stmt->close();
+
+    private static function getSkins(mysqli $connect, string $column = '', string $value = ''): array
+    {
+        $query = "SELECT * FROM skins";
+        $stmt = null;
+        if (trim($column) !== "") {
+            $query .= " WHERE $column = ?";
+            $stmt = $connect->prepare($query);
+            if (!$stmt) {
+                throw new Exception("Error $stmt: " . $connect->error);
+            }
+            $stmt->bind_param("s", $value);
+        } else {
+            $stmt = $connect->prepare($query);
+            if (!$stmt) {
+                throw new Exception("Error $stmt: " . $connect->error);
+            }
+        }
+        return self::fetchSkins($stmt);
+    }
+
+    public static function getSkinsByChampionId(mysqli $connect, string $value) : array
+    {
+        return self::getSkins($connect, 'champion', $value);
+    }
+
+    public static function getSkinsById(mysqli $connect, string $value) : array
+    {
+        return self::getSkins($connect, 'id', $value);
+    }
 }

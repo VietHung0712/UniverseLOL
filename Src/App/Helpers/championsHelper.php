@@ -7,11 +7,11 @@ class ChampionsHelper
 {
     private static function fetchChampions(mysqli_stmt $stmt): array
     {
-        $champions = [];
+        $arr = [];
         if ($stmt->execute()) {
             $result = $stmt->get_result();
             while ($row = $result->fetch_assoc()) {
-                $champions[] = new Champion(
+                $arr[] = new Champion(
                     $row['id'],
                     $row['name'],
                     $row['region'],
@@ -26,25 +26,25 @@ class ChampionsHelper
                 );
             }
         } else {
-            error_log("Query error: " . $stmt->error);
+            throw new Exception("Error $stmt: " . $stmt->error);
         }
         $stmt->close();
-        return $champions;
+        return $arr;
     }
 
     private static function getChampions(mysqli $connect, string $column = '', string $value = ''): array
     {
-        $sql = "SELECT * FROM champions";
+        $query = "SELECT * FROM champions";
         $stmt = null;
         if (trim($column) !== "") {
-            $sql .= " WHERE $column = ?";
-            $stmt = $connect->prepare($sql);
+            $query .= " WHERE $column = ?";
+            $stmt = $connect->prepare($query);
             if (!$stmt) {
                 throw new Exception("Error $stmt: " . $connect->error);
             }
             $stmt->bind_param("s", $value);
         } else {
-            $stmt = $connect->prepare($sql);
+            $stmt = $connect->prepare($query);
             if (!$stmt) {
                 throw new Exception("Error $stmt: " . $connect->error);
             }
@@ -57,12 +57,12 @@ class ChampionsHelper
         return self::getChampions($connect);
     }
 
-    public static function getChampionById($connect, $id): ?Champion
+    public static function getChampionById($connect, $value): ?Champion
     {
-        return self::getChampions($connect, 'id', $id)[0] ?? null;
+        return self::getChampions($connect, 'id', $value)[0] ?? null;
     }
 
-    public static function getChampionsByRegion($connect, $region): ?array
+    public static function getChampionsByRegion($connect, $region): array
     {
         return self::getChampions($connect, 'region', $region);
     }

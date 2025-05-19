@@ -45,7 +45,7 @@ try {
             </div>
             <div class="champions__body">
                 <?php
-                if (2 > 1) {
+                if (True) {
                     foreach ($champions as $champion) {
                 ?>
                         <a

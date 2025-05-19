@@ -1,9 +1,8 @@
 #header {
-    font-family: Arial, sans-serif;
     position: fixed;
     color: #fff;
     background-color: #111111;
-    height: 70px;
+    height: 80px;
     top: 0;
     left: 0;
     right: 0;
@@ -11,9 +10,6 @@
 
     .navbar-brand {
         width: 40px;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
 
         :hover {
             opacity: 0.8;
@@ -21,11 +17,9 @@
     }
 
     h3 {
-        line-height: 70px;
         font-size: 18px;
-        letter-spacing: 1px;
         font-weight: 900;
-        margin: 0 20px;
+        margin: 0 20px 4px;
     }
 
     .navbar-nav {
@@ -38,10 +32,7 @@
 
         p,
         .nav-link {
-            border-bottom-width: 4px;
-            border-bottom-style: solid;
-            border-bottom-color: #00000000;
-            letter-spacing: 1px;
+            border-bottom: 4px solid transparent;
             font-weight: 600;
             font-size: 13px;
         }

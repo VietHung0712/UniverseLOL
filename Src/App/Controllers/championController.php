@@ -9,16 +9,16 @@ require_once "../Helpers/skinsHelper.php";
 $config = new Config();
 $connect = $config->connect();
 $championId = $_GET['champion'];
-getChampionById($connect, $championId,  $this_champion);
-getRegion($connect, $this_champion->getRegion(), $this_region);
-getRole($connect, $this_champion->getRole(), $this_role);
-getRelations($connect, $this_champion->getId(), $allRelations);
-getSkins($connect, $this_champion->getId(), $skins);
+$this_champion = ChampionsHelper::getChampionById($connect, $championId);
+$relationsArr = RelationsHelper::getRelations($connect, $championId);
+$role = RolesHelper::getRoleById($connect, $this_champion->getRole());
+$region = RegionsHelper::getRegionById($connect, $this_champion->getRegion());
+$skinsArr = SkinsHelper::getSkinsByChampionId($connect, $championId);
 
-if (isset($allRelations)) {
-    foreach ($allRelations as $item) {
-        getChampionById($connect, $item->getRelatedId(), $object);
-        $relations[] = $object;
+if (isset($relationsArr) && !empty($relationsArr)) {
+    foreach ($relationsArr as $item) {
+        $championRelationsArr[] = ChampionsHelper::getChampionById($connect, $item->getRelatedId());
     }
 }
+
 $connect->close();
