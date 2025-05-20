@@ -2,7 +2,6 @@
 <html lang="en">
 <?php
 try {
-    require_once "../../Assets/assets.php";
     require_once "../Controllers/regionController.php";
 } catch (\Throwable $th) {
 }
@@ -11,56 +10,65 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../Assets/Font/fontawesome-free-6.6.0-web/css/all.min.css">
-    <link rel="stylesheet" href="../../Assets/Css/header_footer.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../Assets/Css/reset.css">
+    <link rel="stylesheet" href="../../Assets/Css/header_footer.css">
     <link rel="stylesheet" href="../../Assets/Css/region.css">
-    <link rel="icon" href="<?php echo $assetsURL; ?>/Icon/LOL.png">
-    <title><?php echo $this_region->getName(); ?> - Regions - Universe League of Legends</title>
+    <link rel="icon" href="<?php echo $config->getAssetsURL(); ?>/Icon/LOL.png">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="../../Assets/Javascript/function.js"></script>
+    <script type="module" src="../../Assets/Javascript/load-header-footer.js"></script>
+    <title><?php echo $this_region->getName(); ?> - Regions - Universe of League of Legends</title>
 </head>
 
 <body>
     <header id="header"></header>
-    <div id="main">
-        <section id="slide">
-            <div class="silde__splashArt">
-                <img src="<?php echo $assetsURL . '/' . $this_region->getIcon(); ?>" alt="">
-                <video src="<?php echo $assetsURL . '/' . $this_region->getAnimatedBackground(); ?>" autoplay muted loop></video>
+    <main id="main">
+        <section id="slide" class="position-relative w-100 overflow-hidden">
+            <div class="slide__splashArt position-relative h-100 w-100">
+                <video class="position-absolute h-100 w-100 object-fit-cover top-0" src="<?php echo $config->getAssetsURL() . '/' . $this_region->getAnimatedBackground(); ?>" autoplay muted loop></video>
+                <div class="position-absolute h-100 w-100"></div>
             </div>
-            <div class="slide__title transition">
-                <h1><?php echo $this_region->getName(); ?></h1>
-                <img src="<?php echo $assetsURL; ?>/Others/t1HeaderDivider.png" alt="">
+            <div class="slide__title transition z-2 position-absolute w-100 bottom-0 d-flex flex-column gap-1">
+                <h1 class="w-100 text-uppercase text-center fw-bolder"><?php echo $this_region->getName(); ?></h1>
+                <img class="object-fit-contain w-100" src="<?php echo $config->getAssetsURL(); ?>/Others/t1HeaderDivider.png" loading="eager" alt="">
             </div>
         </section>
-        <section id="lore">
-            <p>
-                <?php echo $this_region->getStory(); ?>
-            </p>
+        <section id="story" class="m-auto">
+            <p><?php echo $this_region->getStory(); ?></p>
         </section>
-        <section id="champions">
-            <div class="champions__head">
-                <img src="<?php echo $assetsURL . '/' . $this_region->getAvatar(); ?>" alt="">
-                <img src="<?php echo $assetsURL; ?>/Icon/content_type_icon_champion__3nwJQ.png" alt="">
-                <div>Champions of <?php echo $this_region->getName(); ?></div>
+        <section id="container" class="position-relative">
+            <div class="container__head mb-5 w-100 position-relative flex__center flex-column justify-content-end gap-1">
+                <img src="<?php echo $config->getAssetsURL(); ?>/Icon/content_type_icon_champion__3nwJQ.png" alt="">
+                <h1 class="position-relative text-uppercase position-relative letter-spacing-3">Champions of <?php echo $this_region->getName(); ?></h1>
+                <img class="position-absolute w-100 top-0 object-fit-contain"
+                    src="<?php echo $config->getAssetsURL() . '/' . $this_region->getAvatar(); ?>" alt="">
             </div>
-            <div class="champions__body">
+            <div class="container__body d-grid m-auto">
                 <?php
-                if (True) {
-                    foreach ($champions as $champion) {
+                if (isset($regionChampionsArr)) {
+                    foreach ($regionChampionsArr as $index => $item) {
                 ?>
                         <a
-                            href="./champion.php?champion=<?php echo $champion->getId(); ?>"
-                            class="item transition"
-                            data-id="<?php echo $champion->getId(); ?>">
-                            <div class="item__img transition" style="background-image: url(<?php echo $assetsURL . "/" . $champion->getSplashArt(); ?>);
-                                    background-position: <?php echo $champion->getPositionX() . '% ' . $champion->getPositionY() . '%'; ?>;"></div>
-                            <div class="item__inf transition">
-                                <h3><?php echo $champion->getName(); ?></h3>
-                                <h5><?php echo $this_region->getName(); ?></h5>
-                            </div>
-                            <div class="item__explore transition">
-                                <h5>Explore</h5>
-                                <i class="fa-solid fa-right-long"></i>
+                            href="./champion.php?champion=<?php echo $item->getId(); ?>"
+                            class="item overflow-hidden position-relative transition <?php if ($index < 10) {
+                                                                                            echo 'active';
+                                                                                        } ?>"
+                            data-id="<?php echo $item->getId(); ?>"
+                            data-region="<?php echo $item->getRegion(); ?>">
+                            <img class="item__img h-100 transition object-fit-cover" loading="lazy"
+                                style="object-position: <?php echo $item->getPositionX() . '% ' . $item->getPositionY() . '%'; ?>;"
+                                src="<?php echo $config->getAssetsURL() . '/' . $item->getSplashArt(); ?>" alt="">
+                            <div class="item__more position-absolute flex__center text-uppercase transition">
+                                <div class="item__more--inf flex__center gap-2 flex-column transition">
+                                    <h1 class="m-0 letter-spacing-1"><?php echo $item->getName(); ?></h1>
+                                    <h2 class="m-0 letter-spacing-1"><?php echo $getNameRegionById[$item->getRegion()]; ?></h2>
+                                </div>
+                                <div class="item__more--explore flex__center gap-2 transition">
+                                    <h1 class="m-0 letter-spacing-1">Explore</h1>
+                                    <i class="bi bi-arrow-right m-0 letter-spacing-1"></i>
+                                </div>
                             </div>
                         </a>
                 <?php
@@ -68,15 +76,17 @@ try {
                 }
                 ?>
             </div>
-            <div class="champions__showAll">
-                <button>View all champions <i class="fa-solid fa-arrow-right-long fa-rotate-90"></i></button>
+            <div class="container__more position-absolute w-100 bottom-0 flex__center">
+                <button id="btnMore" class="flex__center transition">
+                    <p class="text-uppercase d-block m-0 letter-spacing-1">
+                        View all <?php echo $this_region->getName(); ?> champions <i class="bi bi-arrow-down"></i>
+                    </p>
+                </button>
             </div>
         </section>
-    </div>
+    </main>
     <footer id="footer"></footer>
 </body>
 
 </html>
-<script src="../../Assets/Javascript/function.js"></script>
-<script src="../../Assets/Javascript/load-header-footer.js"></script>
-<script src="../../Assets/Javascript/region.js"></script>
+<script type="module" src="../../Assets/Javascript/region.js"></script>

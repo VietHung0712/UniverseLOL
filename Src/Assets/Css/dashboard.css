@@ -6,7 +6,7 @@
     }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1025px) {
     #main>div {
         img {
             width: 30%;
@@ -14,20 +14,20 @@
 
         button {
             height: 10vh;
-            width: 15vw;
+            width: 20vw;
         }
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     #main>div {
         img {
-            width: 80%;
+            width: 70%;
         }
 
         button {
             height: 10vh;
-            width: 80vw;
+            width: 50vw;
         }
     }
 }

@@ -19,7 +19,7 @@ function updateGrid(count) {
 inputSearch.addEventListener('input', () => {
     const valueInput = inputSearch.value.trim().toLowerCase();
     const count = filterSearch(valueInput, champions, 'flex');
-    if (window.innerWidth > 768) {
+    if (filter.style.display != 'none') {
         updateGrid(count);
     }
 });

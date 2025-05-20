@@ -17,7 +17,10 @@ try {
     <link rel="stylesheet" href="../../Assets/Css/champions.css">
     <link rel="icon" href="<?php echo $config->getAssetsURL(); ?>/Icon/LOL.png">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Champions - League of Legends</title>
+    <script type="module" src="../../Assets/Javascript/function.js"></script>
+    <script type="module" src="../../Assets/Javascript/load-header-footer.js"></script>
+    <script type="module" src="../../Assets/Javascript/champions.js"></script>
+    <title>Champions - Universe of League of Legends</title>
 </head>
 
 <body>
@@ -48,19 +51,20 @@ try {
             <div class="container__body d-grid m-auto">
                 <?php
                 if (isset($champions)) {
-                    foreach ($champions as $champion) {
+                    foreach ($champions as $item) {
                 ?>
                         <a
-                            href="./champion.php?champion=<?php echo $champion->getId(); ?>"
+                            href="./champion.php?champion=<?php echo $item->getId(); ?>"
                             class="item overflow-hidden position-relative transition"
-                            data-id="<?php echo $champion->getId(); ?>"
-                            data-region="<?php echo $champion->getRegion(); ?>">
-                            <div class="item__img h-100 transition bg-center-cover-norepeat" style="background-image: url(<?php echo $config->getAssetsURL() . "/" . $champion->getSplashArt(); ?>);
-                                    background-position: <?php echo $champion->getPositionX() . '% ' . $champion->getPositionY() . '%'; ?>;"></div>
+                            data-id="<?php echo $item->getId(); ?>"
+                            data-region="<?php echo $item->getRegion(); ?>">
+                            <img class="item__img h-100 transition object-fit-cover" loading="lazy"
+                                style="object-position: <?php echo $item->getPositionX() . '% ' . $item->getPositionY() . '%'; ?>;"
+                                src="<?php echo $config->getAssetsURL() . '/' . $item->getSplashArt(); ?>" alt="">
                             <div class="item__more position-absolute flex__center text-uppercase transition">
                                 <div class="item__more--inf flex__center gap-2 flex-column transition">
-                                    <h1 class="m-0 letter-spacing-1"><?php echo $champion->getName(); ?></h1>
-                                    <h2 class="m-0 letter-spacing-1"><?php echo $getNameRegionById[$champion->getRegion()]; ?></h2>
+                                    <h1 class="m-0 letter-spacing-1"><?php echo $item->getName(); ?></h1>
+                                    <h2 class="m-0 letter-spacing-1"><?php echo $getNameRegionById[$item->getRegion()]; ?></h2>
                                 </div>
                                 <div class="item__more--explore flex__center gap-2 transition">
                                     <h1 class="m-0 letter-spacing-1">Explore</h1>
@@ -79,6 +83,3 @@ try {
 </body>
 
 </html>
-<script type="module" src="../../Assets/Javascript/function.js"></script>
-<script type="module" src="../../Assets/Javascript/champions.js"></script>
-<script type="module" src="../../Assets/Javascript/load-header-footer.js"></script>

@@ -84,3 +84,25 @@ export function load(selector, url, callback) {
         })
         .catch(error => console.error(`Error: ${url}:`, error));
 }
+
+export function intersectionObserver(params, object) {
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                EventAddActive(object);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.4
+    });
+    if (params instanceof Element) {
+        observer.observe(params);
+    }
+}
+
+export function refreshLoad() {
+    window.addEventListener('load', () => {
+        window.scrollTo(0, 0);
+    });
+}
