@@ -1,0 +1,102 @@
+.area {
+    opacity: 0;
+    transition: fill 1s ease;
+}
+
+.area.active {
+    opacity: 1;
+    fill: rgba(255, 255, 255, 0.2);
+}
+
+#main {
+    div {
+        ul {
+            li {
+                height: 11vh;
+                width: max-content;
+
+                h1 {
+                    font-size: 18px;
+                }
+
+                div {
+                    img {
+                        aspect-ratio: 1 / 1;
+                    }
+                }
+
+                &:hover {
+                    div {
+                        img:last-child {
+                            opacity: 1 !important;
+                            transform: scale(1.5);
+                        }
+
+                        img:first-child {
+                            opacity: 0;
+                        }
+                    }
+                }
+            }
+
+            .Noxus {
+                top: 40%;
+                left: 47%;
+            }
+
+            .Ionia {
+                top: 37%;
+                left: 75%;
+            }
+
+            .The_Freljord {
+                top: 35%;
+                left: 28%;
+            }
+
+            .Demacia {
+                top: 45%;
+                left: 26%;
+            }
+
+            .Targon {
+                top: 67%;
+                left: 36%;
+            }
+
+            .Shurima {
+                top: 65%;
+                left: 50%;
+            }
+
+            .Ixtal {
+                top: 63%;
+                left: 62%;
+            }
+
+            .Bilgewater {
+                top: 57%;
+                left: 74%;
+            }
+
+            .Shadow_Isles {
+                top: 67%;
+                left: 79%;
+            }
+
+            .Zaun {
+                top: 56%;
+                left: 58%;
+            }
+
+            .Piltover {
+                top: 51%;
+                left: 57%;
+            }
+
+            .The_Void, .Runeterra, .Bandle_City {
+                display: none;
+            }
+        }
+    }
+}

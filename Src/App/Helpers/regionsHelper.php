@@ -14,6 +14,7 @@ class RegionsHelper
                 $arr[] = new Region(
                     $row['id'],
                     $row['name'],
+                    $row['title'],
                     $row['story'],
                     $row['icon'],
                     $row['avatar'],
@@ -61,9 +62,9 @@ class RegionsHelper
     public static function getNameAllRegions(mysqli $connect): array
     {
         $result = [];
-        $regions = self::getAllRegions($connect);
-        foreach ($regions as $region) {
-            $result[$region->getId()] = $region->getName();
+        $arr = self::getAllRegions($connect);
+        foreach ($arr as $item) {
+            $result[$item->getId()] = $item->getName();
         }
         return $result;
     }

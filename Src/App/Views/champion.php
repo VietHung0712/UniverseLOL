@@ -47,7 +47,7 @@ try {
                     <div class="col__body col__item col__1--body overflow-auto w-100">
                         <div class="relations__border mh-100 w-100 py-4 d-flex flex__center flex-column justify-content-around">
                             <?php
-                            if (isset($championRelationsArr) && !empty($championRelationsArr)) {
+                            if (!empty($championRelationsArr)) {
                                 foreach ($championRelationsArr as $item) {
                             ?>
                                     <a class="relation__item transition flex__center flex-column text-decoration-none"

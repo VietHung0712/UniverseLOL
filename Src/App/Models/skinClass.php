@@ -5,14 +5,14 @@ namespace UniverseLOL;
 class Skin
 {
     private $id;
-    private $champion;
+    private $championId;
     private $name;
     private $splashArt;
 
-    public function __construct($id, $champion, $name, $splashArt)
+    public function __construct($id, $championId, $name, $splashArt)
     {
         $this->id = $id;
-        $this->champion = $champion;
+        $this->championId = $championId;
         $this->name = $name;
         $this->splashArt = $splashArt;
     }
@@ -22,9 +22,9 @@ class Skin
         return $this->id;
     }
 
-    public function getChampion()
+    public function getChampionId()
     {
-        return $this->champion;
+        return $this->championId;
     }
 
     public function getName()

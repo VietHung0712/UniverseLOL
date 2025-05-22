@@ -6,16 +6,18 @@ class Region
 {
     private $id;
     private $name;
+    private $title;
     private $story;
     private $icon;
     private $avatar;
     private $background;
     private $animatedBackground;
 
-    public function __construct($id, $name, $story, $icon, $avatar, $background, $animatedBackground)
+    public function __construct($id, $name, $title, $story, $icon, $avatar, $background, $animatedBackground)
     {
         $this->id = $id;
         $this->name = $name;
+        $this->title = $title;
         $this->story = $story;
         $this->icon = $icon;
         $this->avatar = $avatar;
@@ -31,6 +33,11 @@ class Region
     public function getName()
     {
         return $this->name;
+    }
+
+    public function getTitle()
+    {
+        return $this->title;
     }
 
     public function getStory()

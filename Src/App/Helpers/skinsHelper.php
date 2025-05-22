@@ -13,7 +13,7 @@ class SkinsHelper
             while ($row = $result->fetch_assoc()) {
                 $arr[] = new Skin(
                     $row['id'],
-                    $row['champion'],
+                    $row['champion_id'],
                     $row['name'],
                     $row['splash_art']
                 );
@@ -47,7 +47,7 @@ class SkinsHelper
 
     public static function getSkinsByChampionId(mysqli $connect, string $value) : array
     {
-        return self::getSkins($connect, 'champion', $value);
+        return self::getSkins($connect, 'champion_id', $value);
     }
 
     public static function getSkinsById(mysqli $connect, string $value) : array
