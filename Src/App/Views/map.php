@@ -51,6 +51,7 @@ try {
                     foreach ($regions as $index => $item) {
                 ?>
                         <li class="<?php echo $item->getId(); ?> item position-absolute list-unstyled"
+                            data-title=""
                             data-group="<?php echo $item->getId(); ?>">
                             <a class="h-100 w-100 text-decoration-none flex__center flex-column"
                                 href="./region.php?region=<?php echo $item->getId(); ?>">
@@ -60,6 +61,11 @@ try {
                                 </div>
                                 <h1 class="h-25 w-100 text-uppercase fw-bold text-center letter-spacing-2 text-white"><?php echo $item->getName(); ?></h1>
                             </a>
+                            <div class="title position-absolute z-3">
+                                <img class="h-100 w-100 position-absolute z-0"
+                                    src="<?php echo $config->getAssetsURL() . '/' . $item->getBackground(); ?>" loading="lazy" alt="">
+                                <h6 class="position-relative h-100 w-100 z-1 m-0 flex__center fw-bold letter-spacing-1 px-2 text-uppercase"><?php echo $item->getTitle(); ?></h6>
+                            </div>
                         </li>
                 <?php
                     }
