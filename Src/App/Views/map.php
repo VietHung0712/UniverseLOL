@@ -19,14 +19,15 @@ try {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="../../Assets/Javascript/function.js"></script>
     <script type="module" src="../../Assets/Javascript/load-header-footer.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Map of Runeterra - Universe of League of Legends</title>
 </head>
 
 <body>
     <header id="header"></header>
     <main id="main">
-        <div class="position-relative">
-            <svg viewBox="0 0 1000 1000" style="" xmlns="http://www.w3.org/2000/svg">
+        <div class="map-pc position-relative">
+            <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
                 <image href="<?php echo $config->getAssetsURL(); ?>/Others/Runeterra_Terrain_map.webp" x="0" y="0" width="1000" height="1000" />
                 <?php
                 if (!empty($maps)) {
@@ -71,6 +72,10 @@ try {
                     }
                 } ?>
             </ul>
+        </div>
+        <div class="map-mobile h-100 w-100 overflow-hidden">
+            <img class="position-absolute h-100 w-100 object-fit-contain"
+            src="<?php echo $config->getAssetsURL(); ?>/Others/Runeterra_Terrain_map.webp" loading="lazy" alt="">
         </div>
     </main>
     <footer id="footer"></footer>

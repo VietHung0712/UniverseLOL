@@ -27,9 +27,9 @@ try {
 
     <main class="overflow-y-auto position-relative">
         <section id="theme" class="position-fixed z-0 top-0">
-            <div class="position-absolute top-0 w-100 h-100"></div>
-            <img class="h-100 w-100 object-fit-contain"
-                src="<?php echo $config->getAssetsURL(); ?>/Others/map_runeterra.png" alt="" loading="lazy">
+            <div class="position-absolute top-0 w-100 h-100 z-1"></div>
+            <img class="position-absolute top-0 h-100 w-100 z-0 object-fit-cover"
+                src="<?php echo $config->getAssetsURL(); ?>/Others/Runeterra_Terrain_map.webp" alt="" loading="lazy">
         </section>
         <section id="title" class="m-auto flex__center justify-content-start z-2">
             <h1 class="fw-bold text-white z-2">Regions</h1>

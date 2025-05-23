@@ -1,18 +1,14 @@
-import { $, $$, EventToggle } from './function.js';
+import { loadToElement } from './function.js';
 
-const items = $$('li.item');
-const areas = $$('.area');
+const $main = $('#main');
+const $itemArr = $('li.item');
 
-items.forEach(controller => {
-    const group = controller.dataset.group;
+$itemArr.each(() => {
+    const group = this.dataset.group;
 
-    controller.addEventListener('mouseenter', () => {
-        document.querySelectorAll(`.area[data-group="${group}"]`)
-            .forEach(el => el.classList.add('active'));
-    });
-
-    controller.addEventListener('mouseleave', () => {
-        document.querySelectorAll(`.area[data-group="${group}"]`)
-            .forEach(el => el.classList.remove('active'));
+    $(this).on('mouseenter mouseleave', () => {
+        $(`.area[data-group="${group}"]`).toggleClass('active');
     });
 });
+
+loadToElement($main[0]);

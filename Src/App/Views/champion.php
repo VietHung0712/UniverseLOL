@@ -18,8 +18,8 @@ try {
     <link rel="icon" href="<?php echo $config->getAssetsURL(); ?>/Icon/LOL.png">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="../../Assets/Javascript/function.js"></script>
-    <script type="module" src="../../Assets/Javascript/champion.js"></script>
     <script type="module" src="../../Assets/Javascript/load-header-footer.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title><?php echo $this_champion->getName(); ?> - Champions - Universe of League of Legends</title>
 </head>
 
@@ -28,13 +28,13 @@ try {
     <main id="main">
         <section id="slide" class="position-relative w-100 overflow-hidden">
             <div class="slide__splashArt position-relative h-100 w-100">
-                <img class="transition position-absolute h-100 w-100 object-fit-cover top-0" style="object-position: <?php echo $this_champion->getPositionX() . '%' . ' ' . $this_champion->getPositionY() . '%'; ?>;" src="<?php echo $config->getAssetsURL() . "/" . $this_champion->getSplashArt(); ?>" loading="lazy" alt="">
-                <video class="position-absolute h-100 w-100 object-fit-cover top-0" style="object-position: <?php echo $this_champion->getPositionX() . '%' . ' ' . $this_champion->getPositionY() . '%'; ?>;" src="<?php echo $this_champion->getAnimatedSplashArt(); ?>" autoplay muted loop></video>
+                <img class="position-absolute top-0 h-100 w-100 object-fit-cover transition" style="object-position: <?php echo $this_champion->getPositionX() . '%' . ' ' . $this_champion->getPositionY() . '%'; ?>;" src="<?php echo $config->getAssetsURL() . "/" . $this_champion->getSplashArt(); ?>" loading="lazy" alt="">
+                <video class="position-absolute top-0 h-100 w-100 object-fit-cover" style="object-position: <?php echo $this_champion->getPositionX() . '%' . ' ' . $this_champion->getPositionY() . '%'; ?>;" src="<?php echo $this_champion->getAnimatedSplashArt(); ?>" autoplay muted loop></video>
                 <div class="position-absolute h-100 w-100"></div>
             </div>
-            <div class="slide__title transition z-2 position-absolute w-100 bottom-0 d-flex flex-column">
+            <div class="slide__title position-absolute z-2 w-100 bottom-0 d-flex flex-column transition">
                 <h1 class="w-100 text-uppercase text-center fw-semibold"><?php echo $this_champion->getName(); ?></h1>
-                <img class="object-fit-contain w-100" src="<?php echo $config->getAssetsURL(); ?>/Others/t1HeaderDivider.png" loading="lazy" alt="">
+                <img class="w-100 object-fit-contain" src="<?php echo $config->getAssetsURL(); ?>/Others/t1HeaderDivider.png" loading="lazy" alt="">
                 <h3 class="w-100 text-uppercase text-center letter-spacing-3 fw-bolder pt-3"><?php echo $this_champion->getTitle(); ?></h3>
             </div>
         </section>
@@ -154,3 +154,4 @@ try {
 </body>
 
 </html>
+<script type="module" src="../../Assets/Javascript/champion.js"></script>

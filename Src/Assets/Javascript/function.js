@@ -1,16 +1,14 @@
-export const $ = document.querySelector.bind(document);
-export const $$ = document.querySelectorAll.bind(document);
+// export function EventToggle(object) {
+//     object.classList.toggle("active");
+// }
+// export function EventAddActive(object) {
+//     object.classList.add("active");
+// }
+// export function EventRemoveActive(object) {
+//     object.classList.remove("active");
+// }
 
-export function EventToggle(object) {
-    object.classList.toggle("active");
-}
-export function EventAddActive(object) {
-    object.classList.add("active");
-}
-export function EventRemoveActive(object) {
-    object.classList.remove("active");
-}
-
+// Cuộn tự động căn giữa
 export function scrollToCenter(element, container) {
     if (element) {
         const containerRect = container.getBoundingClientRect();
@@ -21,6 +19,7 @@ export function scrollToCenter(element, container) {
     }
 }
 
+// Cuộn kéo thả chuột
 export function scrollMouseList(container) {
     let isDragging = false, startX, scrollLeft;
     container.addEventListener('mousedown', e => {
@@ -37,6 +36,7 @@ export function scrollMouseList(container) {
     });
 }
 
+// Bắt sự kiện cuộn đến 1 thẻ cho navbar
 export function viewPort(sections, item) {
     window.addEventListener('scroll', function () {
         sections.forEach(function (section, index) {
@@ -50,6 +50,7 @@ export function viewPort(sections, item) {
     });
 }
 
+// Lọc dữ liệu tìm kiếm
 export function filterSearch(searchValue, items, displayValue) {
     let count = 0;
     items.forEach((item) => {
@@ -64,12 +65,14 @@ export function filterSearch(searchValue, items, displayValue) {
     return count;
 }
 
+//Tải Js vào Header
 export function createElementScriptHeader() {
     let script = document.createElement("script");
     script.src = "../../Assets/Javascript/header.js";
     document.body.appendChild(script);
 }
 
+// Load
 export function load(selector, url, callback) {
     fetch(url)
         .then(response => {
@@ -85,11 +88,12 @@ export function load(selector, url, callback) {
         .catch(error => console.error(`Error: ${url}:`, error));
 }
 
+// Cuộn đến 1 thẻ
 export function intersectionObserver(params, object) {
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                EventAddActive(object);
+                object.classList.add("active");
                 observer.unobserve(entry.target);
             }
         });
@@ -101,8 +105,18 @@ export function intersectionObserver(params, object) {
     }
 }
 
+// refreshLoad kéo lên đầu trang
 export function refreshLoad() {
     window.addEventListener('load', () => {
         window.scrollTo(0, 0);
+    });
+}
+
+// refreshLoad đến 1 thẻ
+export function loadToElement(params) {
+    window.addEventListener('load', function () {
+        if (params) {
+            params.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
     });
 }

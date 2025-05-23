@@ -9,7 +9,7 @@
 }
 
 #main {
-    div {
+    .map-pc {
         ul {
             li {
                 height: 11vh;
@@ -123,5 +123,17 @@
                 display: none;
             }
         }
+    }
+}
+
+@media (min-width: 1025px) {
+    .map-mobile {
+        display: none;
+    }
+}
+
+@media (max-width: 1024px) {
+    .map-pc {
+        display: none;
     }
 }

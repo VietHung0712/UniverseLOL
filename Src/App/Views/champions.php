@@ -19,7 +19,7 @@ try {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="../../Assets/Javascript/function.js"></script>
     <script type="module" src="../../Assets/Javascript/load-header-footer.js"></script>
-    <script type="module" src="../../Assets/Javascript/champions.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Champions - Universe of League of Legends</title>
 </head>
 
@@ -83,3 +83,4 @@ try {
 </body>
 
 </html>
+<script type="module" src="../../Assets/Javascript/champions.js"></script>
