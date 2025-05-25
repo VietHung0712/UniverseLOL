@@ -1,61 +1,54 @@
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li {
+    color: #fff;
+}
+
+.button {
+    height: 50px;
+    width: 50px;
+}
+
+section {
+    min-height: 50vh;
+    height: max-content;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+}
+
 .header {
     height: max-content;
     width: 100%;
     text-transform: uppercase;
-    font-weight: bold;
 
     p {
+        font-weight: bold;
         color: var(--color3-);
     }
 
     h2 {
+        font-weight: bold;
         color: #fff;
     }
 }
 
-.content {
+.myContainer {
     width: 100%;
     height: max-content;
 
-    .content__border {
-        position: relative;
+    .myContainer__border {
         margin: auto;
-        height: max-content;
-
-        img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-        }
-
-        video {
-            height: 100%;
-            width: 100%;
-        }
-
-        button {
-            position: absolute;
-            top: calc((100% - 50px) / 2);
-            left: calc((100% - 50px) / 2);
-            height: 50px;
-            width: 50px;
-            font-size: 18px;
-            color: var(--color2-);
-            background-color: #000;
-            border: 2px solid var(--color2-);
-
-            &:hover {
-                color: #000;
-                background-color: var(--color2-);
-            }
-        }
+        height: 100%;
     }
 }
 
 #slide {
+    padding-top: 0;
     min-height: calc(100vh - 80px);
 
     .slide__title {
@@ -69,29 +62,48 @@
 }
 
 #music-video {
-    margin-top: 20vh;
-    margin-bottom: 10vh;
-    min-height: 50vh;
-    height: max-content;
-
-    .content {
-        background: center /cover no-repeat;
-
-        .content__border {
-            padding: 1px;
+    .myContainer {
+        .myContainer__border {
             border: 2px solid var(--color2-);
+
+            video {
+                z-index: 0;
+                position: relative;
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                background-color: #000;
+            }
+
+            button {
+                z-index: 2;
+                position: absolute;
+                top: calc((100% - 50px) / 2);
+                left: calc((100% - 50px) / 2);
+                font-size: 18px;
+                color: var(--color2-);
+                background-color: #000;
+                border: 2px solid var(--color2-);
+
+                &:hover {
+                    color: #000;
+                    background-color: var(--color2-);
+                }
+            }
         }
     }
 }
 
 #members {
+    padding: 0;
+
     .members__border {
         width: 90%;
 
         .members__img {
             div {
                 opacity: 0;
-                background-position: 100% 100%;
+                background-position: top right;
             }
 
             div.active {
@@ -100,11 +112,11 @@
         }
 
         .members__avatar {
-
             button {
+                opacity: 0.6;
                 border: 2px solid #00000000;
 
-                >div {
+                &>div {
                     padding: 3px;
                     border: 2px solid #00000000;
                     height: 102px;
@@ -112,12 +124,12 @@
                     transform-origin: 0 100%;
                     transform: skewX(-20deg);
 
-                    >div {
+                    &>div {
                         border: 2px solid #000;
                         height: 100%;
                         overflow: hidden;
 
-                        >div {
+                        &>div {
                             height: 100%;
                             transform-origin: 0 100%;
                             transform: skewX(20deg);
@@ -126,15 +138,21 @@
                         }
                     }
                 }
-            }
 
-            button.active {
-                >div {
-                    border-color: var(--color5-);
+                &.active {
+                    opacity: 1;
 
-                    >div {
+                    &>div {
                         border-color: var(--color5-);
+
+                        &>div {
+                            border-color: var(--color5-);
+                        }
                     }
+                }
+
+                &:hover>div>div {
+                    border-color: #fff;
                 }
             }
         }
@@ -174,6 +192,7 @@
             }
 
             .members__inf--tabs {
+                font-size: 14px;
 
                 .tabs__inf {
                     height: 50px;
@@ -193,18 +212,153 @@
                     }
                 }
 
-                .tabs__p {
-                    li {
-                        p {
-                            display: none;
-                            font-size: 14px;
-                        }
+                .tabs__text {
+                    >li {
+                        display: none;
+                    }
 
-                        p.active {
-                            display: block;
+                    >li.active {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#more {
+
+    .myContainer {
+        .myContainer__border {
+            .card__item {
+
+                .card__head {
+                    h2 {
+                        font-size: 24px;
+                    }
+                }
+
+                .card__body {
+                    background-color: #1e1b2c;
+
+                    button {
+                        background-color: transparent;
+
+                        div {
+                            color: #fff;
                         }
                     }
                 }
+
+                &:hover {
+                    .card__body {
+                        button {
+                            background-color: var(--color5-) !important;
+
+                            div {
+                                color: #000;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#splashArt {
+
+    .myContainer {
+        .myContainer__border {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            width: 80%;
+            height: 80vh;
+
+            &:hover .splashArt__item {
+                filter: grayscale(100%) opacity(24%);
+            }
+
+            & .splashArt__item:hover {
+                filter: grayscale(0%) opacity(100%);
+            }
+
+            &:has(.splashArt__item0:hover) {
+                grid-template-columns: 4fr 1fr 1fr 1fr;
+            }
+
+            &:has(.splashArt__item1:hover) {
+                grid-template-columns: 1fr 4fr 1fr 1fr;
+            }
+
+            &:has(.splashArt__item2:hover) {
+                grid-template-columns: 1fr 1fr 4fr 1fr;
+            }
+
+            &:has(.splashArt__item3:hover) {
+                grid-template-columns: 1fr 1fr 1fr 4fr;
+            }
+        }
+    }
+}
+
+
+#gallery {
+    .myContainer {
+        .myContainer__border {
+
+            &::-webkit-scrollbar {
+                height: 5px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background-color: var(--color4-);
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: var(--color5-);
+            }
+
+            #galleryList {
+                width: max-content;
+                padding: 20px;
+
+                button {
+                    height: 150px;
+                    width: 150px;
+                    border: 1px solid var(--color5-);
+
+                    img {
+                        height: 100%;
+                        width: 100%;
+                        object-fit: cover;
+                        object-position: top;
+                    }
+
+                    &:hover {
+                        border: 1px solid #fff;
+                    }
+                }
+            }
+        }
+
+        #galleryShow {
+            display: none;
+            z-index: 6;
+            top: 80px;
+            background-color: #000000d6;
+
+            .galleryShow__border {
+                border-bottom: 1px solid var(--color2-);
+                border-top: 1px solid var(--color2-);
+
+                img {
+                    border-right: 1px solid var(--color2-);
+                    border-left: 1px solid var(--color2-);
+                }
+            }
+
+            &.active {
+                display: flex;
             }
         }
     }
@@ -215,11 +369,16 @@
         width: 65%;
     }
 
-    .content {
-
-        .content__border {
+    .myContainer {
+        .myContainer__border {
             width: 65%;
         }
+    }
+
+    #music-video,
+    #more,
+    #splashArt {
+        gap: 10vh;
     }
 
     #slide {
@@ -230,23 +389,41 @@
         }
     }
 
-    #music-video {
-        gap: 10vh;
-    }
-
     #members {
         height: 150vh;
 
         .members__border {
 
             .members__avatar {
-                top: 10vh;
-                right: 0%;
+                top: 10%;
+                right: 0;
             }
 
             .members__inf {
-                bottom: 20vh;
-                right: 0%;
+                bottom: 5%;
+                right: 0;
+            }
+        }
+    }
+
+    #more {
+
+        .myContainer {
+            .myContainer__border {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: 1fr;
+
+                .card__item {
+                    width: 275px;
+
+                    .card__body {
+                        height: 460px;
+
+                        img {
+                            height: 160px;
+                        }
+                    }
+                }
             }
         }
     }
@@ -257,9 +434,8 @@
         width: 90%;
     }
 
-    .content {
-
-        .content__border {
+    .myContainer {
+        .myContainer__border {
             width: 90%;
         }
     }
@@ -274,7 +450,6 @@
 
     #members {
         height: 200vh;
-        padding: 5vh 0;
 
         .members__border {
             margin: auto;
@@ -291,12 +466,22 @@
                 width: 100%;
                 top: 0;
                 right: 0;
+                transform: scale(0.6);
             }
 
             .members__inf {
                 width: 100%;
                 bottom: 0;
                 right: 0;
+            }
+        }
+    }
+
+    #splashArt {
+
+        .myContainer {
+            .myContainer__border {
+                height: 50vh;
             }
         }
     }

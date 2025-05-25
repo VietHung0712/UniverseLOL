@@ -1,80 +1,116 @@
-import { } from './function.js';
+import { setActive } from './function.js';
+
+const getAssetsURL = "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/";
 
 const $videoOpen = $('.slide__splashArt > video');
-const $btnPOP = $('#music-video > .content > .content__border > button');
-const $posterPOP = $('#music-video > .content > .content__border > img');
-const $videoPOP = $('#music-video > .content > .content__border > video');
+const $btnPOP = $('#music-video > .myContainer > .myContainer__border > button');
+const $videoPOP = $('#music-video > .myContainer > .myContainer__border > video');
+const $imgPOP = $('#music-video > .myContainer > .myContainer__border > img');
 const $btnMembers = $('.members__avatar > button');
 const $imgMembers = $('.members__img > div');
-const $brandMember = $('#brandMember');
-const $role = $('#role');
-const $zodiacSign = $('#zodiacSign');
-const $nicknames = $('#nicknames');
-const $height = $('#height');
-const $title = $('#title');
-const $paragraph = $('#paragraph');
 const $btnTabs = $('.tabs__inf > li > button');
-const $phTabs = $('.tabs__p > li > p');
+const $liTabs = $('.tabs__text > li');
+const $factsList = $('#8Facts');
+const $galleryList = $('#galleryList');
+const $galleryShow = $('#galleryShow');
+const $btnCloseGallery = $('#galleryShow > div > button');
 
-let brandMember = [`Ahri`, `Evelynn`, `Kai'Sa`, `Akali`];
-let role = ['Lead Vocalist', 'Lead Vocalist', 'Lead Dancer', 'Rapper'];
-let zodiacSign = ['Sagittarius', 'Taurus', 'Pisces', 'Taurus'];
-let nicknames = ['Foxy, Gumiho', 'Siren, Eve', '小笼包, Bokkie', 'Rogue, 힙합검객'];
-let height = ['167.6 cm (5’5”)', '164 cm (5’4”)', '169.6 cm (5’6”)', '163 cm (5’3”)'];
-let title = ['Beauty and Fashion', 'No 1 Diva', '@KDAKaisa', 'Hip Hop Ninja'];
-let paragraph = [
-    'After rising to fame as a teenage pop star, Ahri tossed aside her girly and young look to reveal her new self: a high fashion, elegant, and stunning celebrity. Ahri’s sleek new look attracts top fashion designers. During fashion week, Ahri graces runways around the world in finale gowns. She is the face of FOXY cosmetics and launched her own fragrance, Charmed last year. When she isn’t with K/DA or training, Ahri is shopping, drinking tea with designers, and testing out new beauty products.',
-    'Eve’s reputation paints her as a demanding diva. She told Pop Shine, “I’m an artist, not a socialite. I won’t apologize for high standards.” Eve once walked off the stage of a live performance when her vocals were backed by an audio track she didn’t approve. Though her presence in the industry is turbulent, she has a diehard fan base who call themselves “Deeva.” Prior to K/DA, Evelynn released two hit singles, Agony’s Embrace and Ecstasy.',
-    '@KDAKaiSa<br><br>K/DA_GLOBALFANS @KDAFans<br>@KDAKaiSa why do you dance?<br><br>KAISAOFFICIAL @KDAKaiSa<br>replying to @KDAFans<br>When the music begins, a symphony of movement stirs in my being. It begins as a rumble, like a calling from the void, hungry and demanding release. My body reacts to the call, jumping to weave a story. A story to leave the void behind, and fall into the steps of life.',
-    'Akali makes appearances next to other street performers in cities she is visiting. Combining mixed martial arts and the beat of her own rap lyrics, she delights audiences with her bold lyrical rap and punk ninja style. She started practicing on the streets before rising to fame and returns to her roots whenever she can. Her unruly hair and untamed style made Akali an instant K/DA fan favorite.'
-]
+const fields = {
+    brandMember: $('#brandMember'),
+    role: $('#role'),
+    zodiacSign: $('#zodiacSign'),
+    nicknames: $('#nicknames'),
+    height: $('#height'),
+    title: $('#title'),
+    paragraph: $('#paragraph'),
+    facts: $('#8Facts > li')
+};
 
-function toggleVideoBtn(btn, show) {
-    btn.style.display = show ? 'block' : 'none';
+function handleVideoOpenEnd() {
+    $videoOpen.css('opacity', 0);
 }
 
-$videoOpen.on('ended', function () {
-    $(this).css('opacity', 0);
-});
+function handlePOPBtnClick() {
+    $btnPOP.hide();
+    $imgPOP.hide();
+    const videoEl = $videoPOP[0];
+    videoEl.controls = true;
+    videoEl.play();
+}
 
-$btnPOP.on('click', function () {
-    $(this).css('display', 'none');
-    $posterPOP.hide();
-    $videoPOP[0].controls = true;
-    $videoPOP[0].play();
-})
+function handleTabClick(index) {
+    setActive($btnTabs, index);
+    setActive($liTabs, index);
+}
 
-$videoPOP.on('pause', () => {
-    toggleVideoBtn($btnPOP[0], true);
-});
+function handleMemberClick(index, memberData) {
+    const data = memberData[index];
+    setActive($btnMembers, index);
+    setActive($imgMembers, index);
+    setActive($btnTabs, 0);
+    setActive($liTabs, 0);
 
-$videoPOP.on('play', () => {
-    toggleVideoBtn($btnPOP[0], false);
-});
+    Object.entries(fields).forEach(([key, $el]) => {
+        if (key !== 'facts') $el.html(data[key] || '');
+    });
 
-$btnMembers.each((index, element) => {
-    $(element).on('click', function () {
-        $btnMembers.removeClass('active');
-        $imgMembers.removeClass('active');
+    $factsList.empty();
+    if (Array.isArray(data.facts)) {
+        data.facts.forEach(fact => $factsList.append(`<li>${fact}</li>`));
+    }
+}
 
-        $(element).addClass('active');
-        $imgMembers.eq(index).addClass('active');
-        $brandMember.html(brandMember[index]);
-        $role.html(role[index]);
-        $zodiacSign.html(zodiacSign[index]);
-        $nicknames.html(nicknames[index]);
-        $height.html(height[index]);
-        $title.html(title[index]);
-        $paragraph.html(paragraph[index]);
-    })
-})
+async function fetchKDAData() {
+    try {
+        const res = await fetch('../../Assets/Json/kda.json');
+        const json = await res.json();
+        return {
+            memberData: json.memberData,
+            urlGallery: json.urlGallery
+        };
+    } catch (err) {
+        console.error('Error reading JSON:', err);
+        return {
+            memberData: [],
+            urlGallery: []
+        };
+    }
+}
 
-$btnTabs.each((index, element) => {
-    $(element).on('click', function () {
-        $btnTabs.removeClass('active');
-        $phTabs.removeClass('active');
+async function init() {
+    const { memberData, urlGallery } = await fetchKDAData();
 
-        $(element).addClass('active');
-        $phTabs.eq(index).addClass('active');
-    })
-})
+    if (memberData.length > 0) handleMemberClick(0, memberData);
+
+    $videoOpen.on('ended', handleVideoOpenEnd);
+    $btnPOP.on('click', handlePOPBtnClick);
+    $videoPOP.on('pause', () => $btnPOP.show());
+    $videoPOP.on('play', () => $btnPOP.hide());
+
+    $btnTabs.each((i, el) => {
+        $(el).on('click', () => handleTabClick(i));
+    });
+
+    $btnMembers.each((i, el) => {
+        $(el).on('click', () => handleMemberClick(i, memberData));
+    });
+
+    urlGallery.forEach((el, i) => {
+        const data = getAssetsURL + el;
+        $galleryList.append(`<button><img src="${data}" loading="lazy" alt=""></button>`);
+    });
+
+    $galleryList.on('click', 'button', function () {
+        const index = $(this).index();
+        $galleryShow.addClass('active');
+        $('html, body').css('overflow', 'hidden');
+        $galleryShow.find('img').attr('src', getAssetsURL + urlGallery[index]);
+    });
+
+    $btnCloseGallery.on('click', () => {
+        $galleryShow.removeClass('active');
+        $('html, body').css('overflow', 'auto');
+    });
+}
+
+init()

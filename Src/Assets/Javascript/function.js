@@ -8,6 +8,11 @@
 //     object.classList.remove("active");
 // }
 
+export function setActive($collection, index) {
+    $collection.removeClass('active');
+    $collection.eq(index).addClass('active');
+}
+
 // Cuộn tự động căn giữa
 export function scrollToCenter(element, container) {
     if (element) {
