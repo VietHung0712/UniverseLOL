@@ -1,66 +1,88 @@
-import { filterSearch } from "./function.js";
+import { refreshLoad } from "./function.js";
 
-const $champions = $('.container__body > .item');
-const $inputSearch = $('.filter__input > input');
-const $selectSort = $('.filter__sort > select');
+const $inputSearch = $('#filter input');
+const $selectSort = $('#filter select');
 const $filter = $('#filter');
-const $listBody = $('.container__body');
+const $containerBody = $('.container__body');
 
-// Cập nhật Css Grid
-function updateGrid(count) {
-    if (count < 5) {
-        $listBody.css({
-            width: `calc(85% * ${count} / 5)`,
-            gridTemplateColumns: `repeat(${count}, 1fr)`
-        });
-    } else {
-        $listBody.css({
-            width: '85%',
-            gridTemplateColumns: 'repeat(5, 1fr)'
-        });
-    }
-}
-
-// Sắp xếp
-function sortChampions(championsArray, sortIndex) {
-    switch (sortIndex) {
-        case 0:
-            return championsArray.sort((a, b) => a.dataset.id.localeCompare(b.dataset.id));
-        case 1:
-            return championsArray.sort((a, b) => b.dataset.id.localeCompare(a.dataset.id));
-        case 2:
-            return championsArray.sort((a, b) => a.dataset.region.localeCompare(b.dataset.region));
-        default:
-            return championsArray;
-    }
-}
-
-// Sự kiện tìm kiếm
-$inputSearch.on('input', function () {
-    const valueInput = $(this).val().trim().toLowerCase();
-    const count = filterSearch(valueInput, $champions.toArray(), 'flex');
-
-    if ($filter.css('display') !== 'none') {
-        updateGrid(count);
-    }
-});
-
-// Sự kiện sắp xếp
-$selectSort.on('change', function () {
-    const index = this.selectedIndex;
-    const sorted = sortChampions($champions.toArray(), index);
-    $listBody.empty().append(sorted);
-});
-
-
-// Cuộn thanh filter khi cuộn trang
+let listItems = $('.item').toArray();
 let lastScrollY = window.scrollY;
-$(window).on('scroll', function () {
-    const currentScrollY = window.scrollY;
-    if (currentScrollY > lastScrollY) {
-        $filter.css('top', 'calc(80px + 1vh)');
-    } else if (currentScrollY < lastScrollY) {
-        $filter.css('top', 'calc(80px + 6vh)');
+
+function sortData(index, array) {
+    switch (index) {
+        case 0:
+            return array.sort((a, b) => a.dataset.id.localeCompare(b.dataset.id));
+        case 1:
+            return array.sort((a, b) => b.dataset.id.localeCompare(a.dataset.id));
+        case 2:
+            return array.sort((a, b) => a.dataset.region.localeCompare(b.dataset.region));
+        default:
+            return array;
     }
-    lastScrollY = currentScrollY;
-});
+}
+
+
+function filterSearch(keyword, items) {
+    keyword = keyword.trim().toLowerCase();
+    const result = items.filter(element =>
+        element.dataset.id.trim().toLowerCase().startsWith(keyword)
+    );
+    return result;
+}
+
+function returnResult(perRow, array, $container) {
+    if (!$container) return;
+    $container.empty();
+    for (let i = 0; i < array.length; i += perRow) {
+        const $row = $('<div>');
+        $row.addClass('row flex-center h-100 mt-md-5 gap-md-2');
+
+        const items = array.slice(i, i + perRow);
+        items.forEach(item => $row.append(item));
+
+        $container.append($row);
+    }
+}
+
+function scrollFilter() {
+    $(window).on('scroll', function () {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > lastScrollY) {
+            $filter.css('top', 'calc(80px + 1vh)');
+        } else if (currentScrollY < lastScrollY) {
+            $filter.css('top', 'calc(80px + 6vh)');
+        }
+        lastScrollY = currentScrollY;
+    });
+}
+
+function init() {
+    $inputSearch.on('input', function () {
+        const valueInput = $(this).val().trim().toLowerCase();
+        if (valueInput.length > 0) {
+
+            const indexSort = $selectSort.selectedIndex;
+            listItems = sortData(indexSort, listItems);
+
+            const resultSearch = filterSearch(valueInput, listItems);
+            returnResult(5, resultSearch, $containerBody);
+        } else {
+            returnResult(5, listItems, $containerBody);
+        }
+    });
+
+    $selectSort.on('change', function () {
+        const $champions = $('.item');
+        const index = this.selectedIndex;
+        
+        listItems = sortData(index, listItems);
+
+        const resultSorted = sortData(index, $champions.toArray());
+        returnResult(5, resultSorted, $containerBody);
+    });
+
+    scrollFilter();
+    refreshLoad();
+}
+
+init();

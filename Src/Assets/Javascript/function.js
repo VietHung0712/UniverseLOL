@@ -55,21 +55,6 @@ export function viewPort(sections, item) {
     });
 }
 
-// Lọc dữ liệu tìm kiếm
-export function filterSearch(searchValue, items, displayValue) {
-    let count = 0;
-    items.forEach((item) => {
-        const testSearch = searchValue === '' || item.dataset.id.trim().toLowerCase().startsWith(searchValue);
-        if (testSearch) {
-            count++;
-            item.style.display = displayValue;
-        } else {
-            item.style.display = 'none';
-        }
-    });
-    return count;
-}
-
 //Tải Js vào Header
 export function createElementScriptHeader() {
     let script = document.createElement("script");
