@@ -1,5 +1,6 @@
 import { refreshLoad } from "./function.js";
 
+const $champions = $('.item');
 const $inputSearch = $('#filter input');
 const $selectSort = $('#filter select');
 const $filter = $('#filter');
@@ -30,17 +31,55 @@ function filterSearch(keyword, items) {
     return result;
 }
 
-function returnResult(perRow, array, $container) {
+function returnResult(row, array, $container, wrap) {
     if (!$container) return;
     $container.empty();
-    for (let i = 0; i < array.length; i += perRow) {
-        const $row = $('<div>');
-        $row.addClass('row flex-center h-100 mt-md-5 gap-md-2');
+    if (wrap) {
+        let temp = 0;
+        while (temp < array.length) {
+            const $row = $('<div>');
+            $row.addClass('row flex-center h-100 mt-md-5 gap-md-2');
+            if (
+                (temp > 0 &&
+                    temp < array.length &&
+                    array[temp].dataset.region !== array[temp - 1].dataset.region
+                ) || temp == 0
+            ) {
+                const $div = $('<div>');
+                $div.addClass('col-12 p-4');
+                const $h1 = $('<h1>');
+                $h1.addClass('position-relative m-auto text-center text-uppercase letter-spacing-3');
+                $h1.text(array[temp].dataset.regionName);
+                $div.append($h1);
+                $row.append($div);
+            }
+            $container.append($row);
 
-        const items = array.slice(i, i + perRow);
-        items.forEach(item => $row.append(item));
+            let count = 0;
+            $row.append(array[temp]);
 
-        $container.append($row);
+            count++;
+            temp++;
+
+            while (
+                temp < array.length &&
+                count < row &&
+                array[temp].dataset.region === array[temp - 1].dataset.region
+            ) {
+                $row.append(array[temp]);
+                temp++;
+                count++;
+            }
+        }
+    } else {
+        for (let i = 0; i < array.length; i += row) {
+            const $row = $('<div>');
+            $row.addClass('row flex-center h-100 mt-md-5 gap-md-2');
+            $container.append($row);
+
+            const items = array.slice(i, i + row);
+            items.forEach(item => $row.append(item));
+        }
     }
 }
 
@@ -56,30 +95,26 @@ function scrollFilter() {
     });
 }
 
+
+
 function init() {
-    $inputSearch.on('input', function () {
-        const valueInput = $(this).val().trim().toLowerCase();
-        if (valueInput.length > 0) {
 
-            const indexSort = $selectSort.selectedIndex;
-            listItems = sortData(indexSort, listItems);
+    function actionFilter() {
 
-            const resultSearch = filterSearch(valueInput, listItems);
-            returnResult(5, resultSearch, $containerBody);
-        } else {
-            returnResult(5, listItems, $containerBody);
-        }
-    });
+        const index = $selectSort[0].selectedIndex;
+        const wrap = index == 2;
 
-    $selectSort.on('change', function () {
-        const $champions = $('.item');
-        const index = this.selectedIndex;
-        
-        listItems = sortData(index, listItems);
+        const valueInput = $inputSearch.val().trim().toLowerCase();
+        const resultSearch = filterSearch(valueInput, listItems);
+        const resultSorted = sortData(index, resultSearch);
 
-        const resultSorted = sortData(index, $champions.toArray());
-        returnResult(5, resultSorted, $containerBody);
-    });
+        returnResult(5, resultSorted, $containerBody, wrap);
+        window.scrollTo(0, 0);
+    }
+
+    $inputSearch.on('input', actionFilter);
+
+    $selectSort.on('change', actionFilter);
 
     scrollFilter();
     refreshLoad();

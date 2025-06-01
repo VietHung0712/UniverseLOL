@@ -3,7 +3,7 @@
 
     .slide__splashArt {
         div {
-            background-image: radial-gradient(transparent 20% , #000 90%);
+            background-image: radial-gradient(transparent 20%, #000 90%);
         }
     }
 
@@ -37,163 +37,44 @@ h6 {
 }
 
 #container {
+    height: max-content;
+    min-height: 110vh;
     background-image: radial-gradient(ellipse closest-side at 50% 35%, #1b2528, #0a0a0c);
 
-    .container__border {
-        padding: 10% 8% 5%;
-
-        .container__col {
-
-            .col__head {
-                height: 15%;
-            }
-
-            .col__body {
-                height: 85%;
-            }
-
+    .container {
+        .row {
             .col__item {
-                background-color: #111318;
-                border: 1px solid var(--color4-);
-            }
-        }
-
-        .col__1 {
-            .col__1--body {
-                &::-webkit-scrollbar {
-                    width: 5px;
+                .col__head {
+                    height: 80px;
                 }
-
-                &::-webkit-scrollbar-track {
-                    background-color: transparent;
-                }
-
-                &::-webkit-scrollbar-thumb {
-                    background-color: transparent;
-                }
-
-                &:hover::-webkit-scrollbar-thumb {
-                    background-color: #93734166;
-                }
-
-                .relations__border {
-                    height: max-content;
-
-                    gap: 5vh;
-
-                    .relation__item {
-                        height: 125px;
-                        width: 115px;
-
-                        .relation__item--img {
-                            width: 115px;
-                            height: 115px;
-                            background: linear-gradient(to bottom, #644811, #fff, #644811);
-
-                            img {
-                                height: 95%;
-                                width: 95%;
-                            }
-                        }
-
-                        h6 {
-                            opacity: 0;
-                        }
-
-                        &:hover {
-                            transform: scale(1.2);
-
-                            h6 {
-                                opacity: 1;
-                            }
-                        }
-
-                    }
+                .col__body {
+                    height: calc(100% - 80px);
                 }
             }
         }
+    }
+}
 
-        .col__2 {
-            .col__2--head {
-                height: 35%;
+.col__bg {
+    background-color: #111318;
+    border: 1px solid var(--color4-);
+}
 
-                .avatar {
-                    top: calc(-130px / 2);
-                    left: calc(50% - 130px / 2);
-                    height: 130px;
-                    width: 130px;
-                    background-size: contain;
-                    border-radius: 50%;
-                    background-color: #111318;
+.scrollbar {
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
 
-                    .avatar__img {
-                        height: 65%;
-                        width: 65%;
-                        border-radius: 50%;
-                        border: 1px solid var(--color1-);
-                    }
-                }
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
 
-                .voice {
-                    margin-top: calc(130px / 2);
+    &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+    }
 
-                    h5,
-                    h6 {
-                        font-size: 20px;
-                    }
-                }
-            }
-
-            .col__2--body {
-                height: 65%;
-                min-height: max-content;
-
-                h6 {
-                    width: 80%;
-                    font-size: 16px;
-                    text-align: justify;
-                    line-height: 1.4;
-
-                    &::first-letter {
-                        font-size: 30px;
-                        margin: 15px;
-                        padding: 0 10px;
-                        border-bottom: 5px solid var(--color3-);
-                    }
-                }
-            }
-        }
-
-        .col__3 {
-            .col__3--head {
-                .role {
-                    border-left: 1px solid var(--color4-);
-                }
-            }
-
-            .col__3--body {
-                a {
-                    height: 15%;
-                    border-top: 1px solid var(--color4-);
-                    background-color: #111318;
-
-                    .region {
-                        border-right: 1px solid var(--color4-);
-                    }
-                }
-
-                &:hover {
-                    transform: scale(1.1);
-                    box-shadow: 0px 0px 20px rgb(0, 0, 0);
-
-                    .col__3--background {
-                        img {
-                            transform: translateY(-10px);
-                        }
-                    }
-                }
-            }
-        }
+    &:hover::-webkit-scrollbar-thumb {
+        background-color: #93734166;
     }
 }
 
@@ -203,6 +84,7 @@ h6 {
 
     .splashArt__head {
         min-height: fit-content;
+
         i {
             color: var(--color3-);
             font-size: 28px;
@@ -311,7 +193,7 @@ h6 {
     }
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 768px) {
     #slide {
         .slide__title {
             h1 {
@@ -324,13 +206,6 @@ h6 {
         }
     }
 
-    #container {
-        height: 110vh;
-        .container__border {
-            grid-template-columns: 3fr 7fr 3fr;
-            grid-template-rows: 1fr;
-        }
-    }
 
     #splashArt {
         .splashArt__head {
@@ -339,7 +214,17 @@ h6 {
     }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 991px) {
+    #container {
+        .container {
+            .col__1 {
+                display: none;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
     #slide {
         .slide__title {
             h1 {
@@ -352,18 +237,7 @@ h6 {
         }
     }
 
-    #container {
-        height: max-content;
-        .container__border {
-            margin-top: 10vh;
-            grid-template-columns: 1fr;
-            grid-template-rows: 2fr 1fr;
 
-            .col__1 {
-                display: none !important;
-            }
-        }
-    }
 
     #splashArt {
         .splashArt__head {

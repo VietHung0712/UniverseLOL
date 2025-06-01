@@ -4,6 +4,8 @@
     background-color: #121212;
 
     .container {
+
+        h1,
         i {
             color: var(--color3-);
         }
@@ -43,30 +45,32 @@
         img {
             width: 20px;
         }
+    }
 
-        h1 {
-            font-size: 28px;
-            color: var(--color1-);
+    .container__head  h1, .container__body > .row > div > h1 {
+        width: max-content !important;
+        font-size: 28px;
+        color: var(--color1-);
 
-            &::before,
-            &::after {
-                position: absolute;
-                content: "";
-                width: 15vw;
-                height: 1px;
-                top: 45%;
-            }
-
-            &::before {
-                right: 130%;
-                background: linear-gradient(to left, var(--color2-), transparent);
-            }
-
-            &::after {
-                left: 130%;
-                background: linear-gradient(to right, var(--color2-), transparent);
-            }
+        &::before,
+        &::after {
+            position: absolute;
+            content: "";
+            width: 15vw;
+            height: 1px;
+            top: 45%;
         }
+
+        &::before {
+            right: 130%;
+            background: linear-gradient(to left, var(--color2-), transparent);
+        }
+
+        &::after {
+            left: 130%;
+            background: linear-gradient(to right, var(--color2-), transparent);
+        }
+
     }
 
     .container__body {
