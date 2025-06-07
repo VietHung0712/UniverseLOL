@@ -1,10 +1,9 @@
 import { refreshLoad } from "./function.js";
 
-const $champions = $('.item');
 const $inputSearch = $('#filter input');
 const $selectSort = $('#filter select');
 const $filter = $('#filter');
-const $containerBody = $('.container__body');
+const $containerBody = $('.champions__list');
 
 let listItems = $('.item').toArray();
 let lastScrollY = window.scrollY;
@@ -38,7 +37,7 @@ function returnResult(row, array, $container, wrap) {
         let temp = 0;
         while (temp < array.length) {
             const $row = $('<div>');
-            $row.addClass('row flex-center h-100 mt-md-5 gap-md-2');
+            $row.addClass('row');
             if (
                 (temp > 0 &&
                     temp < array.length &&
@@ -46,9 +45,8 @@ function returnResult(row, array, $container, wrap) {
                 ) || temp == 0
             ) {
                 const $div = $('<div>');
-                $div.addClass('col-12 p-4');
+                $div.addClass('container__head');
                 const $h1 = $('<h1>');
-                $h1.addClass('position-relative m-auto text-center text-uppercase letter-spacing-3');
                 $h1.text(array[temp].dataset.regionName);
                 $div.append($h1);
                 $row.append($div);
@@ -74,7 +72,7 @@ function returnResult(row, array, $container, wrap) {
     } else {
         for (let i = 0; i < array.length; i += row) {
             const $row = $('<div>');
-            $row.addClass('row flex-center h-100 mt-md-5 gap-md-2');
+            $row.addClass('row');
             $container.append($row);
 
             const items = array.slice(i, i + row);
@@ -83,17 +81,17 @@ function returnResult(row, array, $container, wrap) {
     }
 }
 
-function scrollFilter() {
-    $(window).on('scroll', function () {
-        const currentScrollY = window.scrollY;
-        if (currentScrollY > lastScrollY) {
-            $filter.css('top', 'calc(80px + 1vh)');
-        } else if (currentScrollY < lastScrollY) {
-            $filter.css('top', 'calc(80px + 6vh)');
-        }
-        lastScrollY = currentScrollY;
-    });
-}
+// function scrollFilter() {
+//     $(window).on('scroll', function () {
+//         const currentScrollY = window.scrollY;
+//         if (currentScrollY > lastScrollY) {
+//             $filter.css('top', 'calc(80px + 1vh)');
+//         } else if (currentScrollY < lastScrollY) {
+//             $filter.css('top', 'calc(80px + 6vh)');
+//         }
+//         lastScrollY = currentScrollY;
+//     });
+// }
 
 
 

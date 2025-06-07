@@ -28,10 +28,8 @@ img {
     user-select: none;
 }
 
-button {
-    cursor: pointer;
-}
-
+button,
+select,
 a {
     cursor: pointer;
 }
@@ -40,6 +38,18 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.vh-25 {
+    height: 25vh;
+}
+
+.vh-50 {
+    height: 50vh;
+}
+
+.vh-75 {
+    height: 75vh;
 }
 
 .letter-spacing-1 {
@@ -82,6 +92,28 @@ a {
     --color5-: #e5b48f;
 }
 
+.text-color-1 {
+    color: var(--color1-);
+}
+
+.text-color-2 {
+    color: var(--color2-);
+}
+
+.text-color-3 {
+    color: var(--color3-);
+}
+
+.text-color-4 {
+    color: var(--color4-);
+}
+
+.text-color-5 {
+    color: var(--color5-);
+}
+
+/* ---------------------------------------------------------- */
+
 @keyframes animatedView {
     0% {
         transform: translateX(0);
@@ -101,4 +133,268 @@ a {
         transform: translateX(0);
         opacity: 1;
     }
+}
+
+@keyframes slideShow {
+    from {
+        opacity: 0;
+        transform: scale(1.2);
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+        ;
+    }
+}
+
+/*--------------------------------------------------------------------*/
+
+#slide {
+    height: calc(100vh - 80px);
+
+    .slide__splashArt {
+        div {
+            background-image: radial-gradient(transparent 70%, #000 95%), linear-gradient(to bottom, #00000000, #00000000, #000);
+        }
+    }
+
+    .slide__title {
+        animation: slideShow 0.3s ease-in-out forwards;
+        background-image: linear-gradient(to bottom, #00000000, #000000c6, #000000);
+
+        h1 {
+            font-size: 2.5rem;
+            color: rgb(103, 71, 31);
+            letter-spacing: 1.5vw;
+            background: -webkit-linear-gradient(bottom, rgb(103, 71, 31), rgb(203, 172, 98)) text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h3 {
+            font-size: 12px;
+            color: var(--color1-);
+        }
+    }
+}
+
+.container__head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 10vh;
+
+    img {
+        position: relative;
+        object-fit: contain;
+        max-width: 32px;
+        max-height: 32px;
+    }
+
+    i {
+        font-size: 2rem;
+        color: var(--color1-);
+    }
+
+    h1 {
+        position: relative;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        width: max-content;
+        font-size: 28px;
+        color: var(--color1-);
+
+        &::before,
+        &::after {
+            position: absolute;
+            content: "";
+            width: 15vw;
+            height: 1px;
+            top: 45%;
+        }
+
+        &::before {
+            right: 130%;
+            background: linear-gradient(to left, var(--color2-), transparent);
+        }
+
+        &::after {
+            left: 130%;
+            background: linear-gradient(to right, var(--color2-), transparent);
+        }
+    }
+}
+
+.champions__list {
+    &>.row {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &>.item {
+            position: relative;
+            height: 80px;
+            padding: 0;
+            text-decoration: none;
+            border: 1px solid transparent;
+            overflow: hidden;
+
+            &:nth-child(even) {
+                background-color: #121212;
+            }
+
+            &:nth-child(odd) {
+                background-color: #1b1b1b;
+            }
+
+            &>img {
+                height: 100%;
+                width: 20%;
+                object-fit: cover;
+            }
+
+            & .item__more {
+                position: absolute;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                top: 0;
+                left: 30%;
+                right: 0;
+
+                &>div {
+                    padding: 1rem;
+                    width: 100%;
+                    text-align: start;
+                    font-size: 14px;
+
+                    h1,
+                    h2 {
+                        letter-spacing: 2px;
+                        font-weight: bold;
+                        text-transform: uppercase;
+                    }
+
+                    h1,
+                    span,
+                    i {
+                        color: var(--color3-);
+                        font-size: 14px;
+                    }
+
+                    h2 {
+                        color: var(--color1-);
+                        font-size: 12px;
+                    }
+                }
+
+                &>div:last-child {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 1rem;
+
+                    &:hover span {
+                        animation: animatedView 0.3s ease;
+                    }
+
+                    h1 {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.scrollbar {
+    &::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+    }
+
+    &:hover::-webkit-scrollbar-thumb {
+        background-color: #93734166;
+    }
+}
+
+@media (min-width: 576px) {
+    /* CSS cho col-sm */
+}
+
+@media (min-width: 768px) {
+    #slide {
+        .slide__title {
+            h1 {
+                font-size: 6.5rem;
+            }
+        }
+    }
+
+    .champions__list {
+        &>.row {
+            margin-top: 2rem;
+            gap: 1rem;
+
+            &>.item {
+                height: 323.4px;
+
+                &:hover {
+                    transform: scale(1.1);
+                    border-color: var(--color3-);
+
+                    &>.item__more {
+                        bottom: 0;
+                    }
+                }
+
+                &>img {
+                    width: 100%;
+                }
+
+                &>.item__more {
+                    top: auto;
+                    left: 0;
+                    flex-direction: column;
+                    bottom: calc(-2rem - 21px - 1px);
+                    background-color: rgba(10, 10, 12, .9);
+
+                    &>div {
+                        text-align: center;
+                        border-top: 1px solid var(--color3-);
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    /* CSS cho col-lg */
+}
+
+@media (min-width: 1200px) {
+    .champions__list {
+        &>.row {
+            &>.item {
+                height: 423.4px;
+            }
+        }
+    }
+}
+
+@media (min-width: 1400px) {
+    /* CSS cho col-xxl */
 }

@@ -13,9 +13,8 @@ try {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../Assets/Css/reset.css">
-    <link rel="stylesheet" href="../../Assets/Css/header_footer.css">
     <link rel="stylesheet" href="../../Assets/Css/region.css">
-    <link rel="icon" href="<?php echo $config->getAssetsURL(); ?>/Icon/LOL.png">
+    <link rel="icon" href="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Icon/League_of_Legends_icon.svg">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="../../Assets/Javascript/function.js"></script>
     <script type="module" src="../../Assets/Javascript/load-header-footer.js"></script>
@@ -40,7 +39,7 @@ try {
             <p><?php echo $this_region->getStory(); ?></p>
         </section>
         <section id="container" class="position-relative">
-            <div class="container__head mb-5 w-100 position-relative flex__center flex-column justify-content-end gap-1">
+            <div class="container__head mb-5 w-100 position-relative flex-center flex-column justify-content-end gap-1">
                 <img src="<?php echo $config->getAssetsURL(); ?>/Icon/content_type_icon_champion__3nwJQ.png" alt="">
                 <h1 class="position-relative text-uppercase position-relative letter-spacing-3">Champions of <?php echo $this_region->getName(); ?></h1>
                 <img class="position-absolute w-100 top-0 object-fit-contain"
@@ -61,12 +60,12 @@ try {
                             <img class="item__img h-100 transition object-fit-cover" loading="lazy"
                                 style="object-position: <?php echo $item->getPositionX() . '% ' . $item->getPositionY() . '%'; ?>;"
                                 src="<?php echo $config->getAssetsURL() . '/' . $item->getSplashArt(); ?>" alt="">
-                            <div class="item__more position-absolute flex__center text-uppercase transition">
-                                <div class="item__more--inf flex__center gap-2 flex-column transition">
+                            <div class="item__more position-absolute flex-center text-uppercase transition">
+                                <div class="item__more--inf flex-center gap-2 flex-column transition">
                                     <h1 class="m-0 letter-spacing-1"><?php echo $item->getName(); ?></h1>
                                     <h2 class="m-0 letter-spacing-1"><?php echo $getNameRegionById[$item->getRegion()]; ?></h2>
                                 </div>
-                                <div class="item__more--explore flex__center gap-2 transition">
+                                <div class="item__more--explore flex-center gap-2 transition">
                                     <h1 class="m-0 letter-spacing-1">Explore</h1>
                                     <i class="bi bi-arrow-right m-0 letter-spacing-1"></i>
                                 </div>
@@ -77,8 +76,8 @@ try {
                 }
                 ?>
             </div>
-            <div class="container__more position-absolute w-100 bottom-0 flex__center">
-                <button id="btnMore" class="flex__center transition">
+            <div class="container__more position-absolute w-100 bottom-0 flex-center">
+                <button id="btnMore" class="flex-center transition">
                     <p class="text-uppercase d-block m-0 letter-spacing-1">
                         View all <?php echo $this_region->getName(); ?> champions <i class="bi bi-arrow-down"></i>
                     </p>

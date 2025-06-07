@@ -15,6 +15,7 @@ $role = RolesHelper::getRoleById($connect, $this_champion->getRole());
 $region = RegionsHelper::getRegionById($connect, $this_champion->getRegion());
 $skinsArr = SkinsHelper::getSkinsByChampionId($connect, $championId);
 
+$championRelationsArr = [];
 if (isset($relationsArr) && !empty($relationsArr)) {
     foreach ($relationsArr as $item) {
         $championRelationsArr[] = ChampionsHelper::getChampionById($connect, $item->getRelatedId());
