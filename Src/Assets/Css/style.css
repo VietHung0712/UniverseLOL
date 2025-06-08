@@ -3,7 +3,7 @@
         display: none;
         top: calc(80px);
         height: 90px;
-        background-color: #121212;
+        background-color: var(--color6-);
 
         .container {
             input {
@@ -17,7 +17,7 @@
             }
 
             select {
-                background-color: #121212;
+                background-color: var(--color6-);
 
                 &:hover {
                     opacity: 0.8;
@@ -122,18 +122,7 @@
 
                         div {
                             p {
-                                text-align: justify;
                                 text-align-last: center;
-
-                                &::first-letter {
-                                    font-weight: 500;
-                                    font-size: 44px;
-                                    border-bottom: 3px solid #937341;
-                                    float: left;
-                                    line-height: 1.2;
-                                    margin: -2px 20px 0 18px;
-                                    padding: 0 8px 0 10px;
-                                }
                             }
                         }
                     }
@@ -176,11 +165,6 @@
         .col__bg {
             background-color: #111318;
             border: 1px solid var(--color4-);
-        }
-
-        .img__filter {
-            filter: brightness(.3) grayscale(100%);
-            opacity: 0.5;
         }
     }
 
@@ -246,20 +230,284 @@
     }
 }
 
+#regions {
+    #theme {
+        div {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        img {
+            object-position: center;
+        }
+    }
+
+    #title {
+        height: 40vh;
+
+        h1 {
+            font-size: 4rem;
+        }
+    }
+
+    #container {
+        .row {
+            &>div {
+                height: 200px;
+
+                a {
+                    border: 1px solid var(--color4-);
+
+                    img:first-child {
+                        background-image: linear-gradient(#000000);
+                    }
+
+                    div:nth-child(2) {
+                        background-color: rgba(0, 0, 0, 0.5);
+                    }
+
+                    img:nth-child(3) {
+                        top: 10%;
+                        opacity: 1;
+                    }
+
+                    div:last-child {
+                        background-color: var(--color6-);
+
+                        h3 {
+                            color: var(--color1-);
+                            font-size: 24px;
+                        }
+                    }
+
+                    &:hover {
+                        border: 1px solid var(--color1-);
+
+                        div:nth-child(2) {
+                            background-color: rgba(0, 0, 0, 0);
+                        }
+
+                        img:nth-child(3) {
+                            opacity: 0;
+                        }
+                    }
+                }
+
+
+            }
+        }
+    }
+}
+
+#region {
+    #story {
+        height: max-content;
+        padding-top: 5vh;
+    }
+
+    #container {
+        .container-fluid {
+            opacity: 0;
+            transform: translateY(20%);
+            transition-duration: 600ms;
+
+            &.active {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .row {
+                .item {
+                    display: none;
+
+                    &.active {
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        .container__more.active {
+            /* height: 0; */
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        .container__more {
+            min-height: 160px;
+            z-index: 3;
+            background-color: #000000c3;
+
+            button {
+                background-color: #111318;
+                border: 2px solid var(--color3-);
+
+                p {
+                    color: var(--color3-);
+                }
+
+                &:hover {
+                    background-color: #000000;
+                }
+            }
+        }
+    }
+}
+
+#map {
+    .area {
+        opacity: 0;
+        transition: fill 1s ease;
+    }
+
+    .area.active {
+        opacity: 1;
+        fill: rgba(255, 255, 255, 0.2);
+    }
+
+    .map-pc {
+        display: none;
+
+        ul {
+            li {
+                height: 11vh;
+                width: max-content;
+
+                a {
+                    h1 {
+                        font-size: 18px;
+                    }
+
+                    div {
+                        img {
+                            aspect-ratio: 1 / 1;
+                        }
+                    }
+                }
+
+                &:hover {
+                    a {
+                        div {
+                            img:last-child {
+                                opacity: 1 !important;
+                                transform: scale(1.5);
+                            }
+
+                            img:first-child {
+                                opacity: 0;
+                            }
+                        }
+                    }
+
+                    .title {
+                        display: block;
+                    }
+                }
+
+                .title {
+                    top: -20%;
+                    right: 100%;
+                    height: 50px;
+                    width: max-content;
+                    min-width: 200px;
+                    display: none;
+
+                    h6 {
+                        font-size: 12px;
+                        color: var(--color1-);
+                        background-color: #000000a9;
+                    }
+                }
+            }
+
+            .Noxus {
+                top: 40%;
+                left: 47%;
+            }
+
+            .Ionia {
+                top: 37%;
+                left: 75%;
+            }
+
+            .The_Freljord {
+                top: 35%;
+                left: 28%;
+            }
+
+            .Demacia {
+                top: 45%;
+                left: 26%;
+            }
+
+            .Targon {
+                top: 67%;
+                left: 36%;
+            }
+
+            .Shurima {
+                top: 65%;
+                left: 50%;
+            }
+
+            .Ixtal {
+                top: 63%;
+                left: 62%;
+            }
+
+            .Bilgewater {
+                top: 57%;
+                left: 74%;
+            }
+
+            .Shadow_Isles {
+                top: 67%;
+                left: 79%;
+            }
+
+            .Zaun {
+                top: 56%;
+                left: 58%;
+            }
+
+            .Piltover {
+                top: 51%;
+                left: 57%;
+            }
+
+            .The_Void,
+            .Runeterra,
+            .Bandle_City {
+                display: none;
+            }
+        }
+    }
+}
 
 @media (min-width: 576px) {
-    /* CSS cho col-sm */
+    /* CSS col-sm */
 }
 
 @media (min-width: 768px) {
+    /* CSS col-md */
+
     #champions {
         #filter {
             display: block;
         }
     }
+
+    #region {
+        #container {
+            .container__more {
+                top: calc(323.4px + 25vh + 2rem);
+            }
+        }
+    }
 }
 
 @media (min-width: 992px) {
+    /* CSS col-lg */
+
     #champion {
         #container {
             .container {
@@ -287,12 +535,31 @@
             }
         }
     }
+
+    #map {
+        .map-mobile {
+            display: none;
+        }
+
+        .map-pc {
+            display: block;
+        }
+
+    }
 }
 
 @media (min-width: 1200px) {
-    /* CSS cho col-xl */
+    /* CSS col-xl */
+
+    #region {
+        #container {
+            .container__more {
+                top: calc(423.4px + 25vh + 2rem);
+            }
+        }
+    }
 }
 
 @media (min-width: 1400px) {
-    /* CSS cho col-xxl */
+    /* CSS col-xxl */
 }

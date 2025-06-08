@@ -1,6 +1,6 @@
 import { loadToElement } from './function.js';
 
-const $main = $('#main');
+const $map = $('#map');
 const $itemArr = $('li.item');
 
 $itemArr.each( function() {
@@ -11,4 +11,4 @@ $itemArr.each( function() {
     });
 });
 
-loadToElement($main[0]);
+loadToElement($map[0]);

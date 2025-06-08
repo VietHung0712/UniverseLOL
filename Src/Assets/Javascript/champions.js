@@ -81,20 +81,6 @@ function returnResult(row, array, $container, wrap) {
     }
 }
 
-// function scrollFilter() {
-//     $(window).on('scroll', function () {
-//         const currentScrollY = window.scrollY;
-//         if (currentScrollY > lastScrollY) {
-//             $filter.css('top', 'calc(80px + 1vh)');
-//         } else if (currentScrollY < lastScrollY) {
-//             $filter.css('top', 'calc(80px + 6vh)');
-//         }
-//         lastScrollY = currentScrollY;
-//     });
-// }
-
-
-
 function init() {
 
     function actionFilter() {
@@ -114,7 +100,6 @@ function init() {
 
     $selectSort.on('change', actionFilter);
 
-    scrollFilter();
     refreshLoad();
 }
 

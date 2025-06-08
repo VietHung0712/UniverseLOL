@@ -49,7 +49,7 @@ try {
             </div>
         </section>
         <section id="container">
-            <div class="container__head justify-content-end">
+            <div class="container__head justify-content-end pb-3">
                 <img src="<?php echo $config->getAssetsURL(); ?>/Icon/content_type_icon_champion__3nwJQ.png" width="30" alt="">
                 <h1>Champions</h1>
             </div>
@@ -70,12 +70,28 @@ try {
                                     src="<?php echo $config->getAssetsURL() . '/' . $item->getSplashArt(); ?>" alt="">
                                 <div class="item__more transition">
                                     <div>
-                                        <h1><?php echo $item->getName(); ?></h1>
-                                        <h2><?php echo $getNameRegionById[$item->getRegion()]; ?></h2>
+                                        <h1>
+                                            <span>
+                                                <?php echo $item->getName(); ?>
+                                            </span>
+                                        </h1>
+                                        <h2>
+                                            <span>
+                                                <?php echo $getNameRegionById[$item->getRegion()]; ?>
+                                            </span>
+                                        </h2>
                                     </div>
-                                    <div class="transition">
+                                    <div class="animationView">
                                         <h1>Explore</h1>
-                                        <span><i class="bi bi-dash"></i><i class="bi bi-arrow-right"></i></span>
+                                        <span>
+                                            <svg version="1.0" x="0px" y="0px" viewBox="0 0 162 70.28" fill="#937341" style="width: 12.5px;">
+                                                <circle fill="#937341" cx="31.57" cy="35.21" r="11.57"></circle>
+                                                <g>
+                                                    <polygon fill="#937341" points="124.18,70.39 118.31,64.09 149.37,35.22 118.31,6.35 124.18,0.05 162,35.22"></polygon>
+                                                    <rect x="84.61" y="29.76" fill="#937341" width="65" height="11.06"></rect>
+                                                </g>
+                                            </svg>
+                                        </span>
                                     </div>
                                 </div>
                             </a>

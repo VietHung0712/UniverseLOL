@@ -1,9 +1,9 @@
 import { intersectionObserver, refreshLoad } from "./function.js";
 
-const $championArr = $('.container__body > .item');
+const $championArr = $('#container > .container-fluid > .row > .item');
 const $btnMore = $('.container__more > button');
 const $containerMore = $('.container__more');
-const $containerBody = $('.container__body');
+const $containerBody = $('#container > .container-fluid');
 const $container = $('#container');
 
 $btnMore.on('click', function () {
@@ -14,4 +14,4 @@ $btnMore.on('click', function () {
 });
 
 intersectionObserver($container[0], $containerBody[0]);
-refreshLoad();
+// refreshLoad();

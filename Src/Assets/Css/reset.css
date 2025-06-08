@@ -65,15 +65,15 @@ a {
 }
 
 .font-size-12 {
-    font-size: 12px;
+    font-size: 12px !important;
 }
 
 .font-size-14 {
-    font-size: 14px;
+    font-size: 14px !important;
 }
 
 .font-size-16 {
-    font-size: 16px;
+    font-size: 16px !important;
 }
 
 .bg-center-cover-norepeat {
@@ -90,6 +90,7 @@ a {
     --color3-: #937341;
     --color4-: #31271e;
     --color5-: #e5b48f;
+    --color6-: #121212;
 }
 
 .text-color-1 {
@@ -102,14 +103,6 @@ a {
 
 .text-color-3 {
     color: var(--color3-);
-}
-
-.text-color-4 {
-    color: var(--color4-);
-}
-
-.text-color-5 {
-    color: var(--color5-);
 }
 
 /* ---------------------------------------------------------- */
@@ -150,18 +143,53 @@ a {
 
 /*--------------------------------------------------------------------*/
 
+.img__filter {
+    filter: brightness(.3) grayscale(100%);
+    opacity: 0.5;
+}
+
 #slide {
+    position: relative;
+    width: 100%;
     height: calc(100vh - 80px);
+    overflow: hidden;
 
     .slide__splashArt {
+        position: relative;
+        height: 100%;
+        width: 100%;
+
+        video {
+            z-index: 1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
         div {
+            position: absolute;
+            z-index: 2;
+            height: 100%;
+            width: 100%;
             background-image: radial-gradient(transparent 70%, #000 95%), linear-gradient(to bottom, #00000000, #00000000, #000);
         }
     }
 
     .slide__title {
+        z-index: 2;
+        position: absolute;
+        width: 100%;
+        bottom: 0;
         animation: slideShow 0.3s ease-in-out forwards;
         background-image: linear-gradient(to bottom, #00000000, #000000c6, #000000);
+
+        img {
+            object-fit: contain;
+            width: 100%;
+        }
 
         h1 {
             font-size: 2.5rem;
@@ -173,7 +201,17 @@ a {
 
         h3 {
             font-size: 12px;
+            margin-top: 1rem;
+            letter-spacing: 3px;
             color: var(--color1-);
+        }
+
+        h1,
+        h3 {
+            width: 100%;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
         }
     }
 }
@@ -186,19 +224,19 @@ a {
     gap: 0.5rem;
     min-height: 10vh;
 
-    img {
+    &>img {
         position: relative;
         object-fit: contain;
         max-width: 32px;
         max-height: 32px;
     }
 
-    i {
+    &>i {
         font-size: 2rem;
         color: var(--color1-);
     }
 
-    h1 {
+    &>h1 {
         position: relative;
         text-transform: uppercase;
         letter-spacing: 3px;
@@ -216,12 +254,12 @@ a {
         }
 
         &::before {
-            right: 130%;
+            right: 110%;
             background: linear-gradient(to left, var(--color2-), transparent);
         }
 
         &::after {
-            left: 130%;
+            left: 110%;
             background: linear-gradient(to right, var(--color2-), transparent);
         }
     }
@@ -243,11 +281,11 @@ a {
             overflow: hidden;
 
             &:nth-child(even) {
-                background-color: #121212;
+                background-color: #000;
             }
 
             &:nth-child(odd) {
-                background-color: #1b1b1b;
+                background-color: var(--color6-);
             }
 
             &>img {
@@ -283,6 +321,7 @@ a {
                     i {
                         color: var(--color3-);
                         font-size: 14px;
+
                     }
 
                     h2 {
@@ -295,11 +334,7 @@ a {
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    gap: 1rem;
-
-                    &:hover span {
-                        animation: animatedView 0.3s ease;
-                    }
+                    gap: 0.5rem;
 
                     h1 {
                         margin: 0;
@@ -325,15 +360,40 @@ a {
     }
 
     &:hover::-webkit-scrollbar-thumb {
-        background-color: #93734166;
+        background-color: var(--color4-);
+    }
+}
+
+.paragraph {
+    text-align: justify;
+    line-height: 1.4;
+    color: var(--color1-);
+    font-size: 14px;
+
+    &::first-letter {
+        font-weight: 500;
+        font-size: 44px;
+        border-bottom: 3px solid #937341;
+        float: left;
+        line-height: 1.2;
+        margin: -2px 20px 0 18px;
+        padding: 0 8px 0 10px;
+    }
+}
+
+.animationView {
+    &:hover span {
+        animation: animatedView 0.5s ease;
     }
 }
 
 @media (min-width: 576px) {
-    /* CSS cho col-sm */
+    /* CSS col-sm */
 }
 
 @media (min-width: 768px) {
+    /* CSS col-md */
+
     #slide {
         .slide__title {
             h1 {
@@ -373,7 +433,6 @@ a {
                     &>div {
                         text-align: center;
                         border-top: 1px solid var(--color3-);
-
                     }
                 }
             }
@@ -382,10 +441,12 @@ a {
 }
 
 @media (min-width: 992px) {
-    /* CSS cho col-lg */
+    /* CSS col-lg */
 }
 
 @media (min-width: 1200px) {
+    /* CSS col-xl */
+
     .champions__list {
         &>.row {
             &>.item {
@@ -396,5 +457,5 @@ a {
 }
 
 @media (min-width: 1400px) {
-    /* CSS cho col-xxl */
+    /* CSS col-xxl */
 }

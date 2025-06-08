@@ -25,16 +25,28 @@ try {
 <body>
     <header id="header"></header>
     <main id="champion">
-        <section id="slide" class="position-relative w-100 overflow-hidden">
-            <div class="slide__splashArt position-relative h-100 w-100">
-                <img class="position-absolute top-0 h-100 w-100 object-fit-cover transition" style="object-position: <?php echo $this_champion->getPositionX() . '%' . ' ' . $this_champion->getPositionY() . '%'; ?>;" src="<?php echo $config->getAssetsURL() . "/" . $this_champion->getSplashArt(); ?>" loading="lazy" alt="">
-                <video class="position-absolute top-0 h-100 w-100 object-fit-cover" style="object-position: <?php echo $this_champion->getPositionX() . '%' . ' ' . $this_champion->getPositionY() . '%'; ?>;" src="<?php echo $this_champion->getAnimatedSplashArt(); ?>" autoplay muted loop></video>
-                <div class="position-absolute h-100 w-100"></div>
+        <section id="slide">
+            <div class="slide__splashArt">
+                <img class="position-absolute top-0 start-0 h-100 w-100 object-fit-cover z-0"
+                    style="object-position: <?php echo $this_champion->getPositionX() . '%' . ' ' . $this_champion->getPositionY() . '%'; ?>;"
+                    src="<?php echo $config->getAssetsURL() . "/" . $this_champion->getSplashArt(); ?>" loading="lazy" alt="">
+                <video
+                    style="object-position: <?php echo $this_champion->getPositionX() . '%' . ' ' . $this_champion->getPositionY() . '%'; ?>;"
+                    src="<?php echo $this_champion->getAnimatedSplashArt(); ?>" autoplay muted loop></video>
+                <div></div>
             </div>
-            <div class="slide__title position-absolute z-2 w-100 bottom-0 d-flex flex-column transition">
-                <h1 class="w-100 text-uppercase text-center fw-semibold"><?php echo $this_champion->getName(); ?></h1>
-                <img class="w-100 object-fit-contain" src="<?php echo $config->getAssetsURL(); ?>/Others/t1HeaderDivider.png" loading="lazy" alt="">
-                <h3 class="w-100 text-uppercase text-center letter-spacing-3 fw-bolder pt-3"><?php echo $this_champion->getTitle(); ?></h3>
+            <div class="slide__title transition">
+                <h1>
+                    <span>
+                        <?php echo $this_champion->getName(); ?>
+                    </span>
+                </h1>
+                <img src="<?php echo $config->getAssetsURL(); ?>/Others/t1HeaderDivider.png" loading="lazy" alt="">
+                <h3>
+                    <span>
+                        <?php echo $this_champion->getTitle(); ?>
+                    </span>
+                </h3>
             </div>
         </section>
         <section id="container" class="flex-center flex-column">
@@ -43,7 +55,7 @@ try {
                     <div class="col__item col__1 col-12 col-lg-3 p-1">
                         <div class="col__head col__bg flex-center">
                             <h5 class="text-uppercase font-size-12 m-0 letter-spacing-2">
-                                <span>Related Champions</span>
+                                Related Champions
                             </h5>
                         </div>
                         <div class="col__body col__bg">
@@ -91,8 +103,6 @@ try {
                                 <img class="position-absolute top-0 start-0 h-100 w-100"
                                     src="<?php echo $config->getAssetsURL() . '/Icon/ChampionIconFrame.jpg'; ?>" alt="">
                             </div>
-
-
                             <div class="content h-100 col-11 m-auto mt-3 mt-lg-0 flex-center flex-column justify-content-center p-lg-0 p-5">
                                 <p class="fs-5 fw-bold letter-spacing-1 text-center">"<?php echo $this_champion->getVoice(); ?>"</p>
                                 <h5 class="fs-5 fw-bold letter-spacing-1 m-0">
@@ -106,7 +116,7 @@ try {
                             <img class="img__filter position-absolute top-0 start-0 h-100 w-100 object-fit-cover z-0"
                                 src="<?php echo $config->getAssetsURL() . '/' . $this_champion->getSplashArt(); ?>" alt="">
                             <div class="position-relative col-11">
-                                <p class="font-size-14"><?php echo $this_champion->getStory(); ?></p>
+                                <p class="paragraph font-size-14"><?php echo $this_champion->getStory(); ?></p>
                             </div>
                         </div>
                     </div>
@@ -119,7 +129,7 @@ try {
                             <div class="h-100" style="width: 1px; background-color: var(--color4-);"></div>
                             <div class="m-auto">
                                 <h5 class="font-size-12 text-uppercase text-center letter-spacing-1">
-                                    <span>Role</span>
+                                    Role
                                 </h5>
                                 <h6 class="font-size-12 text-uppercase text-center letter-spacing-1">
                                     <span>
@@ -135,11 +145,12 @@ try {
                                 <img class="transition" width="200"
                                     src="<?php echo $config->getAssetsURL() . '/' . $region->getAvatar(); ?>" alt="">
                             </div>
-                            <a class="position-absolute w-100 text-decoration-none transition">
+                            <a class="position-absolute w-100 text-decoration-none transition"
+                            href="./region.php?region=<?php echo $region->getId(); ?>">
                                 <div class="col__head col__bg border-end-0 border-start-0 w-100 flex-center justify-content-start">
                                     <div class="m-auto">
                                         <h5 class="font-size-12 text-uppercase text-center letter-spacing-1">
-                                            <span>Region</span>
+                                            Region
                                         </h5>
                                         <h6 class="font-size-12 text-uppercase text-center letter-spacing-1">
                                             <span>
@@ -153,11 +164,19 @@ try {
                                             src="<?php echo $config->getAssetsURL() . '/' . $region->getIcon(); ?>" alt="">
                                     </div>
                                 </div>
-                                <div class="col__bg flex-center border-0 gap-2 p-3 font-size-12 transition">
-                                    <h5 class="m-0 letter-spacing-2 fw-bold font-size-12 text-uppercase">
-                                        <span>View Region</span>
+                                <div class="col__bg flex-center border-0 gap-2 p-3 font-size-12 animationView">
+                                    <h5 class="m-0 letter-spacing-2 font-size-12 text-uppercase">
+                                        View Region
                                     </h5>
-                                    <i class="bi bi-arrow-right m-0"></i>
+                                    <span>
+                                        <svg version="1.0" x="0px" y="0px" viewBox="0 0 162 70.28" fill="#937341" style="width: 12.5px;">
+                                            <circle fill="#937341" cx="31.57" cy="35.21" r="11.57"></circle>
+                                            <g>
+                                                <polygon fill="#937341" points="124.18,70.39 118.31,64.09 149.37,35.22 118.31,6.35 124.18,0.05 162,35.22"></polygon>
+                                                <rect x="84.61" y="29.76" fill="#937341" width="65" height="11.06"></rect>
+                                            </g>
+                                        </svg>
+                                    </span>
                                 </div>
                             </a>
                         </div>
@@ -191,7 +210,11 @@ try {
                             <button type="button" class="flex-center transition flex-column bg-transparent border-0 active">
                                 <img class="object-fit-contain"
                                     src="<?php echo $config->getAssetsURL() . '/' . $this_champion->getSplashArt(); ?>" loading="lazy" alt="">
-                                <h5 class="w-100 text-uppercase font-size-14"><?php echo $this_champion->getName(); ?></h5>
+                                <h5 class="w-100 text-uppercase font-size-14">
+                                    <span>
+                                        <?php echo $this_champion->getName(); ?>
+                                    </span>
+                                </h5>
                             </button>
                             <?php
                             if (!empty($skinsArr)) {
@@ -200,7 +223,11 @@ try {
                                     <button type="button" class="flex-center transition flex-column bg-transparent border-0">
                                         <img class="object-fit-contain"
                                             src="<?php echo $config->getAssetsURL() . '/' . $item->getSplashArt(); ?>" loading="lazy" alt="">
-                                        <h5 class="w-100 text-uppercase font-size-14"><?php echo $item->getName(); ?></h5>
+                                        <h5 class="w-100 text-uppercase font-size-14">
+                                            <span>
+                                                <?php echo $item->getName(); ?>
+                                            </span>
+                                        </h5>
                                     </button>
                             <?php
                                 }
