@@ -27,7 +27,7 @@ try {
     <main id="champion">
         <section id="slide">
             <div class="slide__splashArt">
-                <img class="position-absolute top-0 start-0 h-100 w-100 object-fit-cover z-0"
+                <img class="position-absolute top-0 start-0 vh-100 w-100 object-fit-cover z-0"
                     style="object-position: <?php echo $this_champion->getPositionX() . '%' . ' ' . $this_champion->getPositionY() . '%'; ?>;"
                     src="<?php echo $config->getAssetsURL() . "/" . $this_champion->getSplashArt(); ?>" loading="lazy" alt="">
                 <video
@@ -206,8 +206,8 @@ try {
                 </div>
                 <div class="row">
                     <div class="splashArt__list col-11 scrollbar m-auto overflow-x-auto">
-                        <div class="splashArt__list--border h-100 flex-center gap-4">
-                            <button type="button" class="flex-center transition flex-column bg-transparent border-0 active">
+                        <div class="splashArt__list--border h-100 flex-center justify-content-around gap-4">
+                            <button type="button" class="transition bg-transparent border-0 active">
                                 <img class="object-fit-contain"
                                     src="<?php echo $config->getAssetsURL() . '/' . $this_champion->getSplashArt(); ?>" loading="lazy" alt="">
                                 <h5 class="w-100 text-uppercase font-size-14">
@@ -220,7 +220,7 @@ try {
                             if (!empty($skinsArr)) {
                                 foreach ($skinsArr as $item) {
                             ?>
-                                    <button type="button" class="flex-center transition flex-column bg-transparent border-0">
+                                    <button type="button" class="transition bg-transparent border-0">
                                         <img class="object-fit-contain"
                                             src="<?php echo $config->getAssetsURL() . '/' . $item->getSplashArt(); ?>" loading="lazy" alt="">
                                         <h5 class="w-100 text-uppercase font-size-14">

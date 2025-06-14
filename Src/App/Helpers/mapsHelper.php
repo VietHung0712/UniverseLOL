@@ -1,62 +1,25 @@
 <?php
 require_once "../Models/mapClass.php";
+require_once "../Config/entitiesConfig.php";
+require_once "../Helpers/helper.php";
 
 use UniverseLOL\Map;
 
 class MapsHelper
 {
-    private static function fetchMaps(mysqli_stmt $stmt): array
+    public static function getMaps(mysqli $connect, array $columns): array
     {
-        $arr = [];
-        if ($stmt->execute()) {
-            $result = $stmt->get_result();
-            while ($row = $result->fetch_assoc()) {
-                $arr[] = new Map(
-                    $row['id'],
-                    $row['region_id'],
-                    $row['points']
-                );
-            }
-        } else {
-            throw new Exception("Error $stmt: " . $stmt->error);
-        }
-        $stmt->close();
-        return $arr;
+        return Helper::getEntities($connect, Map::class, MapConfig::cases(), $columns, TableName::MAP->value);
     }
 
-    private static function getMaps(mysqli $connect, string $value = ''): array
-    {
-        $query = "SELECT * FROM maps";
-        $stmt = null;
-        if (trim($value) !== "") {
-            $query .= " WHERE region_id = ?";
-            $stmt = $connect->prepare($query);
-            if (!$stmt) {
-                throw new Exception("Error $stmt: " . $connect->error);
-            }
-            $stmt->bind_param("s", $value);
-        } else {
-            $stmt = $connect->prepare($query);
-            if (!$stmt) {
-                throw new Exception("Error $stmt: " . $connect->error);
-            }
-        }
-        return self::fetchMaps($stmt);
-    }
-
-    public static function getAllMaps(mysqli $connect): array
-    {
-        return self::getMaps($connect);
-    }
-
-    public static function getRegionMaps(mysqli $connect, string $value): array
-    {
-        return self::getMaps($connect, $value);
-    }
+    // public static function getMapsByRegionId(mysqli $connect, string $value): array
+    // {
+    //     return Helper::getEntitiesFindByField($connect, Map::class, MapConfig::cases(), [], TableName::MAP->value, MapConfig::REGIONID->value, $value);
+    // }
 
     public static function getMapsForRegion(mysqli $connect): array
     {
-        $arr = self::getAllMaps($connect);
+        $arr = self::getMaps($connect, []);
         $result = [];
         foreach ($arr as $item) {
             $regionId = $item->getRegionId();

@@ -1,62 +1,49 @@
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-li {
+@font-face {
+    font-family: 'BarlowCondensed-BoldItalic';
+    src: url('../Font/BarlowCondensed-BoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'BarlowCondensed-Italic';
+    src: url('../Font/BarlowCondensed-Italic.ttf') format('truetype');
+}
+
+.pgh {
+    font-size: 14px;
     color: #fff;
-}
-
-.button {
-    height: 50px;
-    width: 50px;
-}
-
-section {
-    min-height: 50vh;
-    height: max-content;
-    padding-top: 10vh;
-    padding-bottom: 10vh;
-}
-
-.header {
-    height: max-content;
-    width: 100%;
-    text-transform: uppercase;
-
-    p {
-        font-weight: bold;
-        color: var(--color3-);
-    }
-
-    h2 {
-        font-weight: bold;
-        color: #fff;
-    }
-}
-
-.myContainer {
-    width: 100%;
-    height: max-content;
-
-    .myContainer__border {
-        margin: auto;
-        height: 100%;
-    }
+    letter-spacing: 0.5px;
+    line-height: 1.8;
+    font-family: Helvetica, Arial, sans-serif;
+    font-style: italic;
 }
 
 #slide {
-    padding: 0;
-    min-height: calc(100vh - 80px);
+    height: max-content;
+    min-height: 50vh;
+
+    .slide__splashArt {
+        height: auto;
+        padding-top: 56.25%;
+    }
 
     .slide__title {
-        animation: slideShow 0.3s ease-in-out forwards;
+        background-image: none;
 
         img {
-            transform: translateY(10%);
-            max-width: 65%;
+            margin-bottom: -4%;
+        }
+
+        h1 {
+            margin-bottom: 28px;
+            font-size: 25px;
+            letter-spacing: 0.05rem;
+            background: none;
+            -webkit-text-fill-color: #fff;
+            font-family: 'BarlowCondensed-BoldItalic', Arial, sans-serif;
+        }
+
+        p {
+            width: 90%;
         }
     }
 }
@@ -93,6 +80,41 @@ section {
         }
     }
 }
+
+@media (min-width: 576px) {
+    /* CSS col-sm */
+}
+
+@media (min-width: 768px) {
+    /* CSS col-md */
+
+    #slide {
+        & .slide__title {
+            h1 {
+                font-size: 40px;
+                margin-bottom: 36px;
+            }
+
+            p {
+                width: 600px;
+            }
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    /* CSS col-lg */
+}
+
+@media (min-width: 1200px) {
+    /* CSS col-xl */
+}
+
+@media (min-width: 1400px) {
+    /* CSS col-xxl */
+}
+
+
 
 #members {
     padding: 0;
@@ -359,129 +381,6 @@ section {
 
             &.active {
                 display: flex;
-            }
-        }
-    }
-}
-
-@media (min-width: 1025px) {
-    .header {
-        width: 65%;
-    }
-
-    .myContainer {
-        .myContainer__border {
-            width: 65%;
-        }
-    }
-
-    #music-video,
-    #more,
-    #splashArt {
-        gap: 10vh;
-    }
-
-    #slide {
-        .slide__title {
-            p {
-                width: 50%;
-            }
-        }
-    }
-
-    #members {
-        height: 150vh;
-
-        .members__border {
-
-            .members__avatar {
-                top: 10%;
-                right: 0;
-            }
-
-            .members__inf {
-                bottom: 5%;
-                right: 0;
-            }
-        }
-    }
-
-    #more {
-
-        .myContainer {
-            .myContainer__border {
-                grid-template-columns: repeat(3, 1fr);
-                grid-template-rows: 1fr;
-
-                .card__item {
-                    width: 275px;
-
-                    .card__body {
-                        height: 460px;
-
-                        img {
-                            height: 160px;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-@media (max-width: 1024px) {
-    .header {
-        width: 90%;
-    }
-
-    .myContainer {
-        .myContainer__border {
-            width: 90%;
-        }
-    }
-
-    #slide {
-        .slide__title {
-            p {
-                width: 90%;
-            }
-        }
-    }
-
-    #members {
-        height: 200vh;
-
-        .members__border {
-            margin: auto;
-
-            .members__img {
-                div {
-                    margin-top: 25%;
-                    height: 50% !important;
-                    background-position: center;
-                }
-            }
-
-            .members__avatar {
-                width: 100%;
-                top: 0;
-                right: 0;
-                transform: scale(0.6);
-            }
-
-            .members__inf {
-                width: 100%;
-                bottom: 0;
-                right: 0;
-            }
-        }
-    }
-
-    #splashArt {
-
-        .myContainer {
-            .myContainer__border {
-                height: 50vh;
             }
         }
     }

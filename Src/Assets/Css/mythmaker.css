@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Kaushan Script';
+    src: url('../Font/KaushanScript-Regular.ttf') format('truetype');
+}
+
 section {
     height: 120vh;
     width: 100%;
@@ -70,7 +75,7 @@ section {
             text-align: center;
             font-weight: 500;
             font-size: 7vw;
-            font-family: 'Kaushan Script', cursive;
+            font-family: Kaushan Script;
             background: -webkit-linear-gradient(bottom, rgb(255, 0, 0), rgb(203, 172, 98)) text;
             -webkit-text-fill-color: transparent;
         }

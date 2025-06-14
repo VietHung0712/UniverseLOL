@@ -1,68 +1,30 @@
 <?php
 require_once "../Models/regionClass.php";
+require_once "../Config/entitiesConfig.php";
+require_once "../Helpers/helper.php";
 
 use UniverseLOL\Region;
 
 class RegionsHelper
 {
-    private static function fetchRegions(mysqli_stmt $stmt): array
+    public static function getRegions(mysqli $connect, array $columns): array
     {
-        $arr = [];
-        if ($stmt->execute()) {
-            $result = $stmt->get_result();
-            while ($row = $result->fetch_assoc()) {
-                $arr[] = new Region(
-                    $row['id'],
-                    $row['name'],
-                    $row['title'],
-                    $row['story'],
-                    $row['icon'],
-                    $row['avatar'],
-                    $row['background'],
-                    $row['animated_background']
-                );
-            }
-        } else {
-            throw new Exception("Error $stmt: " . $stmt->error);
-        }
-        $stmt->close();
-        return $arr;
+        return Helper::getEntities($connect, Region::class, RegionConfig::cases(), $columns, TableName::REGION->value);
     }
 
-    public static function getRegions(mysqli $connect, string $id = ''): array
+    public static function getRegionById(mysqli $connect,array $columns, string $value): ?Region
     {
-        $query = "SELECT * FROM regions";
-        $stmt = null;
-        if (trim($id) !== "") {
-            $query .= " WHERE id = ?";
-            $stmt = $connect->prepare($query);
-            if (!$stmt) {
-                throw new Exception("Error $stmt: " . $connect->error);
-            }
-            $stmt->bind_param("s", $id);
-        } else {
-            $stmt = $connect->prepare($query);
-            if (!$stmt) {
-                throw new Exception("Error $stmt: " . $connect->error);
-            }
-        }
-        return self::fetchRegions($stmt);
-    }
-
-    public static function getAllRegions(mysqli $connect): array
-    {
-        return self::getRegions($connect);
-    }
-
-    public static function getRegionById(mysqli $connect, $id): ?Region
-    {
-        return self::getRegions($connect, $id)[0] ?? null;
+        return Helper::getEntitiesFindByField($connect, Region::class, RegionConfig::cases(), $columns, TableName::REGION->value, RegionConfig::ID->value, $value)[0];
     }
 
     public static function getNameAllRegions(mysqli $connect): array
     {
+        $cols = [
+            RegionConfig::ID->value,
+            RegionConfig::NAME->value
+        ];
         $result = [];
-        $arr = self::getAllRegions($connect);
+        $arr = Helper::getEntities($connect, Region::class, RegionConfig::cases(), $cols, TableName::REGION->value);
         foreach ($arr as $item) {
             $result[$item->getId()] = $item->getName();
         }

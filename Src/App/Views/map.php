@@ -53,7 +53,7 @@ try {
                         <li class="<?php echo $item->getId(); ?> item position-absolute list-unstyled"
                             data-title=""
                             data-group="<?php echo $item->getId(); ?>">
-                            <a class="h-100 w-100 text-decoration-none flex__center flex-column"
+                            <a class="h-100 w-100 text-decoration-none"
                                 href="./region.php?region=<?php echo $item->getId(); ?>">
                                 <div class="h-75 w-100 position-relative flex__center">
                                     <img class="position-absolute h-100 object-fit-contain rounded-circle transition p-2 bg-black" src="<?php echo $config->getAssetsURL() . '/' . $item->getIcon(); ?>" loading="lazy" alt="">
@@ -64,7 +64,13 @@ try {
                             <div class="title position-absolute z-3">
                                 <img class="h-100 w-100 position-absolute z-0"
                                     src="<?php echo $config->getAssetsURL() . '/' . $item->getBackground(); ?>" loading="lazy" alt="">
-                                <h6 class="position-relative h-100 w-100 z-1 m-0 flex__center fw-bold letter-spacing-1 px-2 text-uppercase"><?php echo $item->getTitle(); ?></h6>
+                                <div class="position-relative h-100 w-100 z-1">
+                                    <p class="text-white text-uppercase font-size-12 fw-bold letter-spacing-1 mx-2">
+                                        <span>
+                                            <?php echo $item->getTitle(); ?>
+                                        </span>
+                                    </p>
+                                </div>
                             </div>
                         </li>
                 <?php

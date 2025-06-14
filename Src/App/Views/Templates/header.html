@@ -4,7 +4,7 @@
             <img src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Icon/League_of_Legends_icon.svg"
                 alt="League_of_Legends" width="40" height="40">
         </a>
-        <h1 class="navbar-brand mx-2 fw-bold letter-spacing-2">Universe</h1>
+        <h1 class="navbar-brand mx-2 my-0 fw-bold letter-spacing-1">Universe</h1>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -12,23 +12,23 @@
         <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item mx-2 position-relative">
-                    <a class="nav-link active px-lg-3 py-3 p-lg-2 text-uppercase fw-bold letter-spacing-2 font-size-14 transition"
+                    <a class="nav-link active px-lg-3 py-3 p-lg-2 text-uppercase fw-bold transition"
                         href="./dashboard.html">Home</a>
                     <div class="position-absolute transition"></div>
                 </li>
                 <li class="nav-item mx-2 position-relative">
-                    <a class="nav-link active px-lg-3 py-3 p-lg-2 text-uppercase fw-bold letter-spacing-2 font-size-14 transition"
+                    <a class="nav-link active px-lg-3 py-3 p-lg-2 text-uppercase fw-bold transition"
                         href="./champions.php">Champions</a>
                     <div class="position-absolute transition"></div>
                 </li>
                 <li class="nav-item mx-2 position-relative">
-                    <a class="nav-link active px-lg-3 py-3 p-lg-2 text-uppercase fw-bold letter-spacing-2 font-size-14 transition"
+                    <a class="nav-link active px-lg-3 py-3 p-lg-2 text-uppercase fw-bold transition"
                         href="./regions.php">Regions</a>
                     <div class="position-absolute transition"></div>
                 </li>
                 <li class="nav-item mx-2 position-relative dropdown">
-                    <a class="nav-link dropdown-toggle active p- text-uppercase fw-bold letter-spacing-2 font-size-14"
-                        href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle active p- text-uppercase fw-bold" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         Alt Universe
                     </a>
                     <div class="position-absolute transition transition"></div>
@@ -40,13 +40,13 @@
                     </ul>
                 </li>
                 <li class="nav-item mx-2 position-relative">
-                    <a class="nav-link active px-lg-3 py-3 p-lg-2 text-uppercase fw-bold letter-spacing-2 font-size-14 transition"
+                    <a class="nav-link active px-lg-3 py-3 p-lg-2 text-uppercase fw-bold transition"
                         href="./map.php">Map</a>
                     <div class="position-absolute transition"></div>
                 </li>
                 <li class="nav-item mx-2 position-relative dropdown">
-                    <a class="nav-link dropdown-toggle active p- text-uppercase fw-bold letter-spacing-2 font-size-14"
-                        href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle active p- text-uppercase fw-bold" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         More
                     </a>
                     <div class="position-absolute transition transition"></div>
@@ -77,9 +77,20 @@
             background-color: var(--color6-);
         }
 
+        .navbar-brand {
+            font-size: 18px;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
         .nav-item {
             &>a {
+                font-size: 13px;
+                letter-spacing: 0.08rem;
                 border-radius: 10px;
+            }
+
+            a {
+                font-family: Helvetica, Arial, sans-serif;
             }
 
             &>div {

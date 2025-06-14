@@ -411,10 +411,13 @@
                     min-width: 200px;
                     display: none;
 
-                    h6 {
-                        font-size: 12px;
-                        color: var(--color1-);
+                    div {
                         background-color: #000000a9;
+
+                        p {
+                            text-align: center;
+                            line-height: 50px;
+                        }
                     }
                 }
             }
@@ -461,7 +464,7 @@
 
             .Shadow_Isles {
                 top: 67%;
-                left: 79%;
+                left: 85%;
             }
 
             .Zaun {

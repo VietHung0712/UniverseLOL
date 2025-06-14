@@ -51,8 +51,12 @@ try {
                                         <div class="position-absolute h-75 w-100 object-fit-cover top-0 transition"></div>
                                         <img class="position-absolute h-50 w-100 object-fit-contain transition"
                                             src="<?php echo $config->getAssetsURL() . '/' . $item->getIcon(); ?>" loading="lazy" alt="">
-                                        <div class="position-absolute h-25 w-100 bottom-0 flex-center">
-                                            <h3 class="text-center m-0 text-uppercase fw-bold letter-spacing-2"><?php echo $item->getName(); ?></h3>
+                                        <div class="position-absolute w-100 bottom-0 p-3">
+                                            <h3 class="text-center m-0 text-uppercase fw-bold letter-spacing-2">
+                                                <span>
+                                                    <?php echo $item->getName(); ?>
+                                                </span>
+                                            </h3>
                                         </div>
                                     </a>
                                 </div>
