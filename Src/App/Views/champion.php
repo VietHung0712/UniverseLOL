@@ -11,7 +11,6 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../Assets/Css/reset.css">
     <link rel="stylesheet" href="../../Assets/Css/style.css">
     <link rel="icon" href="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Icon/League_of_Legends_icon.svg">
@@ -146,7 +145,7 @@ try {
                                     src="<?php echo $config->getAssetsURL() . '/' . $region->getAvatar(); ?>" alt="">
                             </div>
                             <a class="position-absolute w-100 text-decoration-none transition"
-                            href="./region.php?region=<?php echo $region->getId(); ?>">
+                                href="./region.php?region=<?php echo $region->getId(); ?>">
                                 <div class="col__head col__bg border-end-0 border-start-0 w-100 flex-center justify-content-start">
                                     <div class="m-auto">
                                         <h5 class="font-size-12 text-uppercase text-center letter-spacing-1">
@@ -185,13 +184,15 @@ try {
             </div>
         </section>
         <section id="splashArt" class="position-relative bg-light">
-            <div class="container__head vh-25">
-                <i class="bi bi-brush fw-bold"></i>
-                <h1>Splash Art</h1>
-            </div>
-            <div class="container">
+            <header class="container__head vh-25">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-brush" viewBox="0 0 16 16">
+                    <path d="M15.825.12a.5.5 0 0 1 .132.584c-1.53 3.43-4.743 8.17-7.095 10.64a6.1 6.1 0 0 1-2.373 1.534c-.018.227-.06.538-.16.868-.201.659-.667 1.479-1.708 1.74a8.1 8.1 0 0 1-3.078.132 4 4 0 0 1-.562-.135 1.4 1.4 0 0 1-.466-.247.7.7 0 0 1-.204-.288.62.62 0 0 1 .004-.443c.095-.245.316-.38.461-.452.394-.197.625-.453.867-.826.095-.144.184-.297.287-.472l.117-.198c.151-.255.326-.54.546-.848.528-.739 1.201-.925 1.746-.896q.19.012.348.048c.062-.172.142-.38.238-.608.261-.619.658-1.419 1.187-2.069 2.176-2.67 6.18-6.206 9.117-8.104a.5.5 0 0 1 .596.04M4.705 11.912a1.2 1.2 0 0 0-.419-.1c-.246-.013-.573.05-.879.479-.197.275-.355.532-.5.777l-.105.177c-.106.181-.213.362-.32.528a3.4 3.4 0 0 1-.76.861c.69.112 1.736.111 2.657-.12.559-.139.843-.569.993-1.06a3 3 0 0 0 .126-.75zm1.44.026c.12-.04.277-.1.458-.183a5.1 5.1 0 0 0 1.535-1.1c1.9-1.996 4.412-5.57 6.052-8.631-2.59 1.927-5.566 4.66-7.302 6.792-.442.543-.795 1.243-1.042 1.826-.121.288-.214.54-.275.72v.001l.575.575zm-4.973 3.04.007-.005zm3.582-3.043.002.001h-.002z" />
+                </svg>
+                <h1 class="text-color-3">Splash Art</h1>
+            </header>
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="splashArt__frame col-lg-12 col-11 m-auto position-relative">
+                    <div class="splashArt__frame row col-11 m-auto position-relative">
                         <img class="position-absolute top-0 start-0 h-100 w-100 object-fit-contain active" src="<?php echo $config->getAssetsURL() . '/' . $this_champion->getSplashArt(); ?>" loading="lazy" alt="">
                         <?php
                         if (!empty($skinsArr)) {
@@ -205,12 +206,14 @@ try {
                     </div>
                 </div>
                 <div class="row">
-                    <div class="splashArt__list col-11 scrollbar m-auto overflow-x-auto">
-                        <div class="splashArt__list--border h-100 flex-center justify-content-around gap-4">
+                    <div class="splashArt__list vh-25 col-11 col-lg-10 scrollbar m-auto overflow-x-auto">
+                        <div class="splashArt__list--border h-100 flex-center align-items-start justify-content-around gap-0">
                             <button type="button" class="transition bg-transparent border-0 active">
-                                <img class="object-fit-contain"
-                                    src="<?php echo $config->getAssetsURL() . '/' . $this_champion->getSplashArt(); ?>" loading="lazy" alt="">
-                                <h5 class="w-100 text-uppercase font-size-14">
+                                <div class="m-auto">
+                                    <img class="object-fit-contain"
+                                        src="<?php echo $config->getAssetsURL() . '/' . $this_champion->getSplashArt(); ?>" loading="lazy" alt="">
+                                </div>
+                                <h5 class="m-auto mt-2 w-75 text-uppercase font-size-14">
                                     <span>
                                         <?php echo $this_champion->getName(); ?>
                                     </span>
@@ -221,9 +224,11 @@ try {
                                 foreach ($skinsArr as $item) {
                             ?>
                                     <button type="button" class="transition bg-transparent border-0">
-                                        <img class="object-fit-contain"
-                                            src="<?php echo $config->getAssetsURL() . '/' . $item->getSplashArt(); ?>" loading="lazy" alt="">
-                                        <h5 class="w-100 text-uppercase font-size-14">
+                                        <div class="m-auto">
+                                            <img class="object-fit-contain"
+                                                src="<?php echo $config->getAssetsURL() . '/' . $item->getSplashArt(); ?>" loading="lazy" alt="">
+                                        </div>
+                                        <h5 class="m-auto mt-2 w-75 text-uppercase font-size-14">
                                             <span>
                                                 <?php echo $item->getName(); ?>
                                             </span>

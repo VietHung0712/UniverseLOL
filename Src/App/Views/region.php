@@ -11,7 +11,6 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../Assets/Css/reset.css">
     <link rel="stylesheet" href="../../Assets/Css/style.css">
     <link rel="icon" href="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Icon/League_of_Legends_icon.svg">
@@ -55,7 +54,7 @@ try {
             </div>
         </section>
         <section id="container" class="position-relative">
-            <div class="container__head vh-25 position-relative">
+            <header class="container__head vh-25 position-relative">
                 <img class="z-1" src="<?php echo $config->getAssetsURL(); ?>/Icon/content_type_icon_champion__3nwJQ.png" width="30" alt="">
                 <h1 class="z-1 font-size-16">
                     Champions of
@@ -67,7 +66,7 @@ try {
                     <img class="img__filter opacity-75" alt=""
                         src="<?php echo $config->getAssetsURL() . '/' . $this_region->getAvatar(); ?>">
                 </div>
-            </div>
+            </header>
             <div class="container-fluid champions__list">
                 <div class="row">
                     <?php
@@ -130,7 +129,9 @@ try {
                         View all
                         <span><?php echo $this_region->getName(); ?></span>
                         champions
-                        <i class="bi bi-arrow-down"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1" />
+                        </svg>
                     </p>
                 </button>
             </div>

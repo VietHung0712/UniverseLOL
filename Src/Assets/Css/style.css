@@ -172,7 +172,7 @@
         height: max-content;
         padding-bottom: 10vh;
 
-        .container {
+        .container-fluid {
 
             .splashArt__frame {
                 aspect-ratio: 16 / 10;
@@ -187,7 +187,6 @@
             }
 
             .splashArt__list {
-                height: 25vh;
 
                 &::-webkit-scrollbar-track {
                     background-color: var(--color1-);
@@ -201,27 +200,30 @@
                     width: max-content;
 
                     button {
-                        height: 70%;
+                        height: 80%;
                         width: 10%;
                         min-width: 15vw;
-                        gap: 10px;
-                        transform: scale(0.95);
 
-                        img {
+                        div {
+                            padding: 5px;
+                            width: max-content;
                             height: 80%;
+                            border: 1px solid transparent;
+
+                            img {
+                                height: 100%;
+                            }
                         }
 
                         h5 {
+                            margin-top: 5%;
                             height: 10%;
-                            text-wrap: none;
                         }
                     }
 
                     button.active {
-                        transform: scale(1);
-
-                        img {
-                            border: 5px solid var(--color2-);
+                        div {
+                            border: 1px solid var(--color3-);
                         }
                     }
                 }

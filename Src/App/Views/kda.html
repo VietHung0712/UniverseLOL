@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../Assets/Css/reset.css">
     <link rel="stylesheet" href="../../Assets/Css/kda.css">
     <link rel="icon"
@@ -21,12 +20,10 @@
     <header id="header"></header>
     <main id="main">
         <section id="slide" class="pb-5">
-            <div class="slide__splashArt">
+            <div class="slide__splashArt paddingTop">
                 <img class="position-absolute top-0 start-0 w-100 object-fit-contain z-0"
                     src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Theme/KDA.jpg"
                     loading="lazy" alt="">
-                <!-- <video src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Video/KDA.webm"
-                    autoplay muted></video> -->
             </div>
             <div class="slide__title flex-center flex-column transition">
                 <img class="w-75" loading="lazy" alt=""
@@ -40,11 +37,302 @@
                 </p>
             </div>
         </section>
-        <section id="music-video">
-            <div class="container">
-                <div class="row container__head">
-                    <div class="col-12">
-                        <h1></h1>
+        <section id="music-video" class="paddingSection">
+            <div class="container-fluid">
+                <div class="row">
+                    <header class="col-12 text-center mHeader ctrHeader">
+                        <p>Featured Video</p>
+                        <h1>POP/STARS</h1>
+                    </header>
+                </div>
+                <div class="row ctr__body bg-center-cover-norepeat"
+                    style="background-image: url(https://universe.leagueoflegends.com/images/soundbar.svg);">
+                    <div class="ctr__border col-11 col-lg-12 p-0 bg-black m-auto">
+                        <div class="position-relative paddingTop">
+                            <video class="position-absolute h-100 w-100 top-0 start-0" controls src="" type="video/mp4">
+                            </video>
+                            <img class="position-absolute h-100 w-100 top-0 start-0 object-fit-cover" loading="lazy"
+                                src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Theme/KDA_2.jpg"
+                                alt="">
+                            <button class="position-absolute myBtn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-play-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="members" class="position-relative">
+            <div class="ctr__img position-absolute z-0 top-0 start-0 h-100 w-100 bg-center-cover-norepeat"
+                style="background-image: url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Background/KDA_Background_1.jpg);">
+                <div id="imgMember" class="position-absolute top-0 start-0 h-100 w-100"></div>
+            </div>
+            <div class="ctr__des position-relative m-auto">
+                <div>
+                    <div>
+                        <div id="btnMembers" class="d-flex justify-content-between">
+                            <button class="bg-transparent transition active">
+                                <div>
+                                    <div>
+                                        <div
+                                            style="background-image: url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Avatar/KDA_Avatar_Ahri.jpg);">
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="textBoldItalic mt-4">Ahri</p>
+                            </button>
+                            <button class="bg-transparent transition">
+                                <div>
+                                    <div>
+                                        <div
+                                            style="background-image: url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Avatar/KDA_Avatar_Evelynn.jpg);">
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="textBoldItalic mt-4">Evelynn</p>
+                            </button>
+                            <button class="bg-transparent transition">
+                                <div>
+                                    <div>
+                                        <div
+                                            style="background-image: url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Avatar/KDA_Avatar_KaiSa.jpg);">
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="textBoldItalic mt-4">Kai'Sa</p>
+                            </button>
+                            <button class="bg-transparent transition">
+                                <div>
+                                    <div>
+                                        <div
+                                            style="background-image: url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Avatar/KDA_Avatar_Akali.jpg);">
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="textBoldItalic mt-4">Akali</p>
+                            </button>
+                        </div>
+                    </div>
+                    <header class="ctrHeader mb-5">
+                        <p>Band Member</p>
+                        <h1 id="brandMember"></h1>
+                    </header>
+                    <div class="d-grid gap-4 mb-5">
+                        <header class="ctrHeader">
+                            <p>Role</p>
+                            <h1 id="roleMember"></h1>
+                        </header>
+                        <header class="ctrHeader">
+                            <p>Zodiac Sign</p>
+                            <h1 id="zoSignMember"></h1>
+                        </header>
+                        <header class="ctrHeader">
+                            <p>Nicknames</p>
+                            <h1 id="nickNamesMember"></h1>
+                        </header>
+                        <header class="ctrHeader">
+                            <p>Height</p>
+                            <h1 id="heightMember"></h1>
+                        </header>
+                    </div>
+                    <div>
+                        <ul id="ulBtnMembers" class="d-flex list-unstyled ulBtn">
+                            <li>
+                                <button id="titleMember" class="textBoldItalic w-100 h-100 active">
+                                    Beauty and Fashion
+                                </button>
+                            </li>
+                            <li>
+                                <button class="textBoldItalic w-100 h-100">
+                                    8 Facts
+                                </button>
+                            </li>
+                        </ul>
+                        <div id="ctrInfoMember" class="overflow-hidden d-flex">
+                            <div class="active">
+                                <p id="storyMember" class="pgh"></p>
+                            </div>
+                            <div>
+                                <p id="8Facts" class="pgh"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="more">
+            <div class="bg-center-cover-norepeat paddingSection"
+                style="background-image: url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Background/KDA_Background_2.jpg);">
+                <div class="container">
+                    <div class="row">
+                        <header class="col-12 mHeader ctrHeader">
+                            <h1>More from K/DA</h1>
+                        </header>
+                    </div>
+                    <div class="row ctr__body gap-5 justify-content-lg-between">
+                        <div class="col-11 col-md-5 m-auto m-lg-0 col-lg-3">
+                            <header class="ctrHeader">
+                                <p>Official Lyric Video</p>
+                                <h1>THE BADDEST</h1>
+                            </header>
+                            <a class="position-relative d-block mt-3 text-decoration-none" target="_blank"
+                                href="https://www.youtube.com/watch?v=RkID8_gnTxw">
+                                <img class="w-100" loading="lazy" alt=""
+                                    src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Poster/KDA_Poster_TheBaddest.jpg">
+                                <p class="pgh">
+                                    K/DA - THE BADDEST ft. (G)I-DLE, Bea Miller, Wolftyla
+                                </p>
+                                <button class="w-100 py-4 textBoldItalic">
+                                    Watch the stars
+                                </button>
+                            </a>
+                        </div>
+                        <div class="col-11 col-md-5 m-auto m-lg-0 col-lg-3">
+                            <header class="ctrHeader">
+                                <p>Official Concept Video</p>
+                                <h1>I’LL SHOW YOU</h1>
+                            </header>
+                            <a class="position-relative d-block mt-3 text-decoration-none" target="_blank"
+                                href="https://www.youtube.com/watch?v=WW1BpABbzHs">
+                                <img class="w-100" loading="lazy" alt=""
+                                    src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Poster/KDA_Poster_IllShowYou.jpg">
+                                <p class="pgh">
+                                    K/DA - I’LL SHOW YOU ft. TWICE, Bekuh BOOM, Annika Wells
+                                </p>
+                                <button class="w-100 py-4 textBoldItalic">
+                                    Watch the stars
+                                </button>
+                            </a>
+                        </div>
+                        <div class="col-11 col-md-5 m-auto m-lg-0 col-lg-3">
+                            <header class="ctrHeader">
+                                <p>Official Concept Video</p>
+                                <h1>Villain</h1>
+                            </header>
+                            <a class="position-relative d-block mt-3 text-decoration-none" target="_blank"
+                                href="https://www.youtube.com/watch?v=xoWxv2yZXLQ">
+                                <img class="w-100" loading="lazy" alt=""
+                                    src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Poster/KDA_Poster_Villain.jpg">
+                                <p class="pgh">
+                                    K/DA - VILLAIN ft. Madison Beer and Kim Petras
+                                </p>
+                                <button class="w-100 py-4 textBoldItalic">
+                                    Watch the stars
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="splashArt">
+            <div class="bg-center-cover-norepeat paddingSection"
+                style="background-image: url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Background/KDA_Background_3.jpg);">
+                <div class="container">
+                    <div class="row">
+                        <header class="mHeader ctrHeader">
+                            <p class="text-center">Splash Art</p>
+                            <ul id="btnSplashArt" class="flex-center list-unstyled ulBtn">
+                                <li class="flex-grow-0">
+                                    <button class="p-2 textBoldItalic active">
+                                        K/DA
+                                    </button>
+                                </li>
+                                <li class="flex-grow-0">
+                                    <button class="p-2 textBoldItalic">
+                                        Prestige K/DA
+                                    </button>
+                                </li>
+                                <li class="flex-grow-0">
+                                    <button class="p-2 textBoldItalic">
+                                        K/DA - All Out
+                                    </button>
+                                </li>
+                            </ul>
+                        </header>
+                    </div>
+                    <div class="row ctr__body">
+                        <img class="box box0 p-0 object-fit-cover" data-text="Ahri" loading="lazy" alt="" src=""></img>
+                        <img class="box box1 p-0 object-fit-cover" data-text="Ahri" loading="lazy" alt="" src=""></img>
+                        <img class="box box2 p-0 object-fit-cover" data-text="Ahri" loading="lazy" alt="" src=""></img>
+                        <img class="box box3 p-0 object-fit-cover" data-text="Ahri" loading="lazy" alt="" src=""></img>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="gallery" class="paddingSection">
+            <div class="container m-auto">
+                <header class="mHeader ctrHeader">
+                    <h1>Gallery // Wallpapers</h1>
+                </header>
+                <div class="position-relative">
+                    <ul id="ulBtnGallery" class="position-absolute end-0 list-unstyled">
+                        <li>
+                            <button class="textBoldItalic myBtn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-chevron-left" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
+                                </svg>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="textBoldItalic myBtn active">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+                                </svg>
+                            </button>
+                        </li>
+                    </ul>
+                    <div class="overflow-hidden my-2">
+                        <div id="scrollGalleryList" class="container-fluid overflow-x-auto py-2 px-0">
+                            <div id="galleryList" class="row m-0"></div>
+                        </div>
+                    </div>
+                    <ul id="ulBtnIndexGallery" class="position-absolute end-0 list-unstyled"></ul>
+                </div>
+            </div>
+            <div id="galleryShow" class="position-fixed top-0 start-0 h-100 w-100">
+                <img class="position-absolute top-50 start-50 object-fit-contain" src="" loading="lazy" alt="">
+                <button class="myBtn position-absolute">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-x-lg" viewBox="0 0 16 16">
+                        <path
+                            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                    </svg></button>
+            </div>
+        </section>
+        <section id="newHit" class="paddingSection">
+            <div class="bg-center-cover-norepeat"
+                style="background-image: url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Background/KDA_Background_4.jpg);">
+                <div class="container">
+                    <div class="row p-lg-5">
+                        <div class="col-12 col-lg-6">
+                            <header class="ctrHeader mHeader">
+                                <p>K/DA New Music Video</p>
+                                <h1>More</h1>
+                            </header>
+                            <p class="pgh">
+                                K/DA - MORE ft. Madison Beer, (G)I-DLE, Lexie Liu, Jaira Burns, Seraphine
+                            </p>
+                            <a class="text-decoration-none textBoldItalic" target="_blank"
+                                href="https://www.youtube.com/watch?v=3VTkBuxU4yk&list=OLAK5uy_kJH0VQxu5rzqhpbijArF33iMM3oIatdTw&index=2">
+                                Listen
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-play-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
+                                </svg>
+                            </a>
+                        </div>
+                        <img class="col-12 col-lg-6" alt=""
+                            src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Splash_Art/KDA.png">
                     </div>
                 </div>
             </div>

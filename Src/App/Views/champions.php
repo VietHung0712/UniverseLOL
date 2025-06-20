@@ -11,7 +11,6 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../Assets/Css/reset.css">
     <link rel="stylesheet" href="../../Assets/Css/style.css">
     <link rel="icon" href="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Icon/League_of_Legends_icon.svg">
@@ -37,7 +36,11 @@ try {
                         <input class="border-0 w-50 fw-bold text-uppercase text-color-1 font-monospace font-size-16 letter-spacing-2 bg-transparent" type="input" placeholder="Find a champion">
                     </div>
                     <div class="col-md-4 h-100 flex-center justify-content-around">
-                        <h2 class="m-0"><i class="bi bi-sort-down text-color-3"></i></h2>
+                        <h2 class="m-0 text-color-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-sort-down" viewBox="0 0 16 16">
+                                <path d="M3.5 2.5a.5.5 0 0 0-1 0v8.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L3.5 11.293zm3.5 1a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5M7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z" />
+                            </svg>
+                        </h2>
                         <h1 class="font-size-16 m-0 fw-bold text-uppercase text-color-3 letter-spacing-1">Sort by</h1>
                         <select name="sort" class=" p-2 border-0 w-50 fw-bold text-uppercase text-color-1 font-monospace font-size-16 letter-spacing-2">
                             <option value="">A->Z</option>
@@ -49,10 +52,10 @@ try {
             </div>
         </section>
         <section id="container">
-            <div class="container__head justify-content-end pb-3">
+            <header class="container__head justify-content-end pb-3">
                 <img src="<?php echo $config->getAssetsURL(); ?>/Icon/content_type_icon_champion__3nwJQ.png" width="30" alt="">
                 <h1>Champions</h1>
-            </div>
+            </header>
             <div class="container-fluid champions__list">
                 <div class="row">
                     <?php

@@ -13,16 +13,34 @@ export function setActive($collection, index) {
     $collection.eq(index).addClass('active');
 }
 
+export function addActive($collection, index) {
+    $collection.eq(index).addClass('active');
+}
+
+export function removeActive($collection, index) {
+    $collection.eq(index).removeClass('active');
+}
+
+export function toggleActive($collection, index) {
+    $collection.eq(index).toggleClass('active');
+}
+
+
 // Cuộn tự động căn giữa
 export function scrollToCenter(element, container) {
-    if (element) {
+    if (element && container) {
         const containerRect = container.getBoundingClientRect();
         const elementRect = element.getBoundingClientRect();
 
         const offset = (elementRect.left + elementRect.right) / 2 - (containerRect.left + containerRect.right) / 2;
-        container.scrollLeft += offset;
+
+        container.scrollTo({
+            left: container.scrollLeft + offset,
+            behavior: 'smooth'
+        });
     }
 }
+
 
 // Cuộn kéo thả chuột
 export function scrollMouseList(container) {

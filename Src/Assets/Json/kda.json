@@ -1,13 +1,15 @@
 {
+    "assetsUrl": "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/",
     "memberData": [
         {
+            "imgMember": "KDA/Image/Splash_Art/KDA_Ahri.png",
             "brandMember": "Ahri",
             "role": "Lead Vocalist",
             "zodiacSign": "Sagittarius",
             "nicknames": "Foxy, Gumiho",
             "height": "167.6 cm (5’5”)",
             "title": "Beauty and Fashion",
-            "paragraph": "After rising to fame as a teenage pop star, Ahri tossed aside her girly and young look to reveal her new self: a high fashion, elegant, and stunning celebrity. Ahri’s sleek new look attracts top fashion designers. During fashion week, Ahri graces runways around the world in finale gowns. She is the face of FOXY cosmetics and launched her own fragrance, Charmed last year. When she isn’t with K/DA or training, Ahri is shopping, drinking tea with designers, and testing out new beauty products.",
+            "story": "After rising to fame as a teenage pop star, Ahri tossed aside her girly and young look to reveal her new self: a high fashion, elegant, and stunning celebrity. Ahri’s sleek new look attracts top fashion designers. During fashion week, Ahri graces runways around the world in finale gowns. She is the face of FOXY cosmetics and launched her own fragrance, Charmed last year. When she isn’t with K/DA or training, Ahri is shopping, drinking tea with designers, and testing out new beauty products.",
             "facts": [
                 "Ahri is the leader and lead singer of K/DA.",
                 "She was labeled the most talented new Kpop artist in the 2013 Pop Shine Awards.",
@@ -20,13 +22,14 @@
             ]
         },
         {
+            "imgMember": "KDA/Image/Splash_Art/KDA_Evelynn.png",
             "brandMember": "Evelynn",
             "role": "Lead Vocalist",
             "zodiacSign": "Taurus",
             "nicknames": "Siren, Eve",
             "height": "164 cm (5’4”)",
             "title": "No 1 Diva",
-            "paragraph": "Eve’s reputation paints her as a demanding diva. She told Pop Shine, “I’m an artist, not a socialite. I won’t apologize for high standards.” Eve once walked off the stage of a live performance when her vocals were backed by an audio track she didn’t approve. Though her presence in the industry is turbulent, she has a diehard fan base who call themselves “Deeva.” Prior to K/DA, Evelynn released two hit singles, Agony’s Embrace and Ecstasy.",
+            "story": "Eve’s reputation paints her as a demanding diva. She told Pop Shine, “I’m an artist, not a socialite. I won’t apologize for high standards.” Eve once walked off the stage of a live performance when her vocals were backed by an audio track she didn’t approve. Though her presence in the industry is turbulent, she has a diehard fan base who call themselves “Deeva.” Prior to K/DA, Evelynn released two hit singles, Agony’s Embrace and Ecstasy.",
             "facts": [
                 "Evelynn is known for her uncompromising vision, rich vocals, and “bad girl” attitude.",
                 "After disagreements in other musical groups, Evelynn worked alone to write her own music before reconnecting with Ahri.",
@@ -39,13 +42,14 @@
             ]
         },
         {
+            "imgMember": "KDA/Image/Splash_Art/KDA_KaiSa.png",
             "brandMember": "Kai'Sa",
             "role": "Lead Dancer",
             "zodiacSign": "Pisces",
             "nicknames": "小笼包, Bokkie",
             "height": "169.6 cm (5’6”)",
             "title": "@KDAKaisa",
-            "paragraph": "@KDAKaiSa<br><br>K/DA_GLOBALFANS @KDAFans<br>@KDAKaiSa why do you dance?<br><br>KAISAOFFICIAL @KDAKaiSa<br>replying to @KDAFans<br>When the music begins, a symphony of movement stirs in my being. It begins as a rumble, like a calling from the void, hungry and demanding release. My body reacts to the call, jumping to weave a story. A story to leave the void behind, and fall into the steps of life.",
+            "story": "@KDAKaiSa<br><br>K/DA_GLOBALFANS @KDAFans<br>@KDAKaiSa why do you dance?<br><br>KAISAOFFICIAL @KDAKaiSa<br>replying to @KDAFans<br>When the music begins, a symphony of movement stirs in my being. It begins as a rumble, like a calling from the void, hungry and demanding release. My body reacts to the call, jumping to weave a story. A story to leave the void behind, and fall into the steps of life.",
             "facts": [
                 "Kai’Sa is called the “dreamer” of K/DA by Ahri.",
                 "She lived in ten countries before pursuing her dreams of becoming a pop star.",
@@ -58,13 +62,14 @@
             ]
         },
         {
+            "imgMember": "KDA/Image/Splash_Art/KDA_Akali.png",
             "brandMember": "Akali",
             "role": "Rapper",
             "zodiacSign": "Taurus",
             "nicknames": "Rogue, 힙합검객",
             "height": "163 cm (5’3”)",
             "title": "Hip Hop Ninja",
-            "paragraph": "Akali makes appearances next to other street performers in cities she is visiting. Combining mixed martial arts and the beat of her own rap lyrics, she delights audiences with her bold lyrical rap and punk ninja style. She started practicing on the streets before rising to fame and returns to her roots whenever she can. Her unruly hair and untamed style made Akali an instant K/DA fan favorite.",
+            "story": "Akali makes appearances next to other street performers in cities she is visiting. Combining mixed martial arts and the beat of her own rap lyrics, she delights audiences with her bold lyrical rap and punk ninja style. She started practicing on the streets before rising to fame and returns to her roots whenever she can. Her unruly hair and untamed style made Akali an instant K/DA fan favorite.",
             "facts": [
                 "Akali is the youngest and newest member of K/DA.",
                 "She was discovered at the age of 15 in an infamous rap battle that went viral.",
@@ -77,18 +82,39 @@
             ]
         }
     ],
-    "urlGallery": [
+    "srcVideoPop": "KDA/Video/KDA_POPSTARS.mp4",
+    "splashArt": [
+        [
+            "Splash_Art/A/Ahri/Ahri_13.jpg",
+            "Splash_Art/E/Evelynn/Evelynn_6.jpg",
+            "Splash_Art/K/KaiSa/KaiSa_4.jpg",
+            "Splash_Art/A/Akali/Akali_9.jpg"
+        ],
+        [
+            "Splash_Art/A/Ahri/Ahri_14.jpg",
+            "Splash_Art/E/Evelynn/Evelynn_7.jpg",
+            "Splash_Art/K/KaiSa/KaiSa_5.jpg",
+            "Splash_Art/A/Akali/Akali_10.jpg"
+        ],
+        [
+            "Splash_Art/A/Ahri/Ahri_18.jpg",
+            "Splash_Art/E/Evelynn/Evelynn_8.jpg",
+            "Splash_Art/K/KaiSa/KaiSa_7.jpg",
+            "Splash_Art/A/Akali/Akali_13.jpg"
+        ]
+    ],
+    "galleryUrl": [
         "KDA/Image/Gallery/KDA_Gallery_Ahri_0.avif",
-        "KDA/Image/Gallery/KDA_Gallery_Ahri_1.avif",
-        "KDA/Image/Gallery/KDA_Gallery_Ahri_2.avif",
         "KDA/Image/Gallery/KDA_Gallery_Akali_0.avif",
-        "KDA/Image/Gallery/KDA_Gallery_Akali_1.avif",
-        "KDA/Image/Gallery/KDA_Gallery_Akali_2.avif",
         "KDA/Image/Gallery/KDA_Gallery_Evelynn_0.avif",
-        "KDA/Image/Gallery/KDA_Gallery_Evelynn_1.avif",
-        "KDA/Image/Gallery/KDA_Gallery_Evelynn_2.avif",
         "KDA/Image/Gallery/KDA_Gallery_KaiSa_0.avif",
+        "KDA/Image/Gallery/KDA_Gallery_Ahri_1.avif",
+        "KDA/Image/Gallery/KDA_Gallery_Akali_1.avif",
+        "KDA/Image/Gallery/KDA_Gallery_Evelynn_1.avif",
         "KDA/Image/Gallery/KDA_Gallery_KaiSa_1.avif",
+        "KDA/Image/Gallery/KDA_Gallery_Ahri_2.avif",
+        "KDA/Image/Gallery/KDA_Gallery_Akali_2.avif",
+        "KDA/Image/Gallery/KDA_Gallery_Evelynn_2.avif",
         "KDA/Image/Gallery/KDA_Gallery_KaiSa_2.avif",
         "KDA/Image/Gallery/KDA_Promo.jpg",
         "KDA/Image/Gallery/KDA_AllOut_Promo_0.jpg",

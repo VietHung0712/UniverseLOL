@@ -41,15 +41,15 @@ a {
 }
 
 .vh-25 {
-    height: 25vh;
+    height: 25vh !important;
 }
 
 .vh-50 {
-    height: 50vh;
+    height: 50vh !important;
 }
 
 .vh-75 {
-    height: 75vh;
+    height: 75vh !important;
 }
 
 .letter-spacing-1 {
@@ -84,6 +84,10 @@ a {
     transition: all 300ms ease-in-out;
 }
 
+.transition200ms {
+    transition: all 200ms ease-in-out;
+}
+
 :root {
     --color1-: #c4b998;
     --color2-: #c8aa6e;
@@ -94,15 +98,15 @@ a {
 }
 
 .text-color-1 {
-    color: var(--color1-);
+    color: var(--color1-) !important;
 }
 
 .text-color-2 {
-    color: var(--color2-);
+    color: var(--color2-) !important;
 }
 
 .text-color-3 {
-    color: var(--color3-);
+    color: var(--color3-) !important;
 }
 
 /* ---------------------------------------------------------- */
@@ -231,13 +235,13 @@ a {
         max-height: 32px;
     }
 
-    &>i {
-        font-size: 2rem;
+    &>svg {
         color: var(--color1-);
     }
 
     &>h1 {
         position: relative;
+        margin: 0;
         text-transform: uppercase;
         letter-spacing: 3px;
         width: max-content;
@@ -324,7 +328,8 @@ a {
 
                     }
 
-                    h2, h2>span {
+                    h2,
+                    h2>span {
                         margin-bottom: 0;
                         color: var(--color1-);
                         font-size: 12px;
@@ -383,6 +388,7 @@ a {
 }
 
 .animationView {
+    
     &:hover span {
         animation: animatedView 0.5s ease;
     }

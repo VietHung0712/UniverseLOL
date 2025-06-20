@@ -2,11 +2,9 @@ import { refreshLoad } from "./function.js";
 
 const $inputSearch = $('#filter input');
 const $selectSort = $('#filter select');
-const $filter = $('#filter');
-const $containerBody = $('.champions__list');
+const $ctrBody = $('.champions__list');
 
 let listItems = $('.item').toArray();
-let lastScrollY = window.scrollY;
 
 function sortData(index, array) {
     switch (index) {
@@ -20,7 +18,6 @@ function sortData(index, array) {
             return array;
     }
 }
-
 
 function filterSearch(keyword, items) {
     keyword = keyword.trim().toLowerCase();
@@ -92,7 +89,7 @@ function init() {
         const resultSearch = filterSearch(valueInput, listItems);
         const resultSorted = sortData(index, resultSearch);
 
-        returnResult(5, resultSorted, $containerBody, wrap);
+        returnResult(5, resultSorted, $ctrBody, wrap);
         window.scrollTo(0, 0);
     }
 
