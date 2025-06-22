@@ -1,6 +1,9 @@
 <?php
-require_once "../Config/config.php";
-require_once "../Helpers/regionsHelper.php";
+require_once "../../Public/Config/config.php";
+require_once "../../Public/Config/entitiesConfig.php";
+require_once "../../Public/Helpers/helper.php";
+require_once "../../Public/Helpers/abstract.php";
+require_once "../../Public/Helpers/regionsHelper.php";
 
 $config = new Config();
 $connect = $config->connect();
@@ -10,5 +13,5 @@ $cols = [
     RegionConfig::ICON->value,
     RegionConfig::BACKGROUND->value,
 ];
-$regions = RegionsHelper::getRegions($connect, $cols);
+$regions = RegionsHelper::getData($connect, $cols);
 $connect->close();

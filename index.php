@@ -1,5 +1,5 @@
 <?php
-require_once "./Src/App/Config/config.php";
+require_once "./Src/Public/Config/config.php";
 try {
     $config = new Config();
     $connect = $config->connect();

@@ -44,7 +44,7 @@ try {
                         <h1 class="font-size-16 m-0 fw-bold text-uppercase text-color-3 letter-spacing-1">Sort by</h1>
                         <select name="sort" class=" p-2 border-0 w-50 fw-bold text-uppercase text-color-1 font-monospace font-size-16 letter-spacing-2">
                             <option value="">A->Z</option>
-                            <option value="">Z->A</option>
+                            <option value="">Newest</option>
                             <option value="">Region</option>
                         </select>
                     </div>
@@ -67,6 +67,7 @@ try {
                                 href="./champion.php?champion=<?php echo $item->getId(); ?>"
                                 data-id="<?php echo $item->getId(); ?>"
                                 data-region="<?php echo $item->getRegion(); ?>"
+                                data-release-date="<?php echo $item->getReleaseDate(); ?>"
                                 data-region-name="<?php echo $getNameRegionById[$item->getRegion()]; ?>">
                                 <img loading="lazy"
                                     style="object-position: <?php echo $item->getPositionX() . '% ' . $item->getPositionY() . '%'; ?>;"

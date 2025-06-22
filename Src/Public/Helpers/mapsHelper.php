@@ -1,7 +1,5 @@
 <?php
-require_once "../Models/mapClass.php";
-require_once "../Config/entitiesConfig.php";
-require_once "../Helpers/helper.php";
+require_once __DIR__ . '/../Models/mapClass.php';
 
 use UniverseLOL\Map;
 

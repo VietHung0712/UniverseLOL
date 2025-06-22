@@ -145,6 +145,24 @@ a {
     }
 }
 
+@keyframes scaleZoom {
+    0% {
+        transform: scale(1);
+    }
+
+    80% {
+        transform: scale(1.1);
+    }
+
+    90% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1.1);
+    }
+}
+
 /*--------------------------------------------------------------------*/
 
 .img__filter {
@@ -388,7 +406,7 @@ a {
 }
 
 .animationView {
-    
+
     &:hover span {
         animation: animatedView 0.5s ease;
     }

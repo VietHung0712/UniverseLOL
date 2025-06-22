@@ -21,7 +21,19 @@ class Helper
         return $arr;
     }
 
-    private static function stringQuery(array $columns = [], string $table): string
+    public static function getStmtPrepareQuery(mysqli $connect, string $query, string $value = ""): mysqli_stmt
+    {
+        $stmt = $connect->prepare($query);
+        if (!$stmt) {
+            throw new Exception("Error preparing query: " . $connect->error);
+        }
+        if (!empty($value)) {
+            $stmt->bind_param("s", $value);
+        }
+        return $stmt;
+    }
+
+    public static function stringQuery(string $table, array $columns = []): string
     {
         $cols = '*';
         if (!empty($columns)) {
@@ -34,31 +46,27 @@ class Helper
         return $query;
     }
 
-    private static function stringQueryFind(array $columns, string $table, string $filterfield): string
+    public static function stringQueryFind(string $query, string $filterfield): string
     {
-        $query = self::stringQuery($columns, $table);
         $query .= " WHERE $filterfield = ?";
         return $query;
     }
 
-    public static function getEntities(mysqli $connect, string $className, array $fields, array $columns, string $table): array
+    public static function stringQuerySearch(string $query, string $filterfield): string
     {
-        $query = self::stringQuery($columns, $table);
-        $stmt = $connect->prepare($query);
-        if (!$stmt) {
-            throw new Exception("Error preparing query: " . $connect->error);
-        }
-        return self::fetchEntities($stmt, $fields, $className);
+        $query .= " WHERE $filterfield LIKE %?%";
+        return $query;
     }
 
-    public static function getEntitiesFindByField(mysqli $connect, string $className, array $fields, array $columns, string $table, string $filterfield, string $value): array
+    public static function stringQuerySort(string $query, string $filterfield): string
     {
-        $query = self::stringQueryFind($columns, $table, $filterfield);
-        $stmt = $connect->prepare($query);
-        if (!$stmt) {
-            throw new Exception("Error preparing query: " . $connect->error);
-        }
-        $stmt->bind_param("s", $value);
+        $query .= " ORDER BY $filterfield ASC";
+        return $query;
+    }
+
+    public static function getEntities(mysqli $connect, string $className, array $fields, string $query, string $value = ""): array
+    {
+        $stmt = self::getStmtPrepareQuery($connect, $query, $value);
         return self::fetchEntities($stmt, $fields, $className);
     }
 }

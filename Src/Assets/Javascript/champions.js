@@ -11,7 +11,7 @@ function sortData(index, array) {
         case 0:
             return array.sort((a, b) => a.dataset.id.localeCompare(b.dataset.id));
         case 1:
-            return array.sort((a, b) => b.dataset.id.localeCompare(a.dataset.id));
+            return array.sort((a, b) => b.dataset.releaseDate.localeCompare(a.dataset.releaseDate));
         case 2:
             return array.sort((a, b) => a.dataset.region.localeCompare(b.dataset.region));
         default:

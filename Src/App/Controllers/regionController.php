@@ -1,11 +1,15 @@
 <?php
-require_once "../Config/config.php";
-require_once "../Helpers/regionsHelper.php";
-require_once "../Helpers/championsHelper.php";
+require_once "../../Public/Config/config.php";
+require_once "../../Public/Config/entitiesConfig.php";
+require_once "../../Public/Helpers/helper.php";
+require_once "../../Public/Helpers/abstract.php";
+require_once "../../Public/Helpers/championsHelper.php";
+require_once "../../Public/Helpers/regionsHelper.php";
+
 $config = new Config();
 $connect = $config->connect();
 $regionId = $_GET['region'];
-$this_region = RegionsHelper::getRegionById($connect, [], $regionId);
+$this_region = RegionsHelper::getDataById($connect, $regionId);
 
 $cols = [
     ChampionConfig::ID->value,
@@ -15,6 +19,6 @@ $cols = [
     ChampionConfig::POSITIONX->value,
     ChampionConfig::POSITIONY->value
 ];
-$regionChampionsArr = ChampionsHelper::getChampionsByRegionId($connect, $cols, $regionId);
+$regionChampionsArr = ChampionsHelper::getDataByRegionId($connect, $this_region->getId(), $cols);
 $getNameRegionById = RegionsHelper::getNameAllRegions($connect);
 $connect->close();

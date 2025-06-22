@@ -1,14 +1,14 @@
 <?php
-require_once "./Src/Core/Config/database.php";
+require_once "./Src/Public/Config/config.php";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $database = new Database();
-    $connect = $database->connect();
+    $config = new Config();
+    $connect = $config->connect();
     $sql = "SELECT * FROM administrator WHERE username = '$username' and password = '$password'";
     $result = mysqli_query($connect, $sql);
     if ($result->num_rows > 0) {
-        header("Location: ./Src/Admin//Views/manager.html");
+        header("Location: ./Src/Admin/Views/champions.php");
         exit();
     } else {
 ?>
@@ -26,14 +26,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./Src/Assets/Font/fontawesome-free-6.6.0-web/css/all.min.css">
     <link rel="stylesheet" href="./Src/Assets/Css/reset.css">
     <link rel="stylesheet" href="./Src/Assets/Css/layout-admin.css">
-    <title>Database - Universe League of Legends</title>
+    <title>Admin - Universe of League of Legends</title>
 </head>
 
 <body>
-    <main style="width: 50%;">
+    <main id="columns">
         <form action="#" method="POST">
             <table>
                 <caption>Login</caption>

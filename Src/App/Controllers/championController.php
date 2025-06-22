@@ -1,19 +1,22 @@
 <?php
 
-require_once "../Config/config.php";
-require_once "../Helpers/championsHelper.php";
-require_once "../Helpers/regionsHelper.php";
-require_once "../Helpers/rolesHelper.php";
-require_once "../Helpers/relationsHelper.php";
-require_once "../Helpers/skinsHelper.php";
+require_once "../../Public/Config/config.php";
+require_once "../../Public/Config/entitiesConfig.php";
+require_once "../../Public/Helpers/helper.php";
+require_once "../../Public/Helpers/abstract.php";
+require_once "../../Public/Helpers/championsHelper.php";
+require_once "../../Public/Helpers/regionsHelper.php";
+require_once "../../Public/Helpers/rolesHelper.php";
+require_once "../../Public/Helpers/relationsHelper.php";
+require_once "../../Public/Helpers/skinsHelper.php";
 
 $config = new Config();
 $connect = $config->connect();
 $championId = $_GET['champion'];
-$this_champion = ChampionsHelper::getChampionById($connect, [], $championId)[0];
-$relationsArr = RelationsHelper::getRelationsByChampionId($connect, [], $championId);
-$role = RolesHelper::getRoleById($connect, [], $this_champion->getRole());
-$skinsArr = SkinsHelper::getSkinsByChampionId($connect, [], $championId);
+$this_champion = ChampionsHelper::getDataById($connect, $championId);
+$relationsArr = RelationsHelper::getDataByChampionId($connect, $championId);
+$role = RolesHelper::getDataById($connect, $this_champion->getRole());
+$skinsArr = SkinsHelper::getDataByChampionId($connect, $this_champion->getId());
 
 
 $regionColumns = [
@@ -23,7 +26,7 @@ $regionColumns = [
     RegionConfig::AVATAR->value,
     RegionConfig::BACKGROUND->value
 ];
-$region = RegionsHelper::getRegionById($connect, $regionColumns, $this_champion->getRegion());
+$region = RegionsHelper::getDataById($connect, $this_champion->getRegion(), $regionColumns);
 
 $championRelationsArr = [];
 $championColumns = [
@@ -36,7 +39,7 @@ $championColumns = [
 ];
 if (isset($relationsArr) && !empty($relationsArr)) {
     foreach ($relationsArr as $item) {
-        $championRelationsArr[] = ChampionsHelper::getChampionById($connect, $championColumns, $item->getRelatedId())[0];
+        $championRelationsArr[] = ChampionsHelper::getDataById($connect, $item->getRelatedId(), $championColumns);
     }
 }
 $connect->close();
