@@ -1,9 +1,9 @@
 <?php
-require_once "../../Public/Config/config.php";
-require_once "../../Public/Config/entitiesConfig.php";
-require_once "../../Public/Helpers/helper.php";
-require_once "../../Public/Helpers/abstract.php";
-require_once "../../Public/Helpers/regionsHelper.php";
+require_once __DIR__ . "/../../Core/Config/config.php";
+require_once __DIR__ . "/../../Core/Config/entitiesConfig.php";
+require_once __DIR__ . "/../../Core/Helpers/helper.php";
+require_once __DIR__ . "/../../Core/Helpers/abstract.php";
+require_once __DIR__ . "/../../Core/Helpers/regionsHelper.php";
 
 $config = new Config();
 $connect = $config->connect();

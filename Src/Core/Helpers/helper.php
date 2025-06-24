@@ -58,9 +58,17 @@ class Helper
         return $query;
     }
 
-    public static function stringQuerySort(string $query, string $filterfield): string
+    public static function stringQuerySort(string $query, string $filterfield, bool $asc = true, int $limit = 0): string
     {
-        $query .= " ORDER BY $filterfield ASC";
+        $query .= " ORDER BY $filterfield";
+        if (!$asc) {
+            $query .= "  DESC";
+        } else {
+            $query .= "  ASC";
+        }
+        if ($limit > 0) {
+            $query .= " LIMIT $limit";
+        }
         return $query;
     }
 

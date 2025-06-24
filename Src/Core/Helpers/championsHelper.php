@@ -28,7 +28,14 @@ class ChampionsHelper extends EntityHelper
     public static function getDataByRegionId(mysqli $connect, $value, array $columns = []): ?array
     {
         $query = Helper::stringQuery(self::getTableConfig(), $columns);
-        $queryFind = Helper::stringQueryFind($query, ChampionConfig::REGION->value);
-        return Helper::getEntities($connect, self::getClassName(), self::getConfigCases(), $queryFind, $value);
+        $newQuery = Helper::stringQueryFind($query, ChampionConfig::REGION->value);
+        return Helper::getEntities($connect, self::getClassName(), self::getConfigCases(), $newQuery, $value);
+    }
+
+    public static function getDataSortByUpdatedDate(mysqli $connect, array $columns = []): ?array
+    {
+        $query = Helper::stringQuery(self::getTableConfig(), $columns);
+        $newQuery = Helper::stringQuerySort($query, ChampionConfig::UPDATEDDATE->value, false, 5);
+        return Helper::getEntities($connect, self::getClassName(), self::getConfigCases(), $newQuery);
     }
 }

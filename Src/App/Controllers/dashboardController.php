@@ -4,19 +4,16 @@ require_once __DIR__ . "/../../Core/Config/entitiesConfig.php";
 require_once __DIR__ . "/../../Core/Helpers/helper.php";
 require_once __DIR__ . "/../../Core/Helpers/abstract.php";
 require_once __DIR__ . "/../../Core/Helpers/championsHelper.php";
-require_once __DIR__ . "/../../Core/Helpers/regionsHelper.php";
 
 $cols = [
     ChampionConfig::ID->value,
     ChampionConfig::NAME->value,
-    ChampionConfig::REGION->value,
+    ChampionConfig::TITLE->value,
     ChampionConfig::SPLASHART->value,
     ChampionConfig::POSITIONX->value,
     ChampionConfig::POSITIONY->value,
-    ChampionConfig::RELEASEDATE->value
 ];
 $config = new Config();
 $connect = $config->connect();
-$champions = ChampionsHelper::getData($connect, $cols);
-$getNameRegionById = RegionsHelper::getNameAllRegions($connect);
+$champions = ChampionsHelper::getDataSortByUpdatedDate($connect, $cols);
 $connect->close();

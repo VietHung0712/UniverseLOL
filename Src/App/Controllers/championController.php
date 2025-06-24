@@ -1,14 +1,14 @@
 <?php
 
-require_once "../../Public/Config/config.php";
-require_once "../../Public/Config/entitiesConfig.php";
-require_once "../../Public/Helpers/helper.php";
-require_once "../../Public/Helpers/abstract.php";
-require_once "../../Public/Helpers/championsHelper.php";
-require_once "../../Public/Helpers/regionsHelper.php";
-require_once "../../Public/Helpers/rolesHelper.php";
-require_once "../../Public/Helpers/relationsHelper.php";
-require_once "../../Public/Helpers/skinsHelper.php";
+require_once __DIR__ . "/../../Core/Config/config.php";
+require_once __DIR__ . "/../../Core/Config/entitiesConfig.php";
+require_once __DIR__ . "/../../Core/Helpers/helper.php";
+require_once __DIR__ . "/../../Core/Helpers/abstract.php";
+require_once __DIR__ . "/../../Core/Helpers/championsHelper.php";
+require_once __DIR__ . "/../../Core/Helpers/regionsHelper.php";
+require_once __DIR__ . "/../../Core/Helpers/rolesHelper.php";
+require_once __DIR__ . "/../../Core/Helpers/relationsHelper.php";
+require_once __DIR__ . "/../../Core/Helpers/skinsHelper.php";
 
 $config = new Config();
 $connect = $config->connect();

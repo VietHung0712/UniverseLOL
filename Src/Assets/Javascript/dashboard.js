@@ -1,42 +1,64 @@
 import { setActive } from "./function.js";
 
 const $canvas = $('.hexCanvas');
-
-// $canvas.each(function() {
-//     createHexagon(this);
-// });
+const $btnLate = $('#btnLate button');
 
 function createHexagon(el) {
     const ctx = el.getContext('2d');
+    const ctxBorder = el.getContext('2d');
+    const ctxBorderTop = el.getContext('2d');
     const width = el.width;
     const height = el.height;
 
-    const points = [{
-        x: 0,
-        y: height * 0.8
-    },
-    {
-        x: width / 2,
-        y: height
-    },
-    {
-        x: width,
-        y: height * 0.8
-    },
-    {
-        x: width,
-        y: height * 0.2
-    },
-    {
-        x: width / 2,
-        y: 0
-    },
-    {
-        x: 0,
-        y: height * 0.2
-    }
+    const points = [
+        {
+            x: 0, y: height * 0.9
+        }, {
+            x: width / 2, y: height
+        }, {
+            x: width, y: height * 0.9
+        }, {
+            x: width, y: height * 0.1
+        }, {
+            x: width / 2, y: 0
+        }, {
+            x: 0, y: height * 0.1
+        }
     ];
 
+    const pointsBorder = [
+        {
+            x: 0 + 10, y: height * 0.9 - 10
+        }, {
+            x: width / 2, y: height - 10
+        }, {
+            x: width - 10, y: height * 0.9 - 10
+        }, {
+            x: width - 10, y: height * 0.1 + 10
+        }, {
+            x: width / 2, y: 0 + 10
+        }, {
+            x: 0 + 10, y: height * 0.1 + 10
+        }
+    ];
+
+    createCanvas(ctx, points, "#0f0f0f", 1, "#00000000");
+    createCanvas(ctxBorder, pointsBorder, "#0f0f0f", 0.1, "#ff0");
+    createCanvasBorderTop(ctxBorderTop, points);
+}
+
+function createCanvasBorderTop(ctx, points) {
+    ctx.beginPath();
+    ctx.moveTo(points[5].x, points[5].y);
+    ctx.lineTo(points[4].x, points[4].y);
+    ctx.lineTo(points[3].x, points[3].y);
+    ctx.strokeStyle = '#937341';
+    ctx.lineWidth = 2;
+    ctx.lineJoin = 'round';
+    ctx.stroke();
+}
+
+function createCanvas(ctx, points, color, widthBorder = "1", colorBorder = "#00000000") {
     ctx.beginPath();
     ctx.moveTo(points[0].x, points[0].y);
     for (let i = 1; i < points.length; i++) {
@@ -44,67 +66,32 @@ function createHexagon(el) {
     }
     ctx.closePath();
 
-    ctx.fillStyle = '#121212';
+    ctx.fillStyle = color;
     ctx.fill();
-    ctx.strokeStyle = '#ff0';
-    ctx.lineWidth = 2;
+    ctx.strokeStyle = colorBorder;
+    ctx.lineWidth = widthBorder;
     ctx.stroke();
-}
-
-
-let indexLate = 0;
-const $btnLate = $('#btnLate button');
-const $slideLateImg = $('#slideLate div');
-
-function wrapIndex(index, max) {
-    return (index + max + 1) % (max + 1);
-}
-
-function setNext($collection, index) {
-    $collection.removeClass('next');
-    $collection.eq(index).addClass('next');
-}
-
-function setPrevious($collection, index) {
-    $collection.removeClass('previous');
-    $collection.eq(index).addClass('previous');
-}
-
-function setLeft($collection, index) {
-    $collection.removeClass('left');
-    $collection.eq(index).addClass('left');
-}
-
-function setRight($collection, index) {
-    $collection.removeClass('right');
-    $collection.eq(index).addClass('right');
 }
 
 $btnLate.each((i, el) => {
     $(el).on('click', function () {
-        let temp;
-
+        let $slideLateImg = $('#slideLate .item');
+        let $titleLate = $('#titleLate .item');
+        
         if (i == 1) {
-            temp = indexLate + 1;
+            $('#slideLate').append($slideLateImg.eq(0));
+            $('#titleLate').append($titleLate.eq(0));
         } else if (i == 0) {
-            temp = indexLate - 1;
+            $('#slideLate').prepend($slideLateImg.eq(4));
+            $('#titleLate').prepend($titleLate.eq(4));
         }
-
-        indexLate = wrapIndex(temp, $slideLateImg.length - 1);
-        setActive($slideLateImg, indexLate);
-
-        let indexNext = wrapIndex(indexLate + 1, $slideLateImg.length - 1)
-        setNext($slideLateImg, indexNext);
-
-        let indexRight = wrapIndex(indexLate + 2, $slideLateImg.length - 1)
-        setRight($slideLateImg, indexRight);
-
-        let indexPrevious = wrapIndex(indexLate - 1, $slideLateImg.length - 1)
-        setPrevious($slideLateImg, indexPrevious);
-
-        let indexLeft = wrapIndex(indexLate - 2, $slideLateImg.length - 1)
-        setLeft($slideLateImg, indexLeft);
-
-        console.log(`${indexLeft}, ${indexPrevious}, ${indexLate}, ${indexNext}, ${indexRight}`);
     });
 });
+
+function init() {
+    $canvas.each(function () {
+        createHexagon(this);
+    });
+}
+
+init();
