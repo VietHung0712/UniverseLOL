@@ -25,6 +25,13 @@ export function toggleActive($collection, index) {
     $collection.eq(index).toggleClass('active');
 }
 
+export function toDegrees(radians) {
+    return radians * (180 / Math.PI);
+}
+export function toRadians(degrees) {
+    return degrees * Math.PI / 180;
+}
+
 
 // Cuộn tự động căn giữa
 export function scrollToCenter(element, container) {

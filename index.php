@@ -1,10 +1,10 @@
 <?php
-require_once "./Src/Public/Config/config.php";
+require_once "./Src/Core/Config/config.php";
 try {
     $config = new Config();
     $connect = $config->connect();
     $connect->close();
-    header("Location: ./Src/App/Views/dashboard.html");
+    header("Location: ./Src/App/Views/dashboard.php");
     exit();
 } catch (\Throwable $th) {
 }

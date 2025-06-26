@@ -15,10 +15,11 @@ class Champion
     private $animatedSplashArt;
     private $positionX;
     private $positionY;
+    private $model;
     private $releaseDate;
     private $updatedDate;
 
-    public function __construct($id, $name, $region, $role, $title, $voice, $story, $splashArt, $animatedSplashArt, $positionX, $positionY, $releaseDate, $updatedDate)
+    public function __construct($id, $name, $region, $role, $title, $voice, $story, $splashArt, $animatedSplashArt, $positionX, $positionY, $model, $releaseDate, $updatedDate)
     {
         $this->id = $id;
         $this->name = $name;
@@ -31,6 +32,7 @@ class Champion
         $this->animatedSplashArt = $animatedSplashArt;
         $this->positionX = $positionX;
         $this->positionY = $positionY;
+        $this->model = $model;
         $this->releaseDate = $releaseDate;
         $this->updatedDate = $updatedDate;
     }
@@ -78,6 +80,10 @@ class Champion
     public function getPositionY()
     {
         return $this->positionY;
+    }
+    public function getModel()
+    {
+        return $this->model;
     }
     public function getReleaseDate()
     {

@@ -15,7 +15,6 @@ try {
     <link rel="stylesheet" href="../../Assets/Css/style.css">
     <link rel="icon" href="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Icon/League_of_Legends_icon.svg">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="../../Assets/Javascript/function.js"></script>
     <script type="module" src="../../Assets/Javascript/load-header-footer.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title><?php echo $this_champion->getName(); ?> - Champions - Universe of League of Legends</title>
@@ -193,12 +192,12 @@ try {
             <div class="container-fluid">
                 <div class="row">
                     <div class="splashArt__frame row col-11 m-auto position-relative">
-                        <img class="position-absolute top-0 start-0 h-100 w-100 object-fit-contain active" src="<?php echo $config->getAssetsURL() . '/' . $this_champion->getSplashArt(); ?>" loading="lazy" alt="">
+                        <img class="position-absolute top-0 start-0 object-fit-contain active" src="<?php echo $config->getAssetsURL() . '/' . $this_champion->getSplashArt(); ?>" loading="lazy" alt="">
                         <?php
                         if (!empty($skinsArr)) {
                             foreach ($skinsArr as $item) {
                         ?>
-                                <img class="position-absolute top-0 start-0 h-100 w-100 object-fit-contain" src="<?php echo $config->getAssetsURL() . '/' . $item->getSplashArt(); ?>" loading="lazy" alt="">
+                                <img class="position-absolute top-0 start-0 object-fit-contain" src="<?php echo $config->getAssetsURL() . '/' . $item->getSplashArt(); ?>" loading="lazy" alt="">
                         <?php
                             }
                         }
@@ -210,7 +209,7 @@ try {
                         <div class="splashArt__list--border h-100 flex-center align-items-start justify-content-around gap-0">
                             <button type="button" class="transition bg-transparent border-0 active">
                                 <div class="m-auto">
-                                    <img class="object-fit-contain"
+                                    <img class="object-fit-contain h-100"
                                         src="<?php echo $config->getAssetsURL() . '/' . $this_champion->getSplashArt(); ?>" loading="lazy" alt="">
                                 </div>
                                 <h5 class="m-auto mt-2 w-75 text-uppercase font-size-14">
@@ -225,7 +224,7 @@ try {
                             ?>
                                     <button type="button" class="transition bg-transparent border-0">
                                         <div class="m-auto">
-                                            <img class="object-fit-contain"
+                                            <img class="object-fit-contain h-100"
                                                 src="<?php echo $config->getAssetsURL() . '/' . $item->getSplashArt(); ?>" loading="lazy" alt="">
                                         </div>
                                         <h5 class="m-auto mt-2 w-75 text-uppercase font-size-14">
@@ -243,9 +242,37 @@ try {
                 </div>
             </div>
         </section>
+        <?php
+        if (!empty($this_champion->getModel())) {
+        ?>
+            <section id="model">
+                <header class="container__head vh-25">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-badge-3d-fill" viewBox="0 0 16 16">
+                        <path d="M10.157 5.968h-.844v4.06h.844c1.116 0 1.621-.667 1.621-2.02 0-1.354-.51-2.04-1.621-2.04" />
+                        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm5.184 4.368c.646 0 1.055.378 1.06.9.008.537-.427.919-1.086.919-.598-.004-1.037-.325-1.068-.756H3c.03.914.791 1.688 2.153 1.688 1.24 0 2.285-.66 2.272-1.798-.013-.953-.747-1.38-1.292-1.432v-.062c.44-.07 1.125-.527 1.108-1.375-.013-.906-.8-1.57-2.053-1.565-1.31.005-2.043.734-2.074 1.67h1.103c.022-.391.383-.751.936-.751.532 0 .928.33.928.813.004.479-.383.835-.928.835h-.632v.914zM8.126 11h2.189C12.125 11 13 9.893 13 7.985c0-1.894-.861-2.984-2.685-2.984H8.126z" />
+                    </svg>
+                    <h1 class="text-color-3">Model 3D: <?php echo $this_champion->getName(); ?></h1>
+                </header>
+                <div class="container">
+                    <div class="row">
+                        <button class="col-10 col-lg-6 m-auto">
+                            <a class="d-block text-decoration-none text-color-3 h-100 w-100 font-size-16 fw-bold letter-spacing-2 text-uppercase"
+                                href="./model.php?champion=<?php echo $this_champion->getId(); ?>">View 3D <?php echo $this_champion->getName(); ?> model
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0z" />
+                                </svg>
+                            </a>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        <?php
+        }
+        ?>
     </main>
     <footer id="footer"></footer>
 </body>
 
 </html>
 <script type="module" src="../../Assets/Javascript/champion.js"></script>
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>

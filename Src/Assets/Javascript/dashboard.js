@@ -1,5 +1,3 @@
-import { setActive } from "./function.js";
-
 const $canvas = $('.hexCanvas');
 const $btnLate = $('#btnLate button');
 

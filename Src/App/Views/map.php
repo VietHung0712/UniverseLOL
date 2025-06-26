@@ -78,10 +78,6 @@ try {
                 } ?>
             </ul>
         </div>
-        <div class="map-mobile h-100 w-100 overflow-hidden">
-            <img class="position-absolute h-100 w-100 object-fit-contain"
-                src="<?php echo $config->getAssetsURL(); ?>/Others/Runeterra_Terrain_map.webp" loading="lazy" alt="">
-        </div>
     </main>
     <footer id="footer"></footer>
 </body>

@@ -85,9 +85,9 @@ try {
             </div>
         </section>
         <section id="map">
-            <!-- <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+            <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
-            <model-viewer src="<?php echo $config->getAssetsURL(); ?>/Model/A/Ahri/ahri.glb" auto-rotate autoplay camera-controls background-color="#fff" style="width: 600px; height: 400px;"></model-viewer> -->
+            <model-viewer src="<?php echo $config->getAssetsURL(); ?>/Model/A/Ahri/ahri.glb" auto-rotate autoplay camera-controls background-color="#fff" style="width: 600px; height: 400px;"></model-viewer>
 
         </section>
         <section id="altUniverse">

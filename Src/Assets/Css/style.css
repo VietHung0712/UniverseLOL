@@ -331,9 +331,13 @@ main#champion {
 
                 img {
                     opacity: 0;
+                    height: 0;
+                    width: 0;
                 }
 
                 img.active {
+                    height: 100%;
+                    width: 100%;
                     opacity: 1;
                 }
             }
@@ -361,10 +365,6 @@ main#champion {
                             width: max-content;
                             height: 80%;
                             border: 1px solid transparent;
-
-                            img {
-                                height: 100%;
-                            }
                         }
 
                         h5 {
@@ -378,6 +378,24 @@ main#champion {
                             border: 1px solid var(--color3-);
                         }
                     }
+                }
+            }
+        }
+    }
+
+    #model {
+        .container {
+            button {
+                height: 50px;
+                border: 1px solid var(--color3-);
+                background-color: transparent;
+
+                a {
+                    line-height: 50px;
+                }
+
+                &:hover {
+                    background-color: #111318;
                 }
             }
         }
@@ -519,7 +537,6 @@ main#map {
     }
 
     .map-pc {
-        display: none;
 
         ul {
             li {
@@ -640,6 +657,50 @@ main#map {
     }
 }
 
+main#model {
+    #container3D {
+        background-color: #000000;
+        background-image: radial-gradient(circle, #3a3a3a 0%, #000000 70%, #000000 100%);
+        cursor: pointer;
+
+        canvas {
+            display: block;
+            width: 100% !important;
+            height: 100% !important;
+        }
+    }
+
+    a {
+        div {
+            border: 3px solid var(--color3-);
+            height: 100px;
+            width: 100px;
+
+            div {
+                height: 80%;
+                width: 80%;
+                transform: translate(-50%, -50%);
+
+                img {
+                    transform: scale(2);
+                }
+            }
+        }
+    }
+
+    button,
+    select {
+        height: 50px;
+        border-radius: 10px;
+        border: 1px solid #fff;
+        background-color: #000;
+
+        &:hover {
+            background-color: #202020;
+        }
+    }
+}
+
 @media (min-width: 576px) {
     /* CSS col-sm */
 }
@@ -691,17 +752,6 @@ main#map {
                 }
             }
         }
-    }
-
-    main#map {
-        .map-mobile {
-            display: none;
-        }
-
-        .map-pc {
-            display: block;
-        }
-
     }
 }
 

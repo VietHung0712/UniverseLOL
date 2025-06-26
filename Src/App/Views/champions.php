@@ -15,7 +15,6 @@ try {
     <link rel="stylesheet" href="../../Assets/Css/style.css">
     <link rel="icon" href="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Icon/League_of_Legends_icon.svg">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="../../Assets/Javascript/function.js"></script>
     <script type="module" src="../../Assets/Javascript/load-header-footer.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Champions - Universe of League of Legends</title>
