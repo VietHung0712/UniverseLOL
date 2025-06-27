@@ -7,7 +7,7 @@ export class ModelLoader {
         this.model = null;
     }
 
-    loadModel(path, onLoadCallback) {
+    loadModel(path, onLoadCallback, onProgressCallback) {
         this.loader.load(
             path,
             (gltf) => {
@@ -26,9 +26,14 @@ export class ModelLoader {
                     onLoadCallback(this.model, animations);
                 }
             },
-            undefined,
+            (xhr) => {
+                if (onProgressCallback && xhr.lengthComputable) {
+                    const percentComplete = (xhr.loaded / xhr.total) * 100;
+                    onProgressCallback(percentComplete);
+                }
+            },
             (error) => {
-                console.error("Lỗi khi tải mô hình:", error);
+                console.error("Error load model: ", error);
             }
         );
     }

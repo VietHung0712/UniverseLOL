@@ -22,11 +22,17 @@ try {
 
 <body>
     <header id="header"></header>
+
     <main id="model">
-        <section id="display" class="">
+        <section id="display">
+            <div id="loadingBarContainer" class="position-fixed top-0 start-0 w-100 h-100 z-3 bg-black">
+                <div class="position-absolute top-50 start-50 w-50">
+                    <div id="loadingBar" class="h-100 transition"></div>
+                </div>
+            </div>
             <div class="container">
                 <div class="row">
-                    <div id="container3D" class="col-12 col-xl-10 vh-100 overflow-hidden"
+                    <div id="container3D" class="col-12 col-xl-10 overflow-hidden"
                         data-model="<?php echo $config->getAssetsURL() . '/' . $this_champion->getModel(); ?>">
                     </div>
                     <div class="col-12 col-xl-2 vh-50 flex-center flex-column justify-content-around">
@@ -48,10 +54,10 @@ try {
                         </a>
                         <div class="w-100">
                             <h1 class="font-size-16 text-white text-center text-uppercase fw-bold letter-spacing-2">Animations</h1>
-                            <select class="w-100 text-center text-white" name="" id="animationSelector"></select>
+                            <select class="w-100 text-center text-white transition" name="" id="animationSelector"></select>
                         </div>
                         <button id="viewFullScreen"
-                            class="w-100 font-size-16 text-white text-center fw-bold letter-spacing-2">
+                            class="w-100 font-size-16 text-white text-center fw-bold letter-spacing-2 transition">
                             Full Screen
                         </button>
                     </div>

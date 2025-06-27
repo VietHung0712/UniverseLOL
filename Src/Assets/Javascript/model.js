@@ -14,31 +14,42 @@ const sceneManager = new SceneManager($container[0]);
 const modelLoader = new ModelLoader(sceneManager.scene);
 const controlsManager = new ControlsManager(sceneManager.camera, sceneManager.renderer.domElement);
 
-modelLoader.loadModel($container[0].dataset.model, (model, animations) => {
-    console.log(model);
-    console.log(animations);
-    animationManager = new AnimationManager(model, animations);
+modelLoader.loadModel($container[0].dataset.model,
+    function (model, animations) {
+        console.log(model);
+        console.log(animations);
+        animationManager = new AnimationManager(model, animations);
 
-    if ($selectAnimations && animations.length > 0) {
-        animations.forEach((clip) => {
-            const $option = $("<option>")
-                .val(clip.name)
-                .text(clip.name);
-            $selectAnimations.append($option);
-        });
+        if ($selectAnimations && animations.length > 0) {
+            animations.forEach((clip) => {
+                const $option = $("<option>")
+                    .val(clip.name)
+                    .text(clip.name);
+                $selectAnimations.append($option);
+            });
 
-        $selectAnimations.on("change", (e) => {
-            animationManager.play(e.target.value);
-        });
+            $selectAnimations.on("change", (e) => {
+                animationManager.play(e.target.value);
+            });
 
-        const matchedAnimation = animations.find(clip => clip.name.includes("Idle1"));
+            const matchedAnimation = animations.find(clip => clip.name.includes("Idle1"));
 
-        if (matchedAnimation) {
-            animationManager.play(matchedAnimation.name);
-            $selectAnimations.val(matchedAnimation.name);
+            if (matchedAnimation) {
+                animationManager.play(matchedAnimation.name);
+                $selectAnimations.val(matchedAnimation.name);
+            }
         }
-    }
-});
+    },
+    function (progress) {
+        const percent = progress.toFixed(2);
+        $("#loadingBar").css("width", `${percent}%`);
+
+        if (percent >= 100) {
+            setTimeout(() => {
+                $("#loadingBarContainer").fadeOut(300);
+            }, 500);
+        }
+    });
 
 function animate() {
     requestAnimationFrame(animate);
@@ -50,6 +61,14 @@ function animate() {
 
     $btnViewFullScreen.on('click', function () {
         enterFullscreen($container[0]);
+    });
+
+    $container.on('mousedown', function () {
+        $(this).css('cursor', 'grabbing');
+    });
+
+    $container.on('mouseup mouseleave', function () {
+        $(this).css('cursor', 'grab');
     });
 }
 

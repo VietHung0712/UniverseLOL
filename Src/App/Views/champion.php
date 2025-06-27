@@ -255,7 +255,7 @@ try {
                 </header>
                 <div class="container">
                     <div class="row">
-                        <button class="col-10 col-lg-6 m-auto">
+                        <button class="col-10 col-lg-4 m-auto">
                             <a class="d-block text-decoration-none text-color-3 h-100 w-100 font-size-16 fw-bold letter-spacing-2 text-uppercase"
                                 href="./model.php?champion=<?php echo $this_champion->getId(); ?>">View 3D <?php echo $this_champion->getName(); ?> model
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right" viewBox="0 0 16 16">
